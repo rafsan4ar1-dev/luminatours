@@ -123,15 +123,15 @@
   .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.84;animation:kenburns 34s var(--ease-io) infinite alternate}
   @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,17,0.72) 0%,rgba(11,13,17,0.32) 50%,rgba(11,13,17,0.05) 100%),linear-gradient(0deg,var(--bg) 1%,transparent 38%)}
-  .hero-inner{position:relative;z-index:2;max-width:760px}
+  .hero-inner{position:relative;z-index:2;max-width:1140px}
   .hero .eyebrow{opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .2s forwards}
-  .hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.12}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);margin:1.3rem 0 1.5rem;font-weight:500;line-height:1.12;max-width:1140px}
   .hero h1 .ln{display:block;overflow:hidden}
   .hero h1 .ln span{display:block;opacity:0;transform:translateY(108%);animation:riseLine 1.2s var(--ease-out) forwards}
   .hero h1 em{color:var(--accent)}
   .hero h1 .ln:nth-child(1) span{animation-delay:.34s}
   .hero h1 .ln:nth-child(2) span{animation-delay:.46s}
-  .hero p.lede{max-width:460px;font-size:1.08rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .8s forwards}
+  .hero p.lede{max-width:1140px;font-size:1.12rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .75s forwards}
   .hero-cta{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .95s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
   @keyframes riseLine{to{opacity:1;transform:translateY(0)}}
@@ -326,14 +326,9 @@
     <div class="wrap hero-inner">
       <span class="eyebrow">45&deg; South &middot; Queenstown, New Zealand</span>
       <h1>
-        <span class="ln"><span>Private luxury tours</span></span>
-        <span class="ln"><span>&amp; <em>fine photography</em></span></span>
+        <span class="ln"><span>Private luxury tours and <em>bespoke photography</em></span></span>
       </h1>
       <p class="lede">Explore Queenstown and the South Island in complete privacy — guided by a professional photographer who captures your journey, beautifully, as it unfolds.</p>
-      <div class="hero-cta">
-        <a href="https://luminatours.co.nz/featured-experiences" class="btn btn-solid">Explore experiences</a>
-        <a href="https://luminatours.co.nz/astro" class="btn">Stargazing &amp; astro</a>
-      </div>
     </div>
   </section>
 
