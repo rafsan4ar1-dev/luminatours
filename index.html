@@ -37,7 +37,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Albert+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- ============ STRUCTURED DATA (SEO + GEO/AIO) ============ -->
 <script type="application/ld+json">
@@ -61,14 +61,7 @@
       "knowsAbout": ["Private tours", "Landscape photography", "Astrophotography", "Stargazing tours"],
       "sameAs": ["https://www.instagram.com/luminatoursnz/", "https://www.facebook.com/luminatoursqueenstown"]
     },
-    {
-      "@type": "WebSite",
-      "@id": "https://luminatours.co.nz/#website",
-      "url": "https://luminatours.co.nz/",
-      "name": "Lumina Tours",
-      "publisher": { "@id": "https://luminatours.co.nz/#business" },
-      "inLanguage": "en-NZ"
-    },
+    { "@type": "WebSite", "@id": "https://luminatours.co.nz/#website", "url": "https://luminatours.co.nz/", "name": "Lumina Tours", "publisher": { "@id": "https://luminatours.co.nz/#business" }, "inLanguage": "en-NZ" },
     {
       "@type": "FAQPage",
       "mainEntity": [
@@ -85,21 +78,14 @@
 
 <style>
   :root{
-    --bg:#0B0D11;
-    --bg-2:#101319;
-    --panel:#12151C;
-    --line:rgba(242,243,241,0.12);
-    --line-soft:rgba(242,243,241,0.055);
-    --ink:#F2F3F1;
-    --ink-soft:#AAB0B7;
-    --ink-mute:#6C727A;
-    --accent:#C9CFDA;        /* platinum / starlight */
-    --accent-soft:rgba(201,207,218,0.12);
-    --serif:"Bodoni Moda",Georgia,serif;
-    --sans:"Albert Sans",system-ui,sans-serif;
-    --ease-out:cubic-bezier(0.16,1,0.3,1);
-    --ease-io:cubic-bezier(0.77,0,0.175,1);
-    --maxw:1320px;
+    --bg:#0B0D11;--bg-2:#101319;--panel:#12151C;
+    --line:rgba(242,243,241,0.12);--line-soft:rgba(242,243,241,0.055);
+    --ink:#F2F3F1;--ink-soft:#AAB0B7;--ink-mute:#6C727A;
+    --accent:#C9CFDA;--accent-soft:rgba(201,207,218,0.12);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,sans-serif;
+    --ease-out:cubic-bezier(0.16,1,0.3,1);--ease-io:cubic-bezier(0.77,0,0.175,1);
+    --maxw:1300px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -107,74 +93,77 @@
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
-  h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:500;line-height:1.06;letter-spacing:0.002em}
+  h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:500;line-height:1.1;letter-spacing:0.004em}
   em{font-style:italic}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.5rem,5vw,4.5rem)}
-  .eyebrow{font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.36em;text-transform:uppercase;color:var(--accent)}
-  .idx{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.28em;color:var(--ink-mute)}
+  .eyebrow{font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--accent);display:inline-block}
 
   /* header */
-  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.6rem 0;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
-  header.scrolled{padding:0.9rem 0;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 0;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
+  header.scrolled{padding:0.85rem 0;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
   .nav{display:flex;align-items:center;justify-content:space-between}
-  .brand{font-family:var(--serif);font-size:1.8rem;font-weight:600;letter-spacing:0.02em;color:var(--ink)}
+  .brand{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:0.06em;color:var(--ink)}
   .brand i{font-style:italic;font-weight:400}
-  .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
-  .nav-links a{font-size:0.8rem;font-weight:500;letter-spacing:0.06em;color:var(--ink-soft);position:relative;transition:color .3s ease}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--accent);transition:width .45s var(--ease-out)}
-  .nav-links a:hover{color:var(--ink)}
+  .nav-links{display:flex;align-items:center;gap:2.4rem;list-style:none}
+  /* slow subtle zoom on nav links */
+  .nav-links a{display:inline-block;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;color:var(--ink-soft);position:relative;transition:color .35s ease,transform .6s var(--ease-out)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--accent);transition:width .5s var(--ease-out)}
+  .nav-links a:hover{color:var(--ink);transform:scale(1.07)}
   .nav-links a:hover::after{width:100%}
-  .btn{display:inline-block;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;padding:0.95rem 1.9rem;border:1px solid var(--line);color:var(--ink);border-radius:2px;background:transparent;transition:transform .55s var(--ease-out),background .5s var(--ease-out),color .5s var(--ease-out),border-color .5s var(--ease-out)}
-  .btn:hover{transform:scale(1.035);background:rgba(242,243,241,0.06);border-color:var(--accent)}
+  .btn{display:inline-block;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;padding:0.9rem 1.8rem;border:1px solid var(--line);color:var(--ink);border-radius:2px;background:transparent;transition:transform .6s var(--ease-out),background .5s var(--ease-out),color .5s var(--ease-out),border-color .5s var(--ease-out),box-shadow .5s var(--ease-out)}
+  .btn:hover{transform:scale(1.045);background:rgba(242,243,241,0.06);border-color:var(--accent)}
   .btn:active{transform:scale(0.985);transition:transform .12s var(--ease-out)}
   .btn-solid{background:var(--ink);color:#0B0D11;border-color:var(--ink)}
-  .btn-solid:hover{background:#fff;border-color:#fff;color:#0B0D11;transform:scale(1.035);box-shadow:0 16px 40px -16px rgba(242,243,241,0.35)}
+  .btn-solid:hover{background:#fff;border-color:#fff;color:#0B0D11;transform:scale(1.045);box-shadow:0 16px 40px -16px rgba(242,243,241,0.4)}
   .menu-toggle{display:none;background:none;border:none;color:var(--ink);font-size:1.5rem;cursor:pointer}
 
-  /* hero */
-  .hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:flex-end;padding-bottom:clamp(3.5rem,8vh,7rem);overflow:hidden}
+  /* hero — smaller headline */
+  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;padding-bottom:clamp(3.5rem,8vh,6.5rem);overflow:hidden}
   .hero-media{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 70% 16%,#1a232b 0%,#0B0D11 64%)}
-  .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.84;animation:kenburns 32s var(--ease-io) infinite alternate}
-  @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.13)}}
+  .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.84;animation:kenburns 34s var(--ease-io) infinite alternate}
+  @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,17,0.72) 0%,rgba(11,13,17,0.32) 50%,rgba(11,13,17,0.05) 100%),linear-gradient(0deg,var(--bg) 1%,transparent 38%)}
-  .hero-inner{position:relative;z-index:2;max-width:900px}
+  .hero-inner{position:relative;z-index:2;max-width:760px}
   .hero .eyebrow{opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .2s forwards}
-  .hero h1{font-size:clamp(2.9rem,8.6vw,7.4rem);margin:1.6rem 0 1.7rem;font-weight:500}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.12}
   .hero h1 .ln{display:block;overflow:hidden}
-  .hero h1 .ln span{display:block;opacity:0;transform:translateY(106%);animation:riseLine 1.25s var(--ease-out) forwards}
-  .hero h1 em{color:var(--ink)}
+  .hero h1 .ln span{display:block;opacity:0;transform:translateY(108%);animation:riseLine 1.2s var(--ease-out) forwards}
+  .hero h1 em{color:var(--accent)}
   .hero h1 .ln:nth-child(1) span{animation-delay:.34s}
-  .hero h1 .ln:nth-child(2) span{animation-delay:.48s}
-  .hero p.lede{max-width:480px;font-size:1.15rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .85s forwards}
-  .hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) 1s forwards}
+  .hero h1 .ln:nth-child(2) span{animation-delay:.46s}
+  .hero p.lede{max-width:460px;font-size:1.08rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .8s forwards}
+  .hero-cta{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .95s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
   @keyframes riseLine{to{opacity:1;transform:translateY(0)}}
 
-  /* reveal — slower, with gentle zoom */
-  .reveal{opacity:0;transform:translateY(30px) scale(0.985);transition:opacity 1.3s var(--ease-out),transform 1.3s var(--ease-out)}
-  .reveal.in{opacity:1;transform:translateY(0) scale(1)}
+  /* SCROLL REVEAL — rises up from below & blends in */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+  .reveal.in{opacity:1;transform:translateY(0)}
   .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
 
+  .eyebrow.reveal{transform:translateY(20px)}
+
+  /* generic section heads */
+  .lead h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:500}
+  .lead h2 em{color:var(--accent)}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+  .section-head h2{font-size:clamp(1.9rem,3.8vw,2.9rem)}
+
   /* intro */
-  .intro{padding:clamp(6rem,12vw,11rem) 0 clamp(3rem,6vw,5rem)}
-  .intro-top{display:flex;align-items:center;gap:1.2rem;margin-bottom:clamp(2.5rem,6vw,4rem)}
-  .intro-top .rule{height:1px;background:var(--line);flex:1}
+  .intro{padding:clamp(6rem,12vw,10rem) 0 clamp(3rem,6vw,5rem)}
   .intro-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:end}
-  .intro h2{font-size:clamp(2.3rem,4.6vw,4rem);font-weight:500}
+  .intro h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:500}
   .intro h2 em{color:var(--accent)}
-  .intro .body p{margin-bottom:1.2rem;font-size:1.07rem}
+  .intro .body p{margin-bottom:1.2rem;font-size:1.05rem}
 
   /* experiences */
-  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.2rem;flex-wrap:wrap}
-  .section-head h2{font-size:clamp(2.3rem,4.8vw,3.8rem)}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
   .card{position:relative;display:block;aspect-ratio:4/5;border-radius:4px;overflow:hidden;border:1px solid var(--line-soft);transition:border-color .6s ease}
-  .card .ph{position:absolute;inset:0;transform:scale(1.001);transition:transform 2s var(--ease-out)}
+  .card .ph{position:absolute;inset:0;transition:transform 2s var(--ease-out)}        /* slow zoom */
   .card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,12,0.9) 6%,rgba(8,9,12,0.1) 58%,rgba(8,9,12,0.25) 100%)}
-  .card .meta{position:absolute;left:0;right:0;bottom:0;padding:1.8rem;z-index:2}
-  .card .meta .k{font-size:0.64rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);display:flex;gap:.7rem}
-  .card .meta .k b{color:var(--ink-mute);font-weight:500}
-  .card .meta h3{font-size:1.95rem;margin-top:.4rem;color:#fff;font-weight:500}
+  .card .meta{position:absolute;left:0;right:0;bottom:0;padding:1.7rem;z-index:2}
+  .card .meta .k{font-size:0.64rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent)}
+  .card .meta h3{font-size:1.7rem;margin-top:.35rem;color:#fff;font-weight:500}
   .card .arrow{position:absolute;top:1.5rem;right:1.5rem;z-index:2;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--ink);opacity:0;transform:translateY(-6px) scale(0.85);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out),background .4s ease,color .4s ease}
   @media (hover:hover) and (pointer:fine){
     .card:hover{border-color:var(--accent-soft)}
@@ -191,69 +180,86 @@
   /* flagship aurora */
   .flagship{position:relative;margin:clamp(5rem,10vw,8rem) 0;overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
   .stars{position:absolute;inset:0;z-index:0;background:
-    radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.9),transparent),
-    radial-gradient(1px 1px at 28% 64%,rgba(255,255,255,.7),transparent),
-    radial-gradient(1.4px 1.4px at 42% 14%,rgba(255,255,255,.85),transparent),
-    radial-gradient(1px 1px at 58% 48%,rgba(255,255,255,.6),transparent),
-    radial-gradient(1.2px 1.2px at 70% 28%,rgba(255,255,255,.9),transparent),
-    radial-gradient(1px 1px at 82% 70%,rgba(255,255,255,.65),transparent),
-    radial-gradient(1px 1px at 90% 18%,rgba(255,255,255,.8),transparent),
-    radial-gradient(1px 1px at 18% 82%,rgba(255,255,255,.6),transparent),
-    radial-gradient(1.3px 1.3px at 50% 78%,rgba(255,255,255,.75),transparent),
-    radial-gradient(1px 1px at 36% 38%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.9),transparent),radial-gradient(1px 1px at 28% 64%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1.4px 1.4px at 42% 14%,rgba(255,255,255,.85),transparent),radial-gradient(1px 1px at 58% 48%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1.2px 1.2px at 70% 28%,rgba(255,255,255,.9),transparent),radial-gradient(1px 1px at 82% 70%,rgba(255,255,255,.65),transparent),
+    radial-gradient(1px 1px at 90% 18%,rgba(255,255,255,.8),transparent),radial-gradient(1px 1px at 18% 82%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1.3px 1.3px at 50% 78%,rgba(255,255,255,.75),transparent),radial-gradient(1px 1px at 36% 38%,rgba(255,255,255,.5),transparent),
     linear-gradient(165deg,#080c10 0%,#06080b 100%)}
   .aurora{position:absolute;inset:0;z-index:1;opacity:.5;mix-blend-mode:screen;background:
-    radial-gradient(60% 40% at 30% 30%,rgba(79,150,140,0.26),transparent 70%),
-    radial-gradient(55% 45% at 65% 35%,rgba(96,120,170,0.24),transparent 72%),
-    radial-gradient(50% 40% at 50% 62%,rgba(120,110,160,0.18),transparent 72%);
-    animation:aurora 20s ease-in-out infinite alternate}
+    radial-gradient(60% 40% at 30% 30%,rgba(79,150,140,0.26),transparent 70%),radial-gradient(55% 45% at 65% 35%,rgba(96,120,170,0.24),transparent 72%),
+    radial-gradient(50% 40% at 50% 62%,rgba(120,110,160,0.18),transparent 72%);animation:aurora 22s ease-in-out infinite alternate}
   @keyframes aurora{from{transform:translateY(-2%) scale(1.02);opacity:.38}to{transform:translateY(2%) scale(1.09);opacity:.58}}
   .flagship-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center;padding:clamp(4.5rem,9vw,7.5rem) 0}
-  .flagship h2{font-size:clamp(2.6rem,5.6vw,4.8rem);color:#fff;font-weight:500}
+  .flagship h2{font-size:clamp(2rem,4.2vw,3.2rem);color:#fff;font-weight:500}
   .flagship h2 em{color:var(--accent)}
-  .flagship p{margin:1.5rem 0 2.3rem;font-size:1.12rem;color:var(--ink);max-width:480px}
+  .flagship p{margin:1.4rem 0 2.2rem;font-size:1.08rem;color:var(--ink);max-width:480px}
   .tag{display:inline-flex;align-items:center;gap:.55rem;font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-soft);background:var(--accent-soft);padding:.55rem 1rem;border-radius:2px}
   .flagship-vis{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-  .flagship-vis .glow{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 38%,rgba(79,150,140,0.26),transparent 66%),radial-gradient(70% 70% at 55% 60%,rgba(96,120,170,0.18),transparent 70%),linear-gradient(180deg,#0a1013,#050709);animation:kenburns 38s var(--ease-io) infinite alternate}
+  .flagship-vis .glow{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 38%,rgba(79,150,140,0.26),transparent 66%),radial-gradient(70% 70% at 55% 60%,rgba(96,120,170,0.18),transparent 70%),linear-gradient(180deg,#0a1013,#050709);animation:kenburns 40s var(--ease-io) infinite alternate}
 
-  /* trust */
-  .trust{padding:clamp(4rem,8vw,6rem) 0;border-top:1px solid var(--line-soft)}
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.8rem}
-  .quote{padding:2.2rem;border:1px solid var(--line-soft);border-radius:6px;background:var(--bg-2);transition:transform .7s var(--ease-out),border-color .5s ease}
-  @media (hover:hover){.quote:hover{transform:translateY(-5px) scale(1.012);border-color:var(--accent-soft)}}
-  .quote p{font-family:var(--serif);font-size:1.4rem;line-height:1.42;color:var(--ink);font-style:italic;font-weight:400}
-  .quote .who{margin-top:1.3rem;font-size:0.74rem;letter-spacing:0.14em;color:var(--ink-mute);text-transform:uppercase;font-family:var(--sans)}
-  .stars-row{color:var(--accent);letter-spacing:.22em;font-size:.82rem;margin-bottom:1rem}
+  /* custom & tailored */
+  .custom{padding:clamp(4rem,9vw,7rem) 0}
+  .custom-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+  .custom h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:500}
+  .custom h2 em{color:var(--accent)}
+  .custom p{margin:1.4rem 0 2.2rem;font-size:1.08rem;color:var(--ink-soft);max-width:480px}
+  .custom-vis{position:relative;aspect-ratio:5/4;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .custom-vis .ph{position:absolute;inset:0;background:linear-gradient(150deg,#243038 0%,#0c1216 72%);transition:transform 2s var(--ease-out)}    /* slow zoom */
+  .custom-vis .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,12,0.5),rgba(8,9,12,0.1))}
+  @media (hover:hover){.custom-vis:hover .ph{transform:scale(1.08)}}
 
   /* why */
   .why{padding:clamp(3rem,6vw,5rem) 0}
   .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-soft)}
-  .pillar{padding:2.8rem 1.9rem 2.8rem 0;border-bottom:1px solid var(--line-soft)}
+  .pillar{padding:2.6rem 1.8rem 2.6rem 0;border-bottom:1px solid var(--line-soft);transition:transform .6s var(--ease-out)}
+  @media (hover:hover){.pillar:hover{transform:scale(1.025)}}
   .pillar .num{font-family:var(--serif);font-size:1.2rem;color:var(--accent);font-style:italic}
-  .pillar h3{font-size:1.65rem;margin:1rem 0 .7rem;font-weight:500}
+  .pillar h3{font-size:1.5rem;margin:.9rem 0 .7rem;font-weight:500}
   .pillar p{font-size:0.95rem;color:var(--ink-mute)}
+
+  /* trust */
+  .trust{padding:clamp(4rem,8vw,6rem) 0;border-top:1px solid var(--line-soft)}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
+  .quote{padding:2.2rem;border:1px solid var(--line-soft);border-radius:6px;background:var(--bg-2);transition:transform .7s var(--ease-out),border-color .5s ease}
+  @media (hover:hover){.quote:hover{transform:translateY(-5px) scale(1.015);border-color:var(--accent-soft)}}
+  .quote p{font-family:var(--serif);font-size:1.45rem;line-height:1.4;color:var(--ink);font-style:italic;font-weight:500}
+  .quote .who{margin-top:1.2rem;font-size:0.74rem;letter-spacing:0.14em;color:var(--ink-mute);text-transform:uppercase;font-family:var(--sans)}
+  .stars-row{color:var(--accent);letter-spacing:.22em;font-size:.82rem;margin-bottom:1rem}
 
   /* faq */
   .faq{padding:clamp(4rem,8vw,7rem) 0;border-top:1px solid var(--line-soft)}
   .faq-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
-  .faq h2{font-size:clamp(2.3rem,4.6vw,3.6rem)}
-  details{border-bottom:1px solid var(--line-soft);padding:1.5rem 0}
-  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:1.2rem;color:var(--ink);font-family:var(--serif);transition:color .3s ease}
+  .faq h2{font-size:clamp(1.9rem,3.8vw,2.9rem)}
+  details{border-bottom:1px solid var(--line-soft);padding:1.4rem 0}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:1.2rem;color:var(--ink);font-family:var(--serif);font-weight:500;transition:color .3s ease}
   summary::-webkit-details-marker{display:none}
   summary:hover{color:var(--accent)}
   summary .ic{flex:0 0 auto;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:1rem;font-family:var(--sans);transition:transform .5s var(--ease-out),background .4s ease,color .4s ease}
   details[open] summary .ic{transform:rotate(45deg);background:var(--ink);color:#0B0D11;border-color:var(--ink)}
-  details p{margin-top:1rem;color:var(--ink-soft);max-width:60ch;font-size:1.02rem}
+  details p{margin-top:1rem;color:var(--ink-soft);max-width:60ch;font-size:1rem}
 
-  /* invite */
-  .invite{position:relative;text-align:center;padding:clamp(5rem,10vw,8rem) 0;border-top:1px solid var(--line-soft)}
-  .invite .eyebrow{display:block;margin-bottom:1.5rem}
-  .invite h2{font-size:clamp(2.5rem,5.6vw,4.6rem);max-width:16ch;margin:0 auto 1.6rem;font-weight:500}
-  .invite h2 em{color:var(--accent)}
-  .invite p{max-width:480px;margin:0 auto 2.5rem;color:var(--ink-soft)}
+  /* contact form (bottom) */
+  .contact{padding:clamp(5rem,10vw,8rem) 0;border-top:1px solid var(--line-soft);background:var(--bg-2)}
+  .contact-head{text-align:center;max-width:620px;margin:0 auto clamp(2.5rem,5vw,3.5rem)}
+  .contact-head h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:500;margin:1rem 0 1rem}
+  .contact-head h2 em{color:var(--accent)}
+  .contact-head p{color:var(--ink-soft)}
+  form{max-width:760px;margin:0 auto}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+  .field{display:flex;flex-direction:column;gap:.5rem}
+  .field.full{grid-column:1 / -1}
+  label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+  input,select,textarea{font-family:var(--sans);font-size:0.98rem;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:2px;padding:0.85rem 1rem;transition:border-color .4s ease,background .4s ease}
+  input::placeholder,textarea::placeholder{color:var(--ink-mute)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);background:rgba(242,243,241,0.03)}
+  select option{background:#101319;color:var(--ink)}
+  textarea{resize:vertical;min-height:130px}
+  .form-submit{text-align:center;margin-top:.6rem}
+  .form-submit .btn-solid{padding:1rem 2.6rem}
 
   /* footer */
-  footer{border-top:1px solid var(--line-soft);padding:clamp(3.5rem,7vw,5rem) 0 2.5rem;background:var(--bg-2)}
+  footer{border-top:1px solid var(--line-soft);padding:clamp(3.5rem,7vw,5rem) 0 2.5rem;background:var(--bg)}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}
   .foot-brand .brand{display:block;margin-bottom:1rem}
   .foot-brand p{font-size:0.92rem;color:var(--ink-mute);max-width:260px}
@@ -272,21 +278,23 @@
     .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,330px);flex-direction:column;align-items:flex-start;justify-content:center;gap:1.9rem;padding:3rem;background:rgba(10,12,16,0.97);backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .6s var(--ease-io);border-left:1px solid var(--line-soft)}
     .nav-links.open{transform:translateX(0)}
     .nav-links a{font-size:1.05rem}
-    .intro-grid,.flagship-inner,.faq-grid,.foot-grid{grid-template-columns:1fr}
+    .intro-grid,.flagship-inner,.custom-grid,.faq-grid,.foot-grid{grid-template-columns:1fr}
     .grid,.quotes{grid-template-columns:repeat(2,1fr)}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .pillar{padding-right:1.2rem}
+    .custom-vis{order:-1}
     .mobile-cta{display:block}
     body{padding-bottom:72px}
   }
-  @media (max-width:560px){.grid,.quotes,.pillars{grid-template-columns:1fr}}
+  @media (max-width:560px){.grid,.quotes,.pillars,.frow{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:opacity .3s ease!important}
-    .reveal{transform:none}
-    .hero-media video{transform:none}
+    .reveal{opacity:1;transform:none}
+    .hero-media video,.aurora,.flagship-vis .glow{transform:none}
     .hero .eyebrow,.hero p.lede,.hero-cta,.hero h1 .ln span{opacity:1;transform:none}
   }
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -300,7 +308,7 @@
         <li><a href="https://luminatours.co.nz/gallery">Gallery</a></li>
         <li><a href="https://luminatours.co.nz/host">About</a></li>
         <li><a href="https://luminatours.co.nz/blog">Journal</a></li>
-        <li><a href="https://luminatours.co.nz/enquiries/create" class="btn">Enquire</a></li>
+        <li><a href="#enquire" class="btn">Enquire</a></li>
       </ul>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
@@ -331,10 +339,6 @@
 
   <!-- INTRO -->
   <section class="intro wrap" aria-label="About">
-    <div class="intro-top">
-      <span class="idx">(01 &mdash; The Lumina way)</span>
-      <span class="rule"></span>
-    </div>
     <div class="intro-grid">
       <h2 class="reveal">Luxury travel meets the <em>art of storytelling</em>.</h2>
       <div class="body reveal" data-d="1">
@@ -346,21 +350,17 @@
 
   <!-- EXPERIENCES -->
   <section class="wrap" aria-label="Featured experiences">
-    <div class="intro-top">
-      <span class="idx">(02 &mdash; Experiences)</span>
-      <span class="rule"></span>
-    </div>
     <div class="section-head">
-      <h2 class="reveal">Featured experiences</h2>
-      <a href="https://luminatours.co.nz/featured-experiences" class="btn reveal" data-d="1">View all</a>
+      <div class="lead"><span class="eyebrow reveal">Handpicked journeys</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Featured experiences</h2></div>
+      <a href="https://luminatours.co.nz/featured-experiences" class="btn reveal" data-d="2">View all</a>
     </div>
     <div class="grid">
-      <a class="card reveal" href="https://luminatours.co.nz/milford" aria-label="Milford Sound private photography tour"><div class="ph g-milford"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland <b>01</b></span><h3>Milford Sound</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/mount" aria-label="Aoraki Mount Cook private photography tour"><div class="ph g-cook"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki <b>02</b></span><h3>Mount Cook</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/queen" aria-label="Glenorchy and Paradise private photography tour"><div class="ph g-glen"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Wakatipu <b>03</b></span><h3>Glenorchy &amp; Paradise</h3></div></a>
-      <a class="card reveal" href="https://luminatours.co.nz/wanaka" aria-label="Cromwell and Wanaka private photography tour"><div class="ph g-crom"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago <b>04</b></span><h3>Cromwell &amp; Wanaka</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/sightsee" aria-label="Queenstown sightseeing private photography tour"><div class="ph g-sight"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local <b>05</b></span><h3>Queenstown Sightseeing</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/skipper" aria-label="Skippers Canyon private photography tour"><div class="ph g-skip"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry <b>06</b></span><h3>Skippers Canyon</h3></div></a>
+      <a class="card reveal" href="https://luminatours.co.nz/milford" aria-label="Milford Sound private photography tour"><div class="ph g-milford"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
+      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/mount" aria-label="Aoraki Mount Cook private photography tour"><div class="ph g-cook"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
+      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/queen" aria-label="Glenorchy and Paradise private photography tour"><div class="ph g-glen"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+      <a class="card reveal" href="https://luminatours.co.nz/wanaka" aria-label="Cromwell and Wanaka private photography tour"><div class="ph g-crom"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
+      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/sightsee" aria-label="Queenstown sightseeing private photography tour"><div class="ph g-sight"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
+      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/skipper" aria-label="Skippers Canyon private photography tour"><div class="ph g-skip"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
     </div>
   </section>
 
@@ -371,35 +371,31 @@
     <div class="wrap flagship-inner">
       <div class="reveal">
         <span class="tag">&#9733; Signature experience</span>
-        <h2 style="margin-top:1.7rem">Stargazing &amp; <em>astrophotography</em></h2>
-        <p>Beneath some of the darkest skies on earth, your personal astrophotographer guides a private night under the Milky Way — and sends you home with the stars themselves, captured in extraordinary detail.</p>
+        <h2 style="margin-top:1.6rem">Stargazing &amp; <em>astrophotography</em></h2>
+        <p>Discover some of the darkest skies in the world. Your personal astrophotographer guides a private night under the Milky Way — and sends you home with the stars themselves, captured in extraordinary detail.</p>
         <a href="https://luminatours.co.nz/astro" class="btn btn-solid">Discover the night</a>
       </div>
       <div class="flagship-vis reveal" data-d="1" aria-hidden="true"><div class="glow"></div></div>
     </div>
   </section>
 
-  <!-- TRUST (placeholder reviews) -->
-  <section class="trust wrap" aria-label="Guest stories">
-    <div class="intro-top">
-      <span class="idx">(03 &mdash; Guest stories)</span>
-      <span class="rule"></span>
-    </div>
-    <h2 class="reveal" style="font-size:clamp(2.1rem,4.2vw,3.2rem)">Loved by travellers</h2>
-    <div class="quotes">
-      <div class="quote reveal"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"An unforgettable day — and the photographs are like nothing we could have taken ourselves."</p><div class="who">Guest review placeholder</div></div>
-      <div class="quote reveal" data-d="1"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Private, relaxed, and genuinely magical under the stars. Worth every moment."</p><div class="who">Guest review placeholder</div></div>
-      <div class="quote reveal" data-d="2"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Our guide knew exactly where the light would be. We felt completely looked after."</p><div class="who">Guest review placeholder</div></div>
+  <!-- CUSTOM & TAILORED -->
+  <section class="custom wrap" aria-label="Custom and tailored experiences">
+    <div class="custom-grid">
+      <div class="reveal">
+        <span class="eyebrow">Tailored for you</span>
+        <h2 style="margin-top:1rem">Got something entirely <em>different in mind?</em></h2>
+        <p>Your journey, your way — designed around your interests, pace, and style. From hidden gems to helicopter rides or glacier landings, every detail is tailored for a one-of-a-kind experience.</p>
+        <a href="https://luminatours.co.nz/custom" class="btn btn-solid">Explore custom experiences</a>
+      </div>
+      <div class="custom-vis reveal" data-d="1" aria-hidden="true"><div class="ph"></div></div>
     </div>
   </section>
 
-  <!-- WHY -->
+  <!-- WHY LUMINA -->
   <section class="why wrap" aria-label="Why Lumina">
-    <div class="intro-top">
-      <span class="idx">(04 &mdash; Why Lumina)</span>
-      <span class="rule"></span>
-    </div>
-    <div class="pillars">
+    <span class="eyebrow reveal">Why Lumina Tours</span>
+    <div class="pillars" style="margin-top:2rem">
       <div class="pillar reveal"><span class="num">01</span><h3>Private tours</h3><p>Just you and your guide. No crowds, no fixed timetable — only your journey.</p></div>
       <div class="pillar reveal" data-d="1"><span class="num">02</span><h3>Professional photography</h3><p>A working photographer at the wheel, capturing the day as it unfolds.</p></div>
       <div class="pillar reveal" data-d="2"><span class="num">03</span><h3>Local expertise</h3><p>The hidden viewpoints and right light that only locals know.</p></div>
@@ -407,14 +403,21 @@
     </div>
   </section>
 
+  <!-- GUEST STORIES -->
+  <section class="trust wrap" aria-label="Guest stories">
+    <span class="eyebrow reveal">Guest stories</span>
+    <h2 class="reveal" data-d="1" style="margin-top:1rem;font-size:clamp(1.9rem,3.8vw,2.9rem)">Loved by travellers</h2>
+    <div class="quotes">
+      <div class="quote reveal"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"An unforgettable day — and the photographs are like nothing we could have taken ourselves."</p><div class="who">Guest review placeholder</div></div>
+      <div class="quote reveal" data-d="1"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Private, relaxed, and genuinely magical under the stars. Worth every moment."</p><div class="who">Guest review placeholder</div></div>
+      <div class="quote reveal" data-d="2"><div class="stars-row">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Our guide knew exactly where the light would be. We felt completely looked after."</p><div class="who">Guest review placeholder</div></div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="faq wrap" aria-label="Frequently asked questions">
-    <div class="intro-top">
-      <span class="idx">(05 &mdash; Good to know)</span>
-      <span class="rule"></span>
-    </div>
     <div class="faq-grid">
-      <div><h2 class="reveal">Frequently<br>asked</h2></div>
+      <div><span class="eyebrow reveal">Good to know</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Frequently asked</h2></div>
       <div class="reveal" data-d="1">
         <details open><summary>Are Lumina tours private?<span class="ic">+</span></summary><p>Yes. Every Lumina Tours experience is fully private — just you and your guide. No other guests, no fixed timetable, and the pace of the day is entirely yours.</p></details>
         <details><summary>Do I receive the photographs?<span class="ic">+</span></summary><p>Yes. Your guide is a professional photographer who captures your experience throughout the day, and a set of professionally edited images is delivered to you after your tour.</p></details>
@@ -425,12 +428,43 @@
     </div>
   </section>
 
-  <!-- INVITE -->
-  <section class="invite wrap" aria-label="Plan your journey">
-    <span class="eyebrow reveal">Tailored for you</span>
-    <h2 class="reveal" data-d="1">Your journey, <em>your way</em>.</h2>
-    <p class="reveal" data-d="2">From hidden gems to helicopter rides and glacier landings, tell us what you're dreaming of and we'll shape a one-of-a-kind experience around it.</p>
-    <a href="https://luminatours.co.nz/enquiries/create" class="btn btn-solid reveal" data-d="3">Plan your journey</a>
+  <!-- CONTACT / ENQUIRY FORM (bottom) -->
+  <section class="contact" id="enquire" aria-label="Plan your journey">
+    <div class="wrap">
+      <div class="contact-head reveal">
+        <span class="eyebrow">Start here</span>
+        <h2>Let us help <em>plan your journey</em></h2>
+        <p>Tell us what you're dreaming of — we'll help turn it into a seamless, memorable experience tailored just for you.</p>
+      </div>
+      <!--
+        BACKEND NOTE (for deployment): point action to your enquiry route and add Laravel's @csrf token.
+        Confirm the field "name" attributes match your EnquiriesController validation.
+      -->
+      <form class="reveal" data-d="1" action="https://luminatours.co.nz/enquiries" method="POST">
+        <!-- In Laravel Blade, add: @csrf -->
+        <div class="frow">
+          <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+64 ..."></div>
+          <div class="field"><label for="experience">Experience of interest</label>
+            <select id="experience" name="experience">
+              <option value="">Select an experience</option>
+              <option>Milford Sound</option><option>Mount Cook</option><option>Glenorchy &amp; Paradise</option>
+              <option>Cromwell &amp; Wanaka</option><option>Queenstown Sightseeing</option><option>Skippers Canyon</option>
+              <option>Stargazing &amp; Astrophotography</option><option>Custom &amp; Tailored</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date"></div>
+          <div class="field"><label for="guests">Number of guests</label><input id="guests" name="guests" type="number" min="1" placeholder="2"></div>
+        </div>
+        <div class="frow"><div class="field full"><label for="message">Tell us what you're dreaming of</label><textarea id="message" name="message" placeholder="A little about the experience you have in mind..."></textarea></div></div>
+        <div class="form-submit"><button type="submit" class="btn btn-solid">Send enquiry</button></div>
+      </form>
+    </div>
   </section>
 </main>
 
@@ -469,7 +503,7 @@
   </div>
 </footer>
 
-<div class="mobile-cta"><a href="https://luminatours.co.nz/enquiries/create" class="btn btn-solid">Enquire now</a></div>
+<div class="mobile-cta"><a href="#enquire" class="btn btn-solid">Enquire now</a></div>
 
 <script>
   const header=document.getElementById('header');
@@ -481,8 +515,11 @@
   toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded',false);}));
 
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const items=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -10% 0px'});
+    items.forEach(el=>io.observe(el));
+  }else{ items.forEach(el=>el.classList.add('in')); }  /* fallback: show everything */
 </script>
 </body>
 </html>
