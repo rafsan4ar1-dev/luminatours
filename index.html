@@ -6,7 +6,7 @@
 
 <!-- ============ PRIMARY SEO ============ -->
 <title>Private Luxury Tours &amp; Photography in Queenstown | Lumina Tours</title>
-<meta name="description" content="Private luxury tours of Queenstown &amp; New Zealand's South Island, guided by a professional photographer. Milford Sound, Mount Cook, stargazing &amp; astrophotography — your journey, beautifully captured. Enquire today.">
+<meta name="description" content="Private luxury tours of Queenstown &amp; New Zealand's South Island with bespoke photography by your professional guide. Milford Sound, Mount Cook, stargazing &amp; astrophotography — your journey, beautifully captured. Enquire today.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://luminatours.co.nz/">
 <meta name="theme-color" content="#0B0D11">
@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_NZ">
 <meta property="og:url" content="https://luminatours.co.nz/">
 <meta property="og:title" content="Private Luxury Tours &amp; Photography in Queenstown | Lumina Tours">
-<meta property="og:description" content="Private luxury tours of Queenstown &amp; the South Island, guided by a professional photographer. Milford Sound, Mount Cook &amp; Milky Way astrophotography — your journey, beautifully captured.">
+<meta property="og:description" content="Private luxury tours of Queenstown &amp; the South Island with bespoke photography by your professional guide. Milford Sound, Mount Cook &amp; Milky Way astrophotography — your journey, beautifully captured.">
 <meta property="og:image" content="https://luminatours.co.nz/frontend/assets/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -51,7 +51,7 @@
       "url": "https://luminatours.co.nz/",
       "image": "https://luminatours.co.nz/frontend/assets/images/og-image.jpg",
       "logo": "https://luminatours.co.nz/frontend/assets/images/logo.png",
-      "description": "Private luxury tours and professional photography in Queenstown and across New Zealand's South Island, including Milford Sound, Mount Cook, Glenorchy, Wanaka, Skippers Canyon and Milky Way stargazing & astrophotography experiences.",
+      "description": "Private luxury tours and bespoke photography in Queenstown and across New Zealand's South Island, including Milford Sound, Mount Cook, Glenorchy, Wanaka, Skippers Canyon and Milky Way stargazing & astrophotography experiences.",
       "telephone": "+64211885532",
       "email": "hello@luminatours.co.nz",
       "priceRange": "$$$",
@@ -123,21 +123,20 @@
   .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.84;animation:kenburns 34s var(--ease-io) infinite alternate}
   @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,17,0.72) 0%,rgba(11,13,17,0.32) 50%,rgba(11,13,17,0.05) 100%),linear-gradient(0deg,var(--bg) 1%,transparent 38%)}
-  .hero-inner{position:relative;z-index:2;max-width:1140px}
+  .hero-inner{position:relative;z-index:2;max-width:1120px}
   .hero .eyebrow{opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .2s forwards}
-  .hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);margin:1.3rem 0 1.5rem;font-weight:500;line-height:1.12;max-width:1140px}
+  .hero h1{font-size:clamp(2rem,5vw,3.7rem);margin:1.3rem 0 1.5rem;font-weight:500;line-height:1.12}
+  @media (min-width:1000px){.hero h1{white-space:nowrap}}
   .hero h1 .ln{display:block;overflow:hidden}
-  .hero h1 .ln span{display:block;opacity:0;transform:translateY(108%);animation:riseLine 1.2s var(--ease-out) forwards}
+  .hero h1 .ln span{display:block;opacity:0;transform:translateY(108%);animation:riseLine 1.25s var(--ease-out) .34s forwards}
   .hero h1 em{color:var(--accent)}
-  .hero h1 .ln:nth-child(1) span{animation-delay:.34s}
-  .hero h1 .ln:nth-child(2) span{animation-delay:.46s}
-  .hero p.lede{max-width:1140px;font-size:1.12rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .75s forwards}
+  .hero p.lede{max-width:760px;font-size:1.1rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .8s forwards}
   .hero-cta{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .95s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
   @keyframes riseLine{to{opacity:1;transform:translateY(0)}}
 
   /* SCROLL REVEAL — rises up from below & blends in */
-  .reveal{opacity:0;transform:translateY(36px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+  .reveal{opacity:0;transform:translateY(48px);transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out);will-change:opacity,transform}
   .reveal.in{opacity:1;transform:translateY(0)}
   .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
 
@@ -151,7 +150,7 @@
 
   /* intro */
   .intro{padding:clamp(6rem,12vw,10rem) 0 clamp(3rem,6vw,5rem)}
-  .intro-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+  .intro-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:start}
   .intro h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:500}
   .intro h2 em{color:var(--accent)}
   .intro .body p{margin-bottom:1.2rem;font-size:1.05rem}
@@ -325,10 +324,8 @@
     </div>
     <div class="wrap hero-inner">
       <span class="eyebrow">45&deg; South &middot; Queenstown, New Zealand</span>
-      <h1>
-        <span class="ln"><span>Private luxury tours and <em>bespoke photography</em></span></span>
-      </h1>
-      <p class="lede">Explore Queenstown and the South Island in complete privacy — guided by a professional photographer who captures your journey, beautifully, as it unfolds.</p>
+      <h1><span class="ln"><span>Private Luxury Tours &amp; <em>Bespoke Photography</em></span></span></h1>
+      <p class="lede">Explore Queenstown and New Zealand's South Island in complete privacy — guided by a professional photographer who captures your journey, beautifully, as it unfolds.</p>
     </div>
   </section>
 
@@ -512,7 +509,7 @@
 
   const items=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
-    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -10% 0px'});
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -90px 0px'});
     items.forEach(el=>io.observe(el));
   }else{ items.forEach(el=>el.classList.add('in')); }  /* fallback: show everything */
 </script>
