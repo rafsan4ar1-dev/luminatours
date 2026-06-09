@@ -37,7 +37,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,400;125,500;125,600;125,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <!-- ============ STRUCTURED DATA (SEO + GEO/AIO) ============ -->
 <script type="application/ld+json">
@@ -83,13 +83,13 @@
     --ink:#F2F3F1;--ink-soft:#AAB0B7;--ink-mute:#6C727A;
     --accent:#C9CFDA;--accent-soft:rgba(201,207,218,0.12);
     --serif:"Cormorant Garamond",Georgia,serif;
-    --sans:"Schibsted Grotesk",system-ui,sans-serif;
+    --sans:"Archivo",system-ui,sans-serif;
     --ease-out:cubic-bezier(0.16,1,0.3,1);--ease-io:cubic-bezier(0.77,0,0.175,1);
     --maxw:1300px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:400;line-height:1.7;letter-spacing:0.012em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:400;font-stretch:125%;line-height:1.75;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
@@ -136,6 +136,7 @@
   .reveal{opacity:0;transform:translateY(48px);transition:opacity 1.25s var(--ease-out),transform 1.25s var(--ease-out);will-change:opacity,transform}
   .reveal.in{opacity:1;transform:translateY(0)}
   /* cards use the same fade-up reveal as every other section (stagger via data-d) */
+  .card.reveal{transition:opacity 1.25s var(--ease-out),transform 1.25s var(--ease-out),border-color .6s ease}
   /* Lenis smooth scroll */
   html.lenis,html.lenis body{height:auto}
   .lenis.lenis-smooth{scroll-behavior:auto !important}
