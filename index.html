@@ -24,7 +24,7 @@
 <meta property="og:url" content="https://luminatours.co.nz/">
 <meta property="og:title" content="Private Luxury Tours &amp; Photography in Queenstown | Lumina Tours">
 <meta property="og:description" content="Private luxury tours of Queenstown &amp; the South Island with bespoke photography by your professional guide. Milford Sound, Mount Cook &amp; Milky Way astrophotography — your journey, beautifully captured.">
-<meta property="og:image" content="https://luminatours.co.nz/frontend/assets/images/og-image.jpg">
+<meta property="og:image" content="https://luminatours.co.nz/image/home/stargazing-astrophotography.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Lumina Tours — private photography tours under the Milky Way in Queenstown, New Zealand">
@@ -33,7 +33,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Private Luxury Tours &amp; Photography in Queenstown | Lumina Tours">
 <meta name="twitter:description" content="Private luxury tours of Queenstown &amp; the South Island, guided by a professional photographer. Milford Sound, Mount Cook &amp; Milky Way astrophotography.">
-<meta name="twitter:image" content="https://luminatours.co.nz/frontend/assets/images/og-image.jpg">
+<meta name="twitter:image" content="https://luminatours.co.nz/image/home/stargazing-astrophotography.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
       "@id": "https://luminatours.co.nz/#business",
       "name": "Lumina Tours",
       "url": "https://luminatours.co.nz/",
-      "image": "https://luminatours.co.nz/frontend/assets/images/og-image.jpg",
+      "image": "https://luminatours.co.nz/image/home/stargazing-astrophotography.webp",
       "logo": "https://luminatours.co.nz/frontend/assets/images/logo.png",
       "description": "Private luxury tours and bespoke photography in Queenstown and across New Zealand's South Island, including Milford Sound, Mount Cook, Glenorchy, Wanaka, Skippers Canyon and Milky Way stargazing & astrophotography experiences.",
       "telephone": "+64211885532",
@@ -200,6 +200,8 @@
   .flagship p{margin:1.4rem 0 2.2rem;font-size:1.08rem;color:var(--ink);max-width:480px}
   .tag{display:inline-flex;align-items:center;gap:.55rem;font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-soft);background:var(--accent-soft);padding:.55rem 1rem;border-radius:2px}
   .flagship-vis{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .flagship-vis .fvimg{position:absolute;inset:0;background-size:cover;background-position:center;animation:kenburns 44s var(--ease-io) infinite alternate}
+  .flagship-vis::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.45));mix-blend-mode:multiply}
   .flagship-vis .glow{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 38%,rgba(79,150,140,0.26),transparent 66%),radial-gradient(70% 70% at 55% 60%,rgba(96,120,170,0.18),transparent 70%),linear-gradient(180deg,#0a1013,#050709);animation:kenburns 40s var(--ease-io) infinite alternate}
 
   /* custom & tailored */
@@ -295,7 +297,7 @@
     *{animation:none!important;transition:opacity .3s ease!important}
     .reveal{opacity:1;transform:none}
     .card.reveal{clip-path:none !important}
-    .hero-media video,.aurora,.flagship-vis .glow{transform:none}
+    .hero-media video,.aurora,.flagship-vis .fvimg{transform:none}
     .hero .eyebrow,.hero p.lede,.hero-cta,.hero h1{opacity:1;transform:none}
   }
 </style>
@@ -324,8 +326,8 @@
   <!-- HERO -->
   <section class="hero" aria-label="Introduction">
     <div class="hero-media" data-parallax="0.14">
-      <video autoplay muted loop playsinline aria-hidden="true">
-        <source src="https://luminatours.co.nz/frontend/assets/video/hero.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline aria-hidden="true" poster="/image/home/hero-poster.webp">
+        <source src="https://pub-eacace11d22e4fe5999f3cc587a89cd4.r2.dev/hero-video.mp4" type="video/mp4">
       </video>
     </div>
     <div class="wrap hero-inner">
@@ -353,12 +355,12 @@
       <a href="https://luminatours.co.nz/featured-experiences" class="btn reveal" data-d="2">View all</a>
     </div>
     <div class="grid">
-      <a class="card reveal" href="https://luminatours.co.nz/milford" aria-label="Milford Sound private photography tour"><div class="ph g-milford"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/mount" aria-label="Aoraki Mount Cook private photography tour"><div class="ph g-cook"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/queen" aria-label="Glenorchy and Paradise private photography tour"><div class="ph g-glen"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
-      <a class="card reveal" href="https://luminatours.co.nz/wanaka" aria-label="Cromwell and Wanaka private photography tour"><div class="ph g-crom"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/sightsee" aria-label="Queenstown sightseeing private photography tour"><div class="ph g-sight"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/skipper" aria-label="Skippers Canyon private photography tour"><div class="ph g-skip"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
+      <a class="card reveal" href="https://luminatours.co.nz/milford" aria-label="Milford Sound private photography tour"><div class="ph" style="background:url('/image/home/milford-sound.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
+      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/mount" aria-label="Aoraki Mount Cook private photography tour"><div class="ph" style="background:url('/image/home/aoraki-mount-cook.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
+      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/queen" aria-label="Glenorchy and Paradise private photography tour"><div class="ph" style="background:url('/image/home/glenorchy-paradise.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+      <a class="card reveal" href="https://luminatours.co.nz/wanaka" aria-label="Cromwell and Wanaka private photography tour"><div class="ph" style="background:url('/image/home/cromwell-wanaka.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
+      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/sightsee" aria-label="Queenstown sightseeing private photography tour"><div class="ph" style="background:url('/image/home/queenstown-sightseeing.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
+      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/skipper" aria-label="Skippers Canyon private photography tour"><div class="ph" style="background:url('/image/home/skippers-canyon.webp') center/cover"></div><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
     </div>
   </section>
 
@@ -373,7 +375,7 @@
         <p>Discover some of the darkest skies in the world. Your personal astrophotographer guides a private night under the Milky Way — and sends you home with the stars themselves, captured in extraordinary detail.</p>
         <a href="https://luminatours.co.nz/astro" class="btn btn-solid">Discover the night</a>
       </div>
-      <div class="flagship-vis reveal" data-d="1" aria-hidden="true"><div class="glow"></div></div>
+      <div class="flagship-vis reveal" data-d="1" role="img" aria-label="Milky Way astrophotography over Queenstown's dark skies"><div class="fvimg" style="background-image:url('/image/home/stargazing-astrophotography.webp')"></div></div>
     </div>
   </section>
 
@@ -386,7 +388,7 @@
         <p>Your journey, your way — designed around your interests, pace, and style. From hidden gems to helicopter rides or glacier landings, every detail is tailored for a one-of-a-kind experience.</p>
         <a href="https://luminatours.co.nz/custom" class="btn btn-solid">Explore custom experiences</a>
       </div>
-      <div class="custom-vis reveal" data-d="1" aria-hidden="true"><div class="ph"></div></div>
+      <div class="custom-vis reveal" data-d="1" role="img" aria-label="Bespoke private tour with helicopter and glacier add-ons"><div class="ph" style="background:url('/image/home/custom-tailored.webp') center/cover"></div></div>
     </div>
   </section>
 
