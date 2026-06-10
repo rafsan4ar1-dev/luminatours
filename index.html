@@ -304,8 +304,11 @@
     .pillars{grid-template-columns:repeat(2,1fr)}
     .pillar{padding-right:1.2rem}
     .custom-vis{order:-1}
-    .mobile-cta{display:block}
-    body{padding-bottom:72px}
+    .hero{height:80vh;min-height:520px}
+    body{font-size:0.94rem}
+    .mobile-cta{display:block;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(11,13,17,0.55);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
+    .mobile-cta a{font-size:0.82rem;padding:.6rem 1rem;letter-spacing:0.04em;background:transparent;color:var(--ink);border:1px solid rgba(242,243,241,0.4);opacity:.9}
+    body{padding-bottom:64px}
   }
   @media (max-width:560px){.grid,.quotes,.pillars,.frow{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){
