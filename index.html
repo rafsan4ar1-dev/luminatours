@@ -127,13 +127,14 @@
   @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 1%,transparent 42%),radial-gradient(130% 120% at 50% 48%,transparent 28%,rgba(11,13,17,0.55) 100%),rgba(11,13,17,0.30)}
   .hero-inner{position:relative;z-index:2;max-width:1120px;text-align:center}
-  .hero .eyebrow{opacity:0;transform:translateY(14px);animation:rise 1.4s var(--ease-out) .3s forwards}
-  .hero h1{font-size:clamp(1.9rem,4.8vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.16;opacity:0;transform:translateY(16px);animation:rise 1.6s var(--ease-out) .55s forwards}
+  .hero .eyebrow{opacity:0;animation:heroFade 1.8s var(--ease-out) .3s forwards}
+  .hero h1{font-size:clamp(1.9rem,4.8vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.16;opacity:0;animation:heroFade 2s var(--ease-out) .7s forwards}
   .h1-place{display:block;font-weight:500;color:var(--ink);margin-top:.06em;letter-spacing:0.01em}
   .hero h1 em{color:var(--accent)}
-  .hero p.lede{max-width:680px;margin-left:auto;margin-right:auto;font-size:0.98rem;color:var(--ink);opacity:0;transform:translateY(14px);animation:rise 1.4s var(--ease-out) 1s forwards}
+  .hero p.lede{max-width:680px;margin-left:auto;margin-right:auto;font-size:0.98rem;color:var(--ink);opacity:0;animation:heroFade 1.8s var(--ease-out) 1.2s forwards}
   .hero-cta{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .95s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @keyframes heroFade{from{opacity:0}to{opacity:1}}
   @keyframes riseLine{to{opacity:1;transform:translateY(0)}}
 
   /* SCROLL REVEAL, rises up from below & blends in */
@@ -186,7 +187,7 @@
   .g-skip{background:linear-gradient(155deg,#2a2723 0%,#0e0c0a 72%)}
 
   /* flagship aurora */
-  .flagship{position:relative;margin:clamp(5rem,10vw,8rem) 0;overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .flagship{position:relative;margin-top:clamp(5rem,10vw,8rem);margin-bottom:0;overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
   .stars{position:absolute;inset:0;z-index:0;background:
     radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.9),transparent),radial-gradient(1px 1px at 28% 64%,rgba(255,255,255,.7),transparent),
     radial-gradient(1.4px 1.4px at 42% 14%,rgba(255,255,255,.85),transparent),radial-gradient(1px 1px at 58% 48%,rgba(255,255,255,.6),transparent),
@@ -222,7 +223,7 @@
   @media (hover:hover){.custom-vis:hover .ph{transform:scale(1.08)}}
 
   /* why */
-  .why{padding-top:clamp(1.75rem,3.5vw,3rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  .why{padding-top:0;padding-bottom:clamp(3rem,6vw,5rem)}
   .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-soft)}
   .pillar{padding:2.6rem 1.8rem 2.6rem 0;border-bottom:1px solid var(--line-soft);transition:transform .6s var(--ease-out)}
   @media (hover:hover){.pillar:hover{transform:scale(1.025)}}
@@ -538,35 +539,38 @@
   toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded',false);}));
 
-  /* smooth scroll + parallax (skipped when reduced-motion is on) */
+  /* motion: smooth scroll, parallax, and scroll-reveal: all recalculated every frame */
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let lenis=null;
-  if(!reduce && window.Lenis){
-    lenis=new Lenis({duration:1.15,smoothWheel:true,wheelMultiplier:0.9});
-    const raf=(t)=>{lenis.raf(t);requestAnimationFrame(raf);};requestAnimationFrame(raf);
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',(e)=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
-    });
-  }
 
-  /* single trigger-line reveal: an element is "in" when its top rises above one line
-     near the bottom of the screen, and "out" when it drops back below that same line,
-     so it appears and disappears at the exact same spot in both directions. */
+  /* reveal is tied to each element's SECTION: content begins fading in the instant the
+     section's top (its dividing line) reaches ~3% up from the bottom of the screen, and
+     fades back out at that exact same line on scroll-up, identical in both directions. */
   const revealEls=[...document.querySelectorAll('.reveal')];
+  revealEls.forEach(el=>{ el._sec = el.closest('section') || el; });
   function updateReveals(){
-    const line=window.innerHeight*0.92;        /* trigger line: 92% down the screen */
+    const line=window.innerHeight*0.97;
     for(const el of revealEls){
-      el.classList.toggle('in', el.getBoundingClientRect().top < line);
+      el.classList.toggle('in', el._sec.getBoundingClientRect().top < line);
     }
   }
 
   const pEls=[...document.querySelectorAll('[data-parallax]')];
   function parallax(){const vh=window.innerHeight;pEls.forEach(el=>{const r=el.getBoundingClientRect();const s=parseFloat(el.dataset.parallax)||0.1;const off=(r.top+r.height/2)-vh/2;el.style.transform='translate3d(0,'+(-off*s).toFixed(1)+'px,0)';});}
 
-  function onScrollFrame(){ if(!reduce){parallax();} updateReveals(); }
-  if(lenis){ lenis.on('scroll', onScrollFrame); } else { window.addEventListener('scroll', onScrollFrame, {passive:true}); }
-  window.addEventListener('resize', onScrollFrame);
-  onScrollFrame();
+  if(reduce){
+    updateReveals();   /* reduced-motion: CSS shows everything; nothing animates */
+  } else {
+    let lenis=null;
+    if(window.Lenis){
+      lenis=new Lenis({duration:1.15,smoothWheel:true,wheelMultiplier:0.9});
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',(e)=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
+      });
+    }
+    function frame(t){ if(lenis) lenis.raf(t); parallax(); updateReveals(); requestAnimationFrame(frame); }
+    requestAnimationFrame(frame);
+    window.addEventListener('resize', ()=>{ parallax(); updateReveals(); });
+  }
 
   /* confirm-email match check */
   const efrm=document.querySelector('form');
