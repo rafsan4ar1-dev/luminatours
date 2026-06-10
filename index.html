@@ -127,11 +127,11 @@
   @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 1%,transparent 42%),radial-gradient(130% 120% at 50% 48%,transparent 28%,rgba(11,13,17,0.55) 100%),rgba(11,13,17,0.30)}
   .hero-inner{position:relative;z-index:2;max-width:1120px;text-align:center}
-  .hero .eyebrow{opacity:0;animation:heroFade 1.8s var(--ease-out) .3s forwards}
-  .hero h1{font-size:clamp(1.9rem,4.8vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.16;opacity:0;animation:heroFade 2s var(--ease-out) .7s forwards}
+  .hero .eyebrow{opacity:0;animation:heroFade 1.8s var(--ease-out) .35s forwards}
+  .hero h1{font-size:clamp(1.9rem,4.8vw,3.5rem);margin:1.3rem 0 1.4rem;font-weight:500;line-height:1.16;opacity:0;animation:heroFade 1.8s var(--ease-out) .35s forwards}
   .h1-place{display:block;font-weight:500;color:var(--ink);margin-top:.06em;letter-spacing:0.01em}
   .hero h1 em{color:var(--accent)}
-  .hero p.lede{max-width:680px;margin-left:auto;margin-right:auto;font-size:0.98rem;color:var(--ink);opacity:0;animation:heroFade 1.8s var(--ease-out) 1.2s forwards}
+  .hero p.lede{max-width:680px;margin-left:auto;margin-right:auto;font-size:0.98rem;color:var(--ink);opacity:0;animation:heroFade 1.8s var(--ease-out) .35s forwards}
   .hero-cta{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(14px);animation:rise 1s var(--ease-out) .95s forwards}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
   @keyframes heroFade{from{opacity:0}to{opacity:1}}
@@ -256,7 +256,7 @@
   details p{margin-top:1rem;color:var(--ink-soft);max-width:60ch;font-size:1rem}
 
   /* contact form (bottom) */
-  .contact{position:relative;overflow:hidden;padding:clamp(5rem,10vw,8rem) 0;border-top:1px solid var(--line-soft);background:var(--bg-2)}
+  .contact{position:relative;overflow:hidden;padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(5rem,10vw,8rem);border-top:1px solid var(--line-soft);background:var(--bg-2)}
   .contact-bg{position:absolute;top:-12%;left:0;right:0;height:124%;z-index:0;background:url('/image/home/contact-stargazing-tour.webp') center/cover;will-change:transform}
   .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(11,13,17,0.9),rgba(11,13,17,0.93))}
   .contact>.wrap{position:relative;z-index:1}
@@ -542,15 +542,14 @@
   /* motion: smooth scroll, parallax, and scroll-reveal: all recalculated every frame */
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* reveal is tied to each element's SECTION: content begins fading in the instant the
-     section's top (its dividing line) reaches ~3% up from the bottom of the screen, and
-     fades back out at that exact same line on scroll-up, identical in both directions. */
+  /* per-element reveal: each block fades in as ITS OWN top reaches ~3% up from the bottom of
+     the screen, and fades back out at that exact same line on scroll-up. Recalculated every
+     frame (below) so it stays glued to the smooth scroll. */
   const revealEls=[...document.querySelectorAll('.reveal')];
-  revealEls.forEach(el=>{ el._sec = el.closest('section') || el; });
   function updateReveals(){
     const line=window.innerHeight*0.97;
     for(const el of revealEls){
-      el.classList.toggle('in', el._sec.getBoundingClientRect().top < line);
+      el.classList.toggle('in', el.getBoundingClientRect().top < line);
     }
   }
 
