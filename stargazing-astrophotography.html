@@ -412,6 +412,66 @@
     .g-item{aspect-ratio:16/10}
     .tstep .tnum{font-size:1.25rem}
   }
+  /* ============ EXPERIENCE PAGE v2 ============ */
+  /* hero: lower text + dimmer CTA button */
+  .hero{padding-bottom:clamp(1.75rem,3.5vh,3.25rem)}
+  .hero-cta .btn{color:var(--ink-soft);border-color:rgba(242,243,241,0.26);opacity:.8;transition:opacity .4s ease,color .4s ease,border-color .4s ease,background .4s ease,transform .5s var(--ease-out)}
+  .hero-cta .btn:hover{opacity:1;color:var(--ink);border-color:var(--accent)}
+
+  /* consistent section gaps everywhere */
+  .ex-sec{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .facts-wrap{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .why{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .faq{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .contact{padding-top:clamp(2.4rem,4.8vw,3.75rem);padding-bottom:clamp(3rem,6vw,5rem)}
+
+  /* facts value size matched to the "Why this experience" headings (1.5rem) */
+  .fact .v{font-size:clamp(1.25rem,2.4vw,1.5rem)}
+
+  /* ===== shared accordion (itinerary + FAQ): one-at-a-time, slow slide ===== */
+  .acc-group{border-top:1px solid var(--line-soft)}
+  .acc{border-bottom:1px solid var(--line-soft)}
+  .acc-h{margin:0}
+  .acc-q{width:100%;display:flex;align-items:center;gap:1rem;background:none;border:0;cursor:pointer;text-align:left;color:var(--ink);font-family:var(--serif);font-weight:500;padding:clamp(.9rem,1.7vw,1.15rem) 0;transition:color .3s ease}
+  .acc-q:hover{color:var(--accent)}
+  .acc-t{flex:1}
+  .acc-num{font-style:italic;color:var(--accent);min-width:2.2rem}
+  .acc-q .ic{flex:0 0 auto;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--sans);font-size:.95rem;color:var(--ink);transition:transform .45s var(--ease-out),background .4s ease,color .4s ease,border-color .4s ease}
+  .acc.open .acc-q .ic{transform:rotate(45deg);background:var(--ink);color:#0B0D11;border-color:var(--ink)}
+  .acc-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease-io)}
+  .acc.open .acc-a{grid-template-rows:1fr}
+  .acc-inner{overflow:hidden;min-height:0}
+  .acc-a p{margin:0;padding:0 3rem clamp(1rem,2vw,1.3rem) 0;color:var(--ink-soft);font-size:0.95rem;opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .55s var(--ease-out)}
+  .acc.open .acc-a p{opacity:1;transform:none;transition-delay:.1s}
+
+  /* ===== itinerary band (over background image) ===== */
+  .itinerary{position:relative;overflow:hidden;padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .itinerary-bg{position:absolute;top:-12%;left:0;right:0;height:124%;z-index:0;background:url('/image/stargazing/milky-way-stargazing-tour-queenstown.webp') center/cover;will-change:transform}
+  .itinerary-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(8,9,12,0.84),rgba(8,9,12,0.9))}
+  .itinerary-inner{position:relative;z-index:1}
+  .itin-head{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;line-height:1.12;margin:.8rem 0 0;color:var(--ink)}
+  .itinerary .acc-group{max-width:840px}
+  .itinerary .acc-q .acc-t{font-size:clamp(1.35rem,2.6vw,1.7rem)}
+  .itinerary .acc-num{font-size:clamp(1.1rem,2vw,1.35rem)}
+
+  /* FAQ question size matched up to the subheadings */
+  .faq .acc-q{font-size:clamp(1.2rem,2vw,1.4rem)}
+
+  /* ===== other-experiences slider ===== */
+  .slider{position:relative}
+  .slider-track{display:flex;gap:1.3rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:.4rem;scrollbar-width:none;-ms-overflow-style:none}
+  .slider-track::-webkit-scrollbar{display:none}
+  .slider-track .card{flex:0 0 auto;width:clamp(260px,72vw,310px);scroll-snap-align:start}
+  .slider-arrow{position:absolute;top:42%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(11,13,17,0.55);color:var(--ink);font-size:1.4rem;line-height:1;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:border-color .3s ease,background .3s ease,opacity .3s ease}
+  .slider-arrow:hover{border-color:var(--accent);background:rgba(11,13,17,0.85)}
+  .slider-arrow.prev{left:-8px}
+  .slider-arrow.next{right:-8px}
+  @media (max-width:760px){.slider-arrow{display:none}}
+
+  @media (max-width:560px){
+    .acc-a p{padding-right:1.2rem}
+    .itinerary .acc-q .acc-t{font-size:1.2rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -439,16 +499,16 @@
   <!-- HERO (video) -->
   <section class="hero" aria-label="Stargazing and astrophotography tour">
     <div class="hero-media" data-parallax="0.14">
-      <video autoplay muted loop playsinline aria-hidden="true" poster="https://www.luminatours.co.nz/frontend/assets/images/astro_middle.webp">
-        <source src="https://www.luminatours.co.nz/frontend/assets/video/astro.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline aria-hidden="true" poster="/image/stargazing/stargazing-astrophotography-tour-hero.webp">
+        <source src="https://pub-eacace11d22e4fe5999f3cc587a89cd4.r2.dev/stargazing-astrophotography-queenstown.mp4" type="video/mp4">
       </video>
     </div>
-    <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video" aria-pressed="false">‖</button>
+    <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video" aria-pressed="false">&#8214;</button>
     <div class="wrap hero-inner">
       <span class="eyebrow">Flagship Experience &middot; Queenstown</span>
       <h1>Stargazing &amp; <em>Astrophotography</em> Tours<span class="h1-place">Queenstown</span></h1>
       <p class="lede">A private night beneath the southern sky's clearest stars, with a local astrophotographer to guide you, and to photograph you beneath the Milky Way.</p>
-      <div class="hero-cta"><a href="#enquire" class="btn">Check availability</a></div>
+      <div class="hero-cta"><a href="#enquire" class="btn btn-quiet">Check availability</a></div>
     </div>
   </section>
 
@@ -485,6 +545,17 @@
     </dl>
   </section>
 
+  <!-- GALLERY / GLIMPSE -->
+  <section class="ex-sec wrap" aria-label="Gallery">
+    <span class="eyebrow reveal">A glimpse</span>
+    <h2 class="reveal" data-d="1" style="margin-top:1rem">Under the southern sky</h2>
+    <div class="gallery" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
+      <figure class="g-item reveal"><img src="/image/stargazing/astrophotography-portrait-under-stars.webp" alt="A guest photographed beneath a starlit night sky on a private astrophotography tour near Queenstown" loading="lazy" decoding="async"></figure>
+      <figure class="g-item reveal" data-d="1"><img src="/image/stargazing/milky-way-over-queenstown-night-sky.webp" alt="The Milky Way arching over the Queenstown region's dark night sky" loading="lazy" decoding="async"></figure>
+      <figure class="g-item reveal" data-d="2"><img src="/image/stargazing/stargazing-dark-sky-location-queenstown.webp" alt="A secret dark-sky stargazing location near Queenstown on a private tour" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
   <!-- WHY THIS EXPERIENCE -->
   <section class="why wrap" aria-label="Why this experience">
     <h2 class="eyebrow reveal">Why this experience</h2>
@@ -496,21 +567,7 @@
     </div>
   </section>
 
-  <!-- ITINERARY -->
-  <section class="ex-sec wrap" aria-label="What to expect">
-    <span class="eyebrow reveal">The evening</span>
-    <h2 class="reveal" data-d="1" style="margin-top:1rem">A typical night, step by step</h2>
-    <ol class="timeline" style="margin-top:clamp(2rem,4vw,3.5rem)">
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">01</span><div><h3>Evening pickup</h3><p>A private pickup from your Queenstown accommodation, timed to the Milky Way's best visibility and the night's sky conditions.</p></div></li>
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">02</span><div><h3>Scenic drive to a dark-sky location</h3><p>Travel in comfort to one of several secret locations, chosen for moon phase, cloud cover and season, for the darkest, clearest skies.</p></div></li>
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">03</span><div><h3>Arrival and sky briefing</h3><p>A short orientation to the major constellations, the Southern Cross and the Milky Way, with the basics of night-sky photography.</p></div></li>
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">04</span><div><h3>Photography beneath the stars</h3><p>Your guide captures a series of images of you under the night sky, from wide Milky Way landscapes to creative starlit portraits.</p></div></li>
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">05</span><div><h3>Quiet stargazing</h3><p>A peaceful moment under the stars with an optional warm drink, taking in the silence and depth of the southern sky.</p></div></li>
-      <li class="tstep reveal"><span class="tnum" aria-hidden="true">06</span><div><h3>Return to Queenstown</h3><p>A relaxed drive back. Within a few days, a curated selection of professionally edited images arrives, your keepsake of the night.</p></div></li>
-    </ol>
-  </section>
-
-  <!-- GOOD TO KNOW / INCLUDES -->
+  <!-- WHAT'S INCLUDED / GOOD TO KNOW -->
   <section class="ex-sec wrap" aria-label="What is included and good to know">
     <div class="incl-grid">
       <div class="incl reveal">
@@ -536,40 +593,72 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="ex-sec wrap" aria-label="Gallery">
-    <span class="eyebrow reveal">A glimpse</span>
-    <h2 class="reveal" data-d="1" style="margin-top:1rem">Under the southern sky</h2>
-    <div class="gallery" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
-      <figure class="g-item reveal"><img src="https://www.luminatours.co.nz/frontend/assets/images/astro_left.webp" alt="The Milky Way arching over a dark-sky landscape near Queenstown" loading="lazy" decoding="async"></figure>
-      <figure class="g-item reveal" data-d="1"><img src="https://www.luminatours.co.nz/frontend/assets/images/astro_middle.webp" alt="A guest photographed beneath a starlit night sky on a private astrophotography tour" loading="lazy" decoding="async"></figure>
-      <figure class="g-item reveal" data-d="2"><img src="https://www.luminatours.co.nz/frontend/assets/images/astro_right.webp" alt="Stars and the Milky Way over the Queenstown region's dark skies" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq wrap" aria-label="Frequently asked questions">
-    <div class="faq-grid">
-      <div><span class="eyebrow reveal">Good to know</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Frequently asked</h2></div>
-      <div class="reveal" data-d="1">
-        <details open><summary>How long is the tour?<span class="ic" aria-hidden="true">+</span></summary><p>The experience runs for about two to three hours, beginning with a private evening pickup from your Queenstown accommodation, timed to the Milky Way's best visibility.</p></details>
-        <details><summary>When is the best time of year?<span class="ic" aria-hidden="true">+</span></summary><p>Tours run from mid-April to mid-September on clear, moonless nights. The Milky Way is at its most spectacular in June and July, with May and August also excellent.</p></details>
-        <details><summary>Do I need a camera or experience?<span class="ic" aria-hidden="true">+</span></summary><p>No. Your guide is a professional astrophotographer who photographs you beneath the stars and delivers a set of edited images. Bring your own camera and learn if you like, but nothing is required.</p></details>
-        <details><summary>Where do the tours take place?<span class="ic" aria-hidden="true">+</span></summary><p>You're driven to secret, handpicked dark-sky locations around the Queenstown and Wakatipu region, chosen each night for moon phase, cloud cover and season.</p></details>
-        <details><summary>What should I bring and wear?<span class="ic" aria-hidden="true">+</span></summary><p>Dress very warmly in layers, with a hat, gloves and closed shoes, as tours run outdoors at night in alpine conditions. We'll advise on anything else once your date is set.</p></details>
-        <details><summary>What if the weather is poor?<span class="ic" aria-hidden="true">+</span></summary><p>Clear skies are essential, so your guide watches the forecast closely and will work with you to choose the best night, rescheduling if conditions don't cooperate.</p></details>
+  <!-- ITINERARY (collapsible, over background image) -->
+  <section class="itinerary" aria-label="What to expect">
+    <div class="itinerary-bg" data-parallax="0.08"></div>
+    <div class="wrap itinerary-inner">
+      <span class="eyebrow reveal">The evening</span>
+      <h2 class="itin-head reveal" data-d="1">A typical night, step by step</h2>
+      <div class="acc-group reveal" data-d="1" data-acc style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it1"><span class="acc-num" aria-hidden="true">01</span><span class="acc-t">Evening pickup</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it1" role="region"><div class="acc-inner"><p>A private pickup from your Queenstown accommodation, timed to the Milky Way's best visibility and the night's sky conditions.</p></div></div>
+        </div>
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it2"><span class="acc-num" aria-hidden="true">02</span><span class="acc-t">Scenic drive to a dark-sky location</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it2" role="region"><div class="acc-inner"><p>Travel in comfort to one of several secret locations, chosen for moon phase, cloud cover and season, for the darkest, clearest skies.</p></div></div>
+        </div>
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it3"><span class="acc-num" aria-hidden="true">03</span><span class="acc-t">Arrival and sky briefing</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it3" role="region"><div class="acc-inner"><p>A short orientation to the major constellations, the Southern Cross and the Milky Way, with the basics of night-sky photography.</p></div></div>
+        </div>
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it4"><span class="acc-num" aria-hidden="true">04</span><span class="acc-t">Photography beneath the stars</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it4" role="region"><div class="acc-inner"><p>Your guide captures a series of images of you under the night sky, from wide Milky Way landscapes to creative starlit portraits.</p></div></div>
+        </div>
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it5"><span class="acc-num" aria-hidden="true">05</span><span class="acc-t">Quiet stargazing</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it5" role="region"><div class="acc-inner"><p>A peaceful moment under the stars with an optional warm drink, taking in the silence and depth of the southern sky.</p></div></div>
+        </div>
+        <div class="acc">
+          <h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="it6"><span class="acc-num" aria-hidden="true">06</span><span class="acc-t">Return to Queenstown</span><span class="ic" aria-hidden="true">+</span></button></h3>
+          <div class="acc-a" id="it6" role="region"><div class="acc-inner"><p>A relaxed drive back. Within a few days, a curated selection of professionally edited images arrives, your keepsake of the night.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RELATED -->
+  <!-- FAQ (collapsible) -->
+  <section class="faq wrap" aria-label="Frequently asked questions">
+    <div class="faq-grid">
+      <div><span class="eyebrow reveal">Good to know</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Frequently asked</h2></div>
+      <div class="acc-group reveal" data-d="1" data-acc>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq1"><span class="acc-t">How long is the tour?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq1" role="region"><div class="acc-inner"><p>The experience runs for about two to three hours, beginning with a private evening pickup from your Queenstown accommodation, timed to the Milky Way's best visibility.</p></div></div></div>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq2"><span class="acc-t">When is the best time of year?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq2" role="region"><div class="acc-inner"><p>Tours run from mid-April to mid-September on clear, moonless nights. The Milky Way is at its most spectacular in June and July, with May and August also excellent.</p></div></div></div>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq3"><span class="acc-t">Do I need a camera or experience?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq3" role="region"><div class="acc-inner"><p>No. Your guide is a professional astrophotographer who photographs you beneath the stars and delivers a set of edited images. Bring your own camera and learn if you like, but nothing is required.</p></div></div></div>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq4"><span class="acc-t">Where do the tours take place?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq4" role="region"><div class="acc-inner"><p>You're driven to secret, handpicked dark-sky locations around the Queenstown and Wakatipu region, chosen each night for moon phase, cloud cover and season.</p></div></div></div>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq5"><span class="acc-t">What should I bring and wear?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq5" role="region"><div class="acc-inner"><p>Dress very warmly in layers, with a hat, gloves and closed shoes, as tours run outdoors at night in alpine conditions. We'll advise on anything else once your date is set.</p></div></div></div>
+        <div class="acc"><h3 class="acc-h"><button type="button" class="acc-q" aria-expanded="false" aria-controls="fq6"><span class="acc-t">What if the weather is poor?</span><span class="ic" aria-hidden="true">+</span></button></h3><div class="acc-a" id="fq6" role="region"><div class="acc-inner"><p>Clear skies are essential, so your guide watches the forecast closely and will work with you to choose the best night, rescheduling if conditions don't cooperate.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER EXPERIENCES (slider) -->
   <section class="ex-sec wrap" aria-label="Other experiences">
     <span class="eyebrow reveal">Keep exploring</span>
     <h2 class="reveal" data-d="1" style="margin-top:1rem">Other experiences</h2>
-    <div class="grid" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
-      <a class="card reveal" href="https://luminatours.co.nz/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+    <div class="slider reveal" data-d="1" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
+      <button class="slider-arrow prev" type="button" aria-label="Scroll to previous experiences">&#8249;</button>
+      <div class="slider-track" id="expTrack">
+        <a class="card" href="https://luminatours.co.nz/milford-sound-tour" aria-label="Milford Sound private photography tour"><img class="ph" src="/image/home/milford-sound.webp" alt="Milford Sound at golden light in Fiordland on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/cromwell-wanaka-tour" aria-label="Cromwell and Wanaka private photography tour"><img class="ph" src="/image/home/cromwell-wanaka.webp" alt="Lake Wanaka and Central Otago landscape on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/queenstown-sightseeing-tour" aria-label="Queenstown sightseeing private photography tour"><img class="ph" src="/image/home/queenstown-sightseeing.webp" alt="Queenstown lake and mountain views on a private sightseeing tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
+        <a class="card" href="https://luminatours.co.nz/custom-tour" aria-label="Custom and tailored private photography tour"><img class="ph" src="/image/home/custom-tailored.webp" alt="A bespoke private tour with helicopter and glacier add-ons" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Bespoke</span><h3>Custom &amp; Tailored</h3></div></a>
+      </div>
+      <button class="slider-arrow next" type="button" aria-label="Scroll to more experiences">&#8250;</button>
     </div>
   </section>
 
@@ -722,6 +811,31 @@
       else{heroVid.pause();vToggle.textContent='\u25B6';vToggle.setAttribute('aria-label','Play background video');vToggle.setAttribute('aria-pressed','true');}
     });
   }
+
+  /* ===== accordions (itinerary + FAQ): one open at a time, slow slide ===== */
+  document.querySelectorAll('[data-acc]').forEach(group=>{
+    const items=[...group.querySelectorAll('.acc')];
+    items.forEach(item=>{
+      const btn=item.querySelector('.acc-q');
+      if(!btn) return;
+      btn.addEventListener('click',()=>{
+        const isOpen=item.classList.contains('open');
+        items.forEach(i=>{ i.classList.remove('open'); const b=i.querySelector('.acc-q'); if(b) b.setAttribute('aria-expanded','false'); });
+        if(!isOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      });
+    });
+  });
+
+  /* ===== experience slider arrows ===== */
+  document.querySelectorAll('.slider').forEach(sl=>{
+    const track=sl.querySelector('.slider-track');
+    const prev=sl.querySelector('.slider-arrow.prev'), next=sl.querySelector('.slider-arrow.next');
+    if(!track) return;
+    const step=()=>Math.min(track.clientWidth*0.85, 340);
+    if(prev) prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+    if(next) next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  });
+
 </script>
 </body>
 </html>
