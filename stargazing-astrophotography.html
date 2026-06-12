@@ -575,6 +575,29 @@
     .contact-head p{font-size:.8rem;font-weight:285;line-height:1.72}
     .foot-brand p{font-size:.8rem;color:var(--ink-mute)}
   }
+
+  /* ===== STARGAZING v6 ===== */
+  /* eyebrow now sits above the grid; align heading top with body */
+  .overview-grid h2{margin-top:0}
+  /* gap above overview increased; inclusion gap below increased to match its top */
+  .ex-sec[aria-label="Overview"]{padding-top:clamp(4rem,8vw,6rem);padding-bottom:clamp(1.7rem,3.4vw,2.6rem)}
+  .ex-sec[aria-label="What is included"]{padding-top:clamp(1.7rem,3.4vw,2.6rem);padding-bottom:clamp(4.5rem,8.5vw,6.5rem)}
+  /* itinerary background: show more of the lower image (church); gentler crop */
+  .itinerary-bg{top:-6%;height:112%;background-position:center 88%}
+  /* footer: tighter logo-to-brand gap + tighter items (pc) */
+  .foot-brand .brand{margin-bottom:.5rem}
+  .foot-col a,.foot-col span{margin-bottom:.45rem}
+  /* mobile menu: narrower side panel, items centred, thinner strokes */
+  @media (max-width:900px){
+    .nav-links{width:min(66vw,275px);align-items:center;gap:1.7rem;padding:2.5rem}
+    .nav-links a{font-weight:400}
+  }
+  /* mobile: itinerary bg shifted right (church to edge); tighter footer items + legal row */
+  @media (max-width:760px){
+    .itinerary-bg{background-position:82% 88%}
+    .foot-col a,.foot-col span{margin-bottom:.3rem}
+    .foot-bottom{margin-top:2rem;gap:.4rem 1rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -611,21 +634,21 @@
     <div class="wrap hero-inner">
       <span class="eyebrow">Under the Milky Way</span>
       <h1>Stargazing &amp; <em>Astrophotography</em> Tours<span class="h1-place">Queenstown</span></h1>
-      <p class="lede">A private night under the Milky Way, with a local astrophotographer to guide and photograph you.</p>
+      <p class="lede">A private night with a local astrophotographer, to guide you through the night and photograph you beneath the stars.</p>
       <div class="hero-cta"><a href="#enquire" class="btn btn-quiet">Check availability</a></div>
     </div>
   </section>
 
   <!-- OVERVIEW -->
   <section class="ex-sec wrap" aria-label="Overview">
-    <div class="overview-grid">
+    <span class="eyebrow reveal">The experience</span>
+    <div class="overview-grid" style="margin-top:1rem">
       <div class="reveal">
-        <span class="eyebrow">The experience</span>
         <h2>Witness the stars, and be <em>photographed</em> among them</h2>
       </div>
       <div class="overview-body reveal" data-d="1">
-        <p>Step into the stillness of the southern night on a private two to three hour stargazing experience, led by a local astrophotographer. You are taken to secret, handpicked locations chosen for their dark skies and Milky Way visibility, selected for the season and the night's conditions.</p>
-        <p>As your guide and photographer, he helps you not only witness the stars, but be photographed beneath them, creating a collection of beautiful, personal night-sky images to remember it by.</p>
+        <p>Away from Queenstown's lights, the night sky over the Southern Alps is among the darkest and clearest anywhere on Earth. On a moonless night the Milky Way arches from one horizon to the other, with the Southern Cross, bright planets, and thousands of stars revealed, the kind of sky most people never get to see.</p>
+        <p>This is your chance to stand beneath it. Your photographer-guide takes you well away from the lights, helps you find your way around the night sky, and photographs you among the stars, a chance to capture your place in the cosmos.</p>
         <p class="season-note">(Best from June to August.)</p>
       </div>
     </div>
@@ -643,21 +666,21 @@
   </section>
   <!-- WHAT'S INCLUDED -->
   <section class="ex-sec wrap" aria-label="What is included">
-    <div class="overview-grid">
+    <span class="eyebrow reveal">The details</span>
+    <div class="overview-grid" style="margin-top:1rem">
       <div class="reveal">
-        <span class="eyebrow">The details</span>
         <h2>What's included</h2>
         <dl class="lead-fact"><dt>Duration</dt><dd>2 to 3 hours</dd></dl>
       </div>
       <div class="overview-body reveal" data-d="1">
-        <p>Your evening is private and fully taken care of, from a pickup at your Queenstown accommodation to the drive back at the end. A local astrophotographer guides the night, sets up the stargazing, and photographs you beneath the stars, with a warm drink along the way and a curated set of edited night-sky images delivered afterwards.</p>
+        <p>Your evening is private and unhurried, with everything taken care of. You're collected from your Queenstown accommodation and driven to a secret dark-sky spot, where your guide points out the constellations and the stories behind them, no experience needed. There's time to simply take it in, often with a warm drink in hand, while you're photographed beneath the stars. A few days later, a curated set of professionally edited night-sky images arrives, yours to keep.</p>
       </div>
     </div>
   </section>
 
   <!-- ITINERARY (collapsible, over background image) -->
   <section class="itinerary" aria-label="What to expect">
-    <div class="itinerary-bg" data-parallax="0.08"></div>
+    <div class="itinerary-bg" data-parallax="0.05"></div>
     <div class="wrap itinerary-inner">
       <div class="faq-grid">
         <div><span class="eyebrow reveal">The evening</span><h2 class="itin-head reveal" data-d="1" style="margin-top:1rem">A typical itinerary</h2></div>
