@@ -598,6 +598,35 @@
     .foot-col a,.foot-col span{margin-bottom:.3rem}
     .foot-bottom{margin-top:2rem;gap:.4rem 1rem}
   }
+
+  /* ===== STARGAZING v7 ===== */
+  /* footer: smaller overall (desktop) + tighter gap to the bottom row */
+  footer{padding:clamp(2.5rem,5vw,3.5rem) 0 2rem}
+  .foot-bottom{margin-top:1.8rem}
+  /* lift overview/inclusion body to sit higher beside the heading */
+  .overview-body{margin-top:-.4rem}
+  /* tighter Duration label/value (pc + mobile) */
+  .lead-fact dt{margin-bottom:.08rem}
+  /* contact form text smaller */
+  input,select,textarea{font-size:.9rem}
+  .contact-head p{font-size:.95rem}
+  @media (max-width:760px){
+    /* simple transparent pause/play, no circle */
+    .video-toggle{border:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto;opacity:.55;font-size:1rem}
+    /* itinerary bg shifted RIGHT so the building ends near the right edge */
+    .itinerary-bg{background-position:22% 88%}
+    /* smaller header logo + name */
+    .brand{font-size:1.25rem}
+    .logo-icon{height:34px}
+    /* footer bottom row tighter on mobile */
+    .foot-bottom{margin-top:1.3rem}
+  }
+  @media (max-width:560px){
+    /* breathing room on the left (not flush to the screen edge) for these sections */
+    .ex-sec[aria-label="Overview"],.ex-sec[aria-label="Gallery"],.ex-sec[aria-label="What is included"]{padding-left:2rem;padding-right:2rem}
+    /* body text down to footer-text size */
+    .overview-body p,.ticks li,.season-note,.tstep p,.incl p,.acc-a p,.contact-head p{font-size:.78rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
