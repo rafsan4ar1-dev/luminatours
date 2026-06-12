@@ -522,6 +522,41 @@
     .itin-head{font-size:1.55rem}
     .overview-grid h2,.incl-lead h2{font-size:1.55rem}
   }
+  /* ============ STARGAZING v4: type + spacing tuning ============ */
+  /* body: thinner strokes */
+  body{font-weight:295}
+  /* hero: block higher, eyebrow lower + smaller/thinner, tagline smaller/thinner */
+  .hero{padding-bottom:clamp(3.5rem,7.5vh,6rem)}
+  .hero .eyebrow{font-size:.6rem;font-weight:500}
+  .hero h1{margin-top:.7rem}
+  .hero p.lede{font-size:.92rem;font-weight:300}
+  /* consistent section heading size across the page (match the overview heading) */
+  .ex-sec h2,.faq .faq-grid h2,.itin-head{font-size:clamp(1.7rem,3.4vw,2.7rem);font-weight:500;line-height:1.18}
+  /* FAQ question + itinerary step title: same size */
+  .faq .acc-q,.itinerary .acc-q .acc-t{font-size:clamp(1.2rem,2.1vw,1.45rem)}
+  /* answers + itinerary descriptions: dimmer */
+  .acc-a p{color:var(--ink-mute)}
+  /* itinerary background: anchor to bottom so the church (subject) shows; ease overlay slightly */
+  .itinerary-bg{background-position:center bottom}
+  .itinerary-bg::after{background:linear-gradient(rgba(8,9,12,0.8),rgba(8,9,12,0.88))}
+  /* section spacing: consistent gaps with requested nudges */
+  .ex-sec[aria-label="Overview"]{padding-top:clamp(3.4rem,6.5vw,5.25rem);padding-bottom:clamp(1.6rem,3.2vw,2.5rem)}
+  .ex-sec[aria-label="Gallery"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.3rem,2.6vw,2rem)}
+  .ex-sec[aria-label="What is included"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(2.4rem,4.6vw,3.6rem)}
+  .ex-sec[aria-label="Other experiences"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.6rem,3.2vw,2.5rem)}
+  .itinerary{padding-block:clamp(2.6rem,5vw,4rem)}
+  .faq{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.3rem,2.6vw,2rem)}
+  .contact{padding-top:clamp(1.8rem,3.6vw,2.8rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  /* mobile tuning */
+  @media (max-width:560px){
+    body{font-weight:285}
+    .hero .eyebrow{font-size:.52rem}
+    .hero p.lede{font-size:.82rem;font-weight:285}
+    .overview-body p,.ticks li,.season-note,.acc-a p{font-size:.8rem;font-weight:285;line-height:1.72}
+    .ex-sec h2,.faq .faq-grid h2,.itin-head{font-size:1.8rem}
+    .faq .acc-q,.itinerary .acc-q .acc-t{font-size:1.2rem}
+    .acc-q{font-weight:600}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -573,7 +608,7 @@
       <div class="overview-body reveal" data-d="1">
         <p>Step into the stillness of the southern night on a private two to three hour stargazing experience, led by a local astrophotographer. You are taken to secret, handpicked locations chosen for their dark skies and Milky Way visibility, selected for the season and the night's conditions.</p>
         <p>As your guide and photographer, he helps you not only witness the stars, but be photographed beneath them, creating a collection of beautiful, personal night-sky images to remember it by.</p>
-        <p class="season-note">(Available mid-April to mid-September, when the southern skies are darkest.)</p>
+        <p class="season-note">(Available mid-April to mid-September.)</p>
       </div>
     </div>
   </section>
