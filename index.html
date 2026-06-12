@@ -52,7 +52,7 @@
       "image": "https://luminatours.co.nz/image/home/stargazing-astrophotography.webp",
       "logo": "https://luminatours.co.nz/frontend/assets/images/logo.png",
       "description": "Private luxury tours and bespoke photography in Queenstown and across New Zealand's South Island, including Milford Sound, Mount Cook, Glenorchy, Wanaka, Skippers Canyon and Milky Way stargazing & astrophotography experiences.",
-      "telephone": "+64211885532",
+      "telephone": "+64211335754",
       "email": "hello@luminatours.co.nz",
       "priceRange": "$$$",
       "address": { "@type": "PostalAddress", "addressLocality": "Queenstown", "addressRegion": "Otago", "addressCountry": "NZ" },
@@ -311,7 +311,7 @@
     .grid,.quotes{grid-template-columns:repeat(2,1fr)}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .pillar{padding-right:1.2rem}
-    .custom-vis{order:-1}
+    .custom-vis{order:0}
     .m-hide{display:none}
     .view-all-top{display:none}
     .view-all-mobile-wrap{display:flex;justify-content:center;margin-top:2.2rem}
@@ -340,6 +340,42 @@
   @media (max-width:560px){
     .eyebrow{font-size:.55rem}
     .hero p.lede,.intro .body p,.flagship-copy p,.custom-copy p,.pillar p,details p,.faq p{font-size:.82rem;font-weight:300;line-height:1.72}
+  }
+
+  /* ============ HOMEPAGE v24: match stargazing page ============ */
+  /* footer smaller (desktop) + tighter items + logo-brand gap + bottom row */
+  footer{padding:clamp(2.5rem,5vw,3.5rem) 0 2rem}
+  .foot-brand .brand{margin-bottom:.5rem}
+  .foot-col a,.foot-col span{margin-bottom:.45rem}
+  .foot-bottom{margin-top:1.8rem}
+  /* contact form text smaller */
+  input,select,textarea{font-size:.9rem}
+  /* FAQ "+" centred in its circle */
+  summary .ic{line-height:1}
+  /* mobile menu: narrower, items centred, thinner strokes */
+  @media (max-width:900px){
+    .nav-links{width:min(66vw,275px);align-items:center;gap:1.7rem;padding:2.5rem}
+    .nav-links a{font-weight:400}
+  }
+  @media (max-width:760px){
+    /* pause/play: no circle, dim */
+    .video-toggle{border:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto;opacity:.3;color:var(--ink-mute);font-size:1rem}
+    /* smaller header logo + name */
+    .brand{font-size:1.25rem}
+    .logo-icon{height:34px}
+    /* footer menu items: footer-text size + tight spacing */
+    .foot-col a,.foot-col span{font-size:.78rem;margin-bottom:.15rem}
+    /* footer brand line smaller */
+    .foot-brand p{font-size:.8rem;color:var(--ink-mute)}
+    /* footer bottom row tighter */
+    .foot-bottom{margin-top:1.3rem;gap:.4rem 1rem}
+  }
+  @media (max-width:560px){
+    /* body text smaller + thinner + greyer */
+    body{font-weight:285}
+    .hero p.lede,.intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p{font-size:.78rem;font-weight:285;line-height:1.72;color:#b4bbb9}
+    /* a little left/right breathing room (not flush to the edge) */
+    .wrap{padding-inline:1.9rem}
   }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
@@ -516,24 +552,24 @@
         <p>Private luxury tours and bespoke photography across New Zealand's South Island.</p>
       </div>
       <div class="foot-col">
+        <h4>Follow</h4>
+        <a href="https://www.instagram.com/luminatoursnz/" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/luminatoursqueenstown" rel="noopener">Facebook</a>
+        <a href="https://wa.me/64211335754" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@luminatours.co.nz">hello@luminatours.co.nz</a>
+        <a href="tel:+64211335754">+64 21 133 5754</a>
+        <span>Queenstown, New Zealand</span>
+      </div>
+      <div class="foot-col">
         <h4>Explore</h4>
         <a href="/experiences">Experiences</a>
         <a href="/stargazing-astrophotography">Stargazing &amp; astro</a>
         <a href="/gallery">Photo gallery</a>
         <a href="/host">About your host</a>
         <a href="/journal">Journal</a>
-      </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <a href="mailto:hello@luminatours.co.nz">hello@luminatours.co.nz</a>
-        <a href="tel:+64211885532">+64 21 188 5532</a>
-        <span>Queenstown, New Zealand</span>
-      </div>
-      <div class="foot-col">
-        <h4>Follow</h4>
-        <a href="https://www.instagram.com/luminatoursnz/" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/luminatoursqueenstown" rel="noopener">Facebook</a>
-        <a href="https://wa.me/64211885532" rel="noopener">WhatsApp</a>
       </div>
     </div>
     <div class="foot-bottom">
