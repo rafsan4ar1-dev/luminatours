@@ -627,6 +627,18 @@
     /* body text down to footer-text size */
     .overview-body p,.ticks li,.season-note,.tstep p,.incl p,.acc-a p,.contact-head p{font-size:.78rem}
   }
+
+  /* ===== STARGAZING v8 ===== */
+  @media (max-width:760px){
+    /* pause/play much dimmer */
+    .video-toggle{opacity:.3;color:var(--ink-mute)}
+    /* footer menu items: match bottom legal size + tighter spacing */
+    .foot-col a,.foot-col span{font-size:.78rem;margin-bottom:.15rem}
+  }
+  @media (max-width:560px){
+    /* align "Other experiences" text with the other sections */
+    .ex-sec[aria-label="Other experiences"]{padding-left:2rem;padding-right:2rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
