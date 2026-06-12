@@ -328,6 +328,19 @@
     .hero-media video,.aurora,.flagship-vis .fvimg{transform:none}
     .hero .eyebrow,.hero p.lede,.hero-cta,.hero h1{opacity:1;transform:none}
   }
+
+  /* ============ HOMEPAGE v23 ADJUSTMENTS ============ */
+  .nav-close-li{display:none}
+  @media (max-width:760px){
+    .reveal{transform:translateY(24px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+    .card.reveal{transition:opacity .9s var(--ease-out),transform .9s var(--ease-out),border-color .6s ease}
+    .nav-close-li{display:block;position:absolute;top:1.2rem;right:1.4rem;margin:0}
+    .nav-close{background:none;border:0;color:var(--ink);font-size:2.1rem;line-height:1;cursor:pointer;padding:.2rem .4rem}
+  }
+  @media (max-width:560px){
+    .eyebrow{font-size:.55rem}
+    .hero p.lede,.intro .body p,.flagship-copy p,.custom-copy p,.pillar p,details p,.faq p{font-size:.82rem;font-weight:300;line-height:1.72}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -339,11 +352,12 @@
     <a href="#" class="brand" aria-label="Lumina Tours home"><img class="logo-icon" src="/image/shared/lumina-tours-logo.png" alt=""><span class="brand-text">Lumina<i> Tours</i></span></a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="navLinks">
-        <li><a href="https://luminatours.co.nz/experiences">Experiences</a></li>
-        <li><a href="https://luminatours.co.nz/stargazing-astrophotography">Stargazing</a></li>
-        <li><a href="https://luminatours.co.nz/gallery">Gallery</a></li>
-        <li><a href="https://luminatours.co.nz/host">About</a></li>
-        <li><a href="https://luminatours.co.nz/journal">Journal</a></li>
+        <li class="nav-close-li"><button class="nav-close" id="navClose" type="button" aria-label="Close menu">&times;</button></li>
+        <li><a href="/experiences">Experiences</a></li>
+        <li><a href="/stargazing-astrophotography">Stargazing</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/host">About</a></li>
+        <li><a href="/journal">Journal</a></li>
         <li><a href="#enquire" class="btn">Enquire</a></li>
       </ul>
     </nav>
@@ -382,17 +396,17 @@
   <section class="wrap" aria-label="Featured experiences">
     <div class="section-head">
       <div class="lead"><span class="eyebrow reveal">Handpicked journeys</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Featured experiences</h2></div>
-      <a href="https://luminatours.co.nz/experiences" class="btn reveal view-all-top" data-d="2">View all</a>
+      <a href="/experiences" class="btn reveal view-all-top" data-d="2">View all</a>
     </div>
     <div class="grid">
-      <a class="card reveal" href="https://luminatours.co.nz/milford-sound-tour" aria-label="Milford Sound private photography tour"><img class="ph" src="/image/home/milford-sound.webp" alt="Milford Sound at golden light in Fiordland on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
-      <a class="card reveal" data-d="2" href="https://luminatours.co.nz/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
-      <a class="card reveal m-hide" href="https://luminatours.co.nz/cromwell-wanaka-tour" aria-label="Cromwell and Wanaka private photography tour"><img class="ph" src="/image/home/cromwell-wanaka.webp" alt="Lake Wanaka and Central Otago landscape on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
-      <a class="card reveal" data-d="1" href="https://luminatours.co.nz/queenstown-sightseeing-tour" aria-label="Queenstown sightseeing private photography tour"><img class="ph" src="/image/home/queenstown-sightseeing.webp" alt="Queenstown lake and mountain views on a private sightseeing tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
-      <a class="card reveal m-hide" data-d="2" href="https://luminatours.co.nz/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
+      <a class="card reveal" href="/milford-sound-tour" aria-label="Milford Sound private photography tour"><img class="ph" src="/image/home/milford-sound.webp" alt="Milford Sound at golden light in Fiordland on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
+      <a class="card reveal" data-d="1" href="/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
+      <a class="card reveal" data-d="2" href="/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+      <a class="card reveal m-hide" href="/cromwell-wanaka-tour" aria-label="Cromwell and Wanaka private photography tour"><img class="ph" src="/image/home/cromwell-wanaka.webp" alt="Lake Wanaka and Central Otago landscape on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
+      <a class="card reveal" data-d="1" href="/queenstown-sightseeing-tour" aria-label="Queenstown sightseeing private photography tour"><img class="ph" src="/image/home/queenstown-sightseeing.webp" alt="Queenstown lake and mountain views on a private sightseeing tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
+      <a class="card reveal m-hide" data-d="2" href="/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3></div></a>
     </div>
-    <div class="view-all-mobile-wrap"><a href="https://luminatours.co.nz/experiences" class="btn reveal">View all experiences</a></div>
+    <div class="view-all-mobile-wrap"><a href="/experiences" class="btn reveal">View all experiences</a></div>
   </section>
 
   <!-- FLAGSHIP -->
@@ -404,7 +418,7 @@
         <span class="tag">&#9733; Signature experience</span>
         <h2 style="margin-top:1.6rem">Stargazing &amp; <em>astrophotography</em></h2>
         <p>Photograph the night within reach of New Zealand's renowned dark-sky reserves. Your personal astrophotographer guides a private night under the Milky Way, and sends you home with the stars themselves, captured in extraordinary detail.</p>
-        <a href="https://luminatours.co.nz/stargazing-astrophotography" class="btn btn-solid">Discover the night</a>
+        <a href="/stargazing-astrophotography" class="btn btn-solid">Discover the night</a>
       </div>
       <div class="flagship-vis reveal" data-d="1" role="img" aria-label="Milky Way astrophotography over Queenstown's dark skies"><div class="fvimg" style="background-image:url('/image/home/stargazing-astrophotography.webp')"></div></div>
     </div>
@@ -417,7 +431,7 @@
         <span class="eyebrow">Tailored for you</span>
         <h2 style="margin-top:1rem">Got something entirely <em>different in mind?</em></h2>
         <p>Your journey, your way, designed around your interests, pace, and style. From hidden gems to helicopter rides or glacier landings, every detail is tailored for a one-of-a-kind experience.</p>
-        <a href="https://luminatours.co.nz/custom-tour" class="btn btn-solid">Explore custom experiences</a>
+        <a href="/custom-tour" class="btn btn-solid">Explore custom experiences</a>
       </div>
       <div class="custom-vis reveal" data-d="1" role="img" aria-label="Bespoke private tour with helicopter and glacier add-ons"><div class="ph" style="background:url('/image/home/custom-tailored.webp') center/cover"></div></div>
     </div>
@@ -503,11 +517,11 @@
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="https://luminatours.co.nz/experiences">Experiences</a>
-        <a href="https://luminatours.co.nz/stargazing-astrophotography">Stargazing &amp; astro</a>
-        <a href="https://luminatours.co.nz/gallery">Photo gallery</a>
-        <a href="https://luminatours.co.nz/host">About your host</a>
-        <a href="https://luminatours.co.nz/journal">Journal</a>
+        <a href="/experiences">Experiences</a>
+        <a href="/stargazing-astrophotography">Stargazing &amp; astro</a>
+        <a href="/gallery">Photo gallery</a>
+        <a href="/host">About your host</a>
+        <a href="/journal">Journal</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
@@ -524,7 +538,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2025 Lumina Tours</span>
-      <span class="foot-legal"><a href="https://luminatours.co.nz/privacy">Privacy Policy</a><a href="https://luminatours.co.nz/terms">Terms &amp; Conditions</a></span>
+      <span class="foot-legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a></span>
       <span>Private tours &middot; Professional photography &middot; Queenstown, NZ</span>
     </div>
   </div>
@@ -540,8 +554,12 @@
 
   const toggle=document.getElementById('menuToggle');
   const links=document.getElementById('navLinks');
-  toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
-  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded',false);}));
+  const navClose=document.getElementById('navClose');
+  function closeMenu(){links.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
+  toggle.addEventListener('click',(e)=>{e.stopPropagation();const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
+  if(navClose) navClose.addEventListener('click',closeMenu);
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('click',(e)=>{ if(links.classList.contains('open') && !links.contains(e.target) && e.target!==toggle && !toggle.contains(e.target)) closeMenu(); });
 
   /* motion: smooth scroll, parallax, and scroll-reveal: all recalculated every frame */
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
