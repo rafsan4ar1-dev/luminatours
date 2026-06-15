@@ -409,6 +409,9 @@
     input,select,textarea{font-size:.85rem}
     .field label{font-size:.7rem}
   }
+
+  /* guest stories: two reviews centred */
+  .quotes-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin-left:auto;margin-right:auto}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -513,6 +516,29 @@
       <div class="pillar reveal" data-d="1"><span class="num">02</span><h3>Professional photography</h3><p>A working photographer at the wheel, capturing the day as it unfolds.</p></div>
       <div class="pillar reveal" data-d="2"><span class="num">03</span><h3>Local expertise</h3><p>The hidden viewpoints and right light that only locals know.</p></div>
       <div class="pillar reveal" data-d="3"><span class="num">04</span><h3>Luxury &amp; comfort</h3><p>Travel in ease, with every detail considered and quietly handled.</p></div>
+    </div>
+  </section>
+
+  <!-- GUEST STORIES -->
+  <section class="trust" aria-label="Guest stories">
+    <div class="trust-bg" data-parallax="0.08"></div>
+    <div class="wrap">
+      <div style="text-align:center">
+        <span class="eyebrow reveal">Guest stories</span>
+        <h2 class="reveal" data-d="1" style="margin-top:1rem">From recent guests</h2>
+      </div>
+      <div class="quotes quotes-2">
+        <div class="quote reveal">
+          <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>[Paste your first Google review here.]</p>
+          <div class="who">[Guest name] &middot; [Tour]</div>
+        </div>
+        <div class="quote reveal" data-d="1">
+          <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>[Paste your second Google review here.]</p>
+          <div class="who">[Guest name] &middot; [Tour]</div>
+        </div>
+      </div>
     </div>
   </section>
 
