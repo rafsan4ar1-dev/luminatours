@@ -377,6 +377,38 @@
     /* a little left/right breathing room (not flush to the edge) */
     .wrap{padding-inline:1.9rem}
   }
+
+  /* ============ HOMEPAGE v25 ============ */
+  /* snappier reveal */
+  .reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
+  .card.reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out),border-color .6s ease}
+  /* contact: more compact, keep image anchored to its bottom (church/subject) */
+  .contact{padding-top:clamp(2.6rem,5vw,4rem);padding-bottom:clamp(3rem,6vw,4.5rem)}
+  .contact-bg{background-position:center bottom}
+  .contact-head{margin-bottom:clamp(1.8rem,3.5vw,2.5rem)}
+  /* footer subheading: less space beneath */
+  .foot-col h4{margin-bottom:.7rem}
+  @media (max-width:760px){
+    /* MENU FIX: blurred header was trapping the menu panel; use a solid header on mobile */
+    header.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,17,0.95)}
+    /* snappier reveal on mobile */
+    .reveal{transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transform:translateY(18px)}
+    .card.reveal{transition:opacity .6s var(--ease-out),transform .6s var(--ease-out),border-color .5s ease}
+    .foot-col h4{margin-bottom:.45rem}
+  }
+  @media (max-width:560px){
+    /* hero eyebrow smaller + less space beneath it */
+    .hero .eyebrow{font-size:.5rem}
+    .hero h1{margin-top:.5rem}
+    /* Why Lumina: much more compact on mobile */
+    .pillar{padding:1.25rem 0}
+    /* FAQ questions: tighter on mobile */
+    details{padding:.9rem 0}
+    /* contact subtext + form text smaller/greyer to match */
+    .contact-head p{font-size:.78rem;font-weight:285;color:#b4bbb9;line-height:1.7}
+    input,select,textarea{font-size:.85rem}
+    .field label{font-size:.7rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -489,7 +521,7 @@
     <div class="faq-grid">
       <div><span class="eyebrow reveal">Good to know</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Frequently asked</h2></div>
       <div class="reveal" data-d="1">
-        <details open><summary>Are Lumina tours private?<span class="ic">+</span></summary><p>Yes. Every Lumina Tours experience is fully private, just you and your guide. No other guests, no fixed timetable, and the pace of the day is entirely yours.</p></details>
+        <details><summary>Are Lumina tours private?<span class="ic">+</span></summary><p>Yes. Every Lumina Tours experience is fully private, just you and your guide. No other guests, no fixed timetable, and the pace of the day is entirely yours.</p></details>
         <details><summary>Do I receive the photographs?<span class="ic">+</span></summary><p>Yes. Your guide is a professional photographer who captures your experience throughout the day, and a set of professionally edited images is delivered to you after your tour.</p></details>
         <details><summary>Where do you operate?<span class="ic">+</span></summary><p>We're based in Queenstown and run private tours across the South Island, including Milford Sound, Aoraki / Mount Cook, Glenorchy &amp; Paradise, Cromwell &amp; Wanaka and Skippers Canyon.</p></details>
         <details><summary>When is the best time for stargazing?<span class="ic">+</span></summary><p>Stargazing and astrophotography tours run from mid-April to mid-September, on clear, moonless nights. The Milky Way is at its most spectacular in June and July, with May and August also excellent.</p></details>
@@ -604,30 +636,30 @@
      the screen, and fades back out at that exact same line on scroll-up. Recalculated every
      frame (below) so it stays glued to the smooth scroll. */
   const revealEls=[...document.querySelectorAll('.reveal')];
-  function updateReveals(){
-    const line=window.innerHeight*0.97;
-    for(const el of revealEls){
-      el.classList.toggle('in', el.getBoundingClientRect().top < line);
-    }
+  if(reduce || !('IntersectionObserver' in window)){
+    revealEls.forEach(el=>el.classList.add('in'));
+  } else {
+    const io=new IntersectionObserver((entries)=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }
+    },{rootMargin:'0px 0px -4% 0px'});
+    revealEls.forEach(el=>io.observe(el));
   }
 
   const pEls=[...document.querySelectorAll('[data-parallax]')];
   function parallax(){const vh=window.innerHeight;pEls.forEach(el=>{const r=el.getBoundingClientRect();const s=parseFloat(el.dataset.parallax)||0.1;const off=(r.top+r.height/2)-vh/2;el.style.transform='translate3d(0,'+(-off*s).toFixed(1)+'px,0)';});}
 
-  if(reduce){
-    updateReveals();   /* reduced-motion: CSS shows everything; nothing animates */
-  } else {
+  if(!reduce){
     let lenis=null;
     if(window.Lenis){
-      lenis=new Lenis({duration:1.15,smoothWheel:true,wheelMultiplier:0.9});
+      lenis=new Lenis({duration:1.0,smoothWheel:true,wheelMultiplier:1.0});
       document.querySelectorAll('a[href^="#"]').forEach(a=>{
         a.addEventListener('click',(e)=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
       });
     }
-    function frame(t){ if(lenis) lenis.raf(t); parallax(); updateReveals(); requestAnimationFrame(frame); }
+    function frame(t){ if(lenis) lenis.raf(t); parallax(); requestAnimationFrame(frame); }
     requestAnimationFrame(frame);
-    window.addEventListener('resize', ()=>{ parallax(); updateReveals(); });
-  }
+    window.addEventListener('resize', parallax, {passive:true});
+  } else { parallax(); }
 
   /* confirm-email match check */
   const efrm=document.querySelector('form');
