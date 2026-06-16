@@ -59,6 +59,11 @@
       "geo": { "@type": "GeoCoordinates", "latitude": -45.0312, "longitude": 168.6626 },
       "areaServed": ["Queenstown", "Fiordland", "Milford Sound", "Aoraki / Mount Cook", "Glenorchy", "Wanaka", "South Island, New Zealand"],
       "knowsAbout": ["Private tours", "Landscape photography", "Astrophotography", "Stargazing tours"],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "2", "bestRating": "5" },
+      "review": [
+        { "@type": "Review", "author": { "@type": "Person", "name": "Roger C." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "This was quite an experience, felt like we roamed around with a friend of ours and loved the part we did not have to worry about the photos. I barely ever leave a review, Arafat deserves one. I would recommend this to anyone who truly wants a personalized experience. We explored Mount Cook with Arafat and were lucky with great weather, a comfortable journey altogether." },
+        { "@type": "Review", "author": { "@type": "Person", "name": "Aileen Chandra" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Amazing service and result." }
+      ],
       "sameAs": ["https://www.instagram.com/luminatoursnz/", "https://www.facebook.com/luminatoursqueenstown"]
     },
     { "@type": "WebSite", "@id": "https://luminatours.co.nz/#website", "url": "https://luminatours.co.nz/", "name": "Lumina Tours", "publisher": { "@id": "https://luminatours.co.nz/#business" }, "inLanguage": "en-NZ" },
@@ -411,7 +416,7 @@
   }
 
   /* guest stories: two reviews centred */
-  .quotes-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin-left:auto;margin-right:auto}
+  .quotes-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin-left:auto;margin-right:auto;align-items:start}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -530,13 +535,13 @@
       <div class="quotes quotes-2">
         <div class="quote reveal">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>[Paste your first Google review here.]</p>
-          <div class="who">[Guest name] &middot; [Tour]</div>
+          <p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount cook with Arafat and were lucky have great weather, a comfortable journey altogether!</p>
+          <div class="who">Roger C. &middot; Mount Cook tour</div>
         </div>
         <div class="quote reveal" data-d="1">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>[Paste your second Google review here.]</p>
-          <div class="who">[Guest name] &middot; [Tour]</div>
+          <p>Amazing service and result &#9829;</p>
+          <div class="who">Aileen Chandra</div>
         </div>
       </div>
     </div>
