@@ -428,6 +428,16 @@
     .quote{padding:1.4rem}
     .quote p{font-size:.95rem;font-weight:300}
   }
+
+  /* guest stories: uniform 3-line cards with expand */
+  .quote p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(1.4em * 3)}
+  .quote.open p{-webkit-line-clamp:unset;overflow:visible;min-height:0}
+  .read-more{margin-top:.7rem;background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);transition:opacity .3s ease}
+  .read-more:hover{opacity:.7}
+  @media (max-width:560px){
+    /* stack reviews vertically on phones (no squashed side-by-side) */
+    .quotes-2{grid-template-columns:1fr}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -547,11 +557,13 @@
         <div class="quote reveal">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p>
+          <button class="read-more" type="button">... Read more</button>
           <div class="who">Roger C. &middot; Mount Cook tour</div>
         </div>
         <div class="quote reveal" data-d="1">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>Amazing service and result &#9829;</p>
+          <button class="read-more" type="button">... Read more</button>
           <div class="who">Aileen Chandra</div>
         </div>
       </div>
@@ -726,6 +738,15 @@
       else{heroVid.pause();vToggle.textContent='\u25B6';vToggle.setAttribute('aria-label','Play background video');vToggle.setAttribute('aria-pressed','true');}
     });
   }
+
+  /* guest-stories read more */
+  document.querySelectorAll('.quote').forEach(q=>{
+    const qp=q.querySelector('p'), rb=q.querySelector('.read-more');
+    if(!qp||!rb) return;
+    if(qp.scrollHeight - qp.clientHeight < 6){ rb.style.display='none'; }
+    rb.addEventListener('click',()=>{ const open=q.classList.toggle('open'); rb.textContent = open ? 'Read less' : '... Read more'; });
+  });
+
 </script>
 </body>
 </html>
