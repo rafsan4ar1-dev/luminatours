@@ -37,7 +37,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
 <!-- ============ STRUCTURED DATA (SEO + GEO/AIO) ============ -->
 <script type="application/ld+json">
@@ -417,6 +417,17 @@
 
   /* guest stories: two reviews centred */
   .quotes-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin-left:auto;margin-right:auto;align-items:start}
+
+  /* guest stories: tighter top spacing + lighter, more compact quotes */
+  .trust{padding-top:clamp(2.4rem,5vw,3.5rem);padding-bottom:clamp(2.6rem,5.5vw,4rem)}
+  .quote{padding:1.7rem}
+  .quote p{font-size:1.15rem;font-weight:400;line-height:1.4}
+  .stars-row{margin-bottom:.7rem}
+  .quote .who{margin-top:.9rem}
+  @media (max-width:560px){
+    .quote{padding:1.4rem}
+    .quote p{font-size:.95rem;font-weight:300}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -535,7 +546,7 @@
       <div class="quotes quotes-2">
         <div class="quote reveal">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount cook with Arafat and were lucky have great weather, a comfortable journey altogether!</p>
+          <p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p>
           <div class="who">Roger C. &middot; Mount Cook tour</div>
         </div>
         <div class="quote reveal" data-d="1">
