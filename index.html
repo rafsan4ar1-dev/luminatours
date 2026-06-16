@@ -447,6 +447,12 @@
     .quote p{font-size:1rem;font-weight:300}
     .quote .who{font-size:.62rem}
   }
+
+  /* guest stories: JS-trimmed text with an inline, natural "Read more" at the end of line 3 */
+  .quote p.qtext{display:block;-webkit-line-clamp:unset;overflow:visible;min-height:calc(1.4em * 3);margin:0}
+  .read-more{position:static;display:inline;background:none;border:0;padding:0;margin:0 0 0 .15rem;cursor:pointer;font-family:var(--sans);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);vertical-align:baseline}
+  .read-more:hover{opacity:.7}
+  .q-elip{color:var(--ink-mute)}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -565,12 +571,12 @@
       <div class="quotes quotes-2">
         <div class="quote reveal">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="qbody"><p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p><button class="read-more" type="button">... Read more</button></div>
+          <div class="qbody"><p class="qtext">This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p></div>
           <div class="who">Roger C. &middot; Mount Cook tour</div>
         </div>
         <div class="quote reveal" data-d="1">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="qbody"><p>Amazing service and result &#9829;</p><button class="read-more" type="button">... Read more</button></div>
+          <div class="qbody"><p class="qtext">Amazing service and result &#9829;</p></div>
           <div class="who">Aileen Chandra &middot; Queenstown tour</div>
         </div>
       </div>
@@ -753,6 +759,39 @@
     if(qp.scrollHeight - qp.clientHeight < 6){ rb.style.display='none'; }
     rb.addEventListener('click',()=>{ const open=q.classList.toggle('open'); rb.textContent = open ? 'Read less' : '... Read more'; });
   });
+
+
+  /* guest-stories: natural inline truncation */
+  function fitQuote(q){
+    const p=q.querySelector('.qtext'); if(!p) return;
+    const full=p.getAttribute('data-full') || p.textContent.trim();
+    p.setAttribute('data-full', full);
+    const cs=getComputedStyle(p);
+    let lh=parseFloat(cs.lineHeight); if(!lh) lh=parseFloat(cs.fontSize)*1.4;
+    const maxH=lh*3+2;
+    p.textContent=full;
+    if(p.scrollHeight<=maxH){ q.classList.remove('open'); return; }
+    const words=full.split(' ');
+    function render(n, less){
+      p.innerHTML='';
+      p.appendChild(document.createTextNode(words.slice(0,n).join(' ')));
+      const e=document.createElement('span'); e.className='q-elip'; e.textContent=' … '; p.appendChild(e);
+      const b=document.createElement('button'); b.type='button'; b.className='read-more'; b.textContent='Read more'; p.appendChild(b);
+      return b;
+    }
+    let lo=1, hi=words.length, best=1;
+    while(lo<=hi){ const mid=(lo+hi)>>1; render(mid); if(p.scrollHeight<=maxH){ best=mid; lo=mid+1; } else { hi=mid-1; } }
+    const btn=render(best);
+    btn.addEventListener('click',()=>{
+      p.innerHTML='';
+      p.appendChild(document.createTextNode(full+' '));
+      const b=document.createElement('button'); b.type='button'; b.className='read-more'; b.textContent='Read less'; p.appendChild(b);
+      b.addEventListener('click',()=>fitQuote(q));
+      q.classList.add('open');
+    });
+  }
+  document.querySelectorAll('.quote').forEach(fitQuote);
+  let qrt; window.addEventListener('resize',()=>{ clearTimeout(qrt); qrt=setTimeout(()=>document.querySelectorAll('.quote').forEach(fitQuote),150); });
 
 </script>
 </body>
