@@ -438,6 +438,15 @@
     /* stack reviews vertically on phones (no squashed side-by-side) */
     .quotes-2{grid-template-columns:1fr}
   }
+
+  /* read-more sits at the end of the 3rd line so all boxes stay equal height */
+  .quote .qbody{position:relative}
+  .read-more{position:absolute;right:0;bottom:0;margin:0;padding-left:2.8em;background:linear-gradient(90deg,transparent,var(--bg-2) 1.9em);line-height:1.4}
+  .quote.open .read-more{position:static;background:none;padding-left:0;margin-top:.6rem;line-height:normal}
+  @media (max-width:560px){
+    .quote p{font-size:1rem;font-weight:300}
+    .quote .who{font-size:.62rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -556,15 +565,13 @@
       <div class="quotes quotes-2">
         <div class="quote reveal">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p>
-          <button class="read-more" type="button">... Read more</button>
+          <div class="qbody"><p>This was quite an experience, felt like we roamed around with a friend of ours and loved the part we didn't have to worry about the photos! I barely ever leave review, Arafat deserves one! I'd recommend this to anyone who truly wants a personalized experience. We were skeptical in the beginning but after having a chat with him we just went with it! We explored Mount Cook with Arafat and were lucky to have great weather, a comfortable journey altogether!</p><button class="read-more" type="button">... Read more</button></div>
           <div class="who">Roger C. &middot; Mount Cook tour</div>
         </div>
         <div class="quote reveal" data-d="1">
           <div class="stars-row" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>Amazing service and result &#9829;</p>
-          <button class="read-more" type="button">... Read more</button>
-          <div class="who">Aileen Chandra</div>
+          <div class="qbody"><p>Amazing service and result &#9829;</p><button class="read-more" type="button">... Read more</button></div>
+          <div class="who">Aileen Chandra &middot; Queenstown tour</div>
         </div>
       </div>
     </div>
