@@ -668,6 +668,10 @@
 
   /* v11: more breathing room between the itinerary band and the FAQ (desktop felt cramped) */
   .faq{padding-top:clamp(3.4rem,6.8vw,5.2rem)}
+
+  /* email typo suggestion link */
+  .email-fix{background:none;border:0;padding:0;margin:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline}
+  .email-fix:hover{opacity:.75}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -820,8 +824,7 @@
           <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+64 ..."></div>
         </div>
         <div class="frow">
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
-          <div class="field"><label for="email_confirm">Confirm email</label><input id="email_confirm" name="email_confirm" type="email" placeholder="Re-enter your email" required></div>
+          <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
         </div>
         <div class="form-msg" id="emailMsg" role="alert"></div>
         <div class="frow">
@@ -833,10 +836,6 @@
             </select>
           </div>
           <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date"></div>
-        </div>
-        <div class="frow">
-          <div class="field"><label for="guests">Number of guests</label><input id="guests" name="guests" type="number" min="1" placeholder="2"></div>
-          <div class="field"></div>
         </div>
         <div class="frow"><div class="field full"><label for="message">Tell us what you're dreaming of</label><textarea id="message" name="message" placeholder="Your travel dates, group size, and anything you have in mind..."></textarea></div></div>
         <div class="form-submit"><button type="submit" class="btn btn-solid">Send enquiry</button></div>
@@ -931,17 +930,34 @@
   } else { parallax(); }
 
   /* confirm-email match check */
+  /* email typo catcher: format is enforced by type=email; this suggests fixes for common domain/TLD typos */
   const efrm=document.querySelector('form');
   if(efrm){
-    const a=document.getElementById('email'), b=document.getElementById('email_confirm'), msg=document.getElementById('emailMsg');
-    efrm.addEventListener('submit',(e)=>{
-      if(a&&b&&a.value.trim().toLowerCase()!==b.value.trim().toLowerCase()){
-        e.preventDefault();
-        if(msg) msg.textContent='Those email addresses do not match. Please check and try again.';
-        b.focus();
-      } else if(msg){ msg.textContent=''; }
-    });
-    if(b) b.addEventListener('input',()=>{ if(msg) msg.textContent=''; });
+    const email=document.getElementById('email'), msg=document.getElementById('emailMsg');
+    const domains=['gmail.com','googlemail.com','yahoo.com','yahoo.co.nz','yahoo.co.uk','yahoo.com.au','hotmail.com','hotmail.co.uk','hotmail.co.nz','outlook.com','outlook.co.nz','live.com','icloud.com','me.com','aol.com','protonmail.com','proton.me','xtra.co.nz','bigpond.com','optusnet.com.au'];
+    const tlds=['com','co.nz','net','org','co.uk','com.au','co','io','edu','govt.nz'];
+    function lev(a,b){const m=a.length,n=b.length;const d=[];for(let i=0;i<=m;i++){d[i]=[i];}for(let j=0;j<=n;j++){d[0][j]=j;}for(let i=1;i<=m;i++){for(let j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));}}return d[m][n];}
+    function closest(part,list){let best=null,bd=99;for(const c of list){const dd=lev(part,c);if(dd<bd){bd=dd;best=c;}}return (bd>0&&bd<=2)?best:null;}
+    function suggest(val){
+      val=(val||'').trim().toLowerCase();
+      const at=val.lastIndexOf('@'); if(at<1) return null;
+      const local=val.slice(0,at), dom=val.slice(at+1); if(!dom) return null;
+      if(domains.indexOf(dom)>-1) return null;
+      const d=closest(dom,domains); if(d) return local+'@'+d;
+      const dot=dom.indexOf('.');
+      if(dot>0){const nm=dom.slice(0,dot), tld=dom.slice(dot+1); const t=closest(tld,tlds); if(t) return local+'@'+nm+'.'+t;}
+      return null;
+    }
+    function showSuggestion(){
+      if(!email||!msg) return; msg.textContent='';
+      const s=suggest(email.value); if(!s) return;
+      const a1=document.createElement('span'); a1.textContent='Did you mean ';
+      const btn=document.createElement('button'); btn.type='button'; btn.className='email-fix'; btn.textContent=s;
+      btn.addEventListener('click',()=>{ email.value=s; msg.textContent=''; email.focus(); });
+      const a2=document.createElement('span'); a2.textContent='?';
+      msg.appendChild(a1); msg.appendChild(btn); msg.appendChild(a2);
+    }
+    if(email){ email.addEventListener('blur',showSuggestion); email.addEventListener('input',()=>{ if(msg) msg.textContent=''; }); }
   }
 
   /* hero video pause control */
