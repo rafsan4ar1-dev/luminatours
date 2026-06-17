@@ -6,7 +6,7 @@
 
 <!-- ============ PRIMARY SEO ============ -->
 <title>Featured Experiences | Private Tours in Queenstown &amp; the South Island | Lumina Tours</title>
-<meta name="description" content="Explore Lumina Tours' private, photographer-led experiences across Queenstown and the South Island: Milford Sound, Mount Cook, Glenorchy, Wanaka, Skippers Canyon, stargazing and more. Enquire today.">
+<meta name="description" content="Explore Lumina Tours' private, photographer-led experiences across Queenstown and the South Island: Milford Sound, Mount Cook, Glenorchy, Wanaka, Queenstown sightseeing and Skippers Canyon. Enquire today.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://luminatours.co.nz/experiences">
 <meta name="theme-color" content="#0B0D11">
@@ -37,7 +37,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <!-- ============ STRUCTURED DATA (SEO + GEO/AIO) ============ -->
 <script type="application/ld+json">
@@ -80,15 +80,14 @@
           { "@type": "ListItem", "position": 3, "name": "Glenorchy & Paradise Tour", "url": "https://luminatours.co.nz/glenorchy-paradise-tour" },
           { "@type": "ListItem", "position": 4, "name": "Cromwell & Wanaka Tour", "url": "https://luminatours.co.nz/cromwell-wanaka-tour" },
           { "@type": "ListItem", "position": 5, "name": "Queenstown Sightseeing Tour", "url": "https://luminatours.co.nz/queenstown-sightseeing-tour" },
-          { "@type": "ListItem", "position": 6, "name": "Stargazing & Astrophotography Tour", "url": "https://luminatours.co.nz/stargazing-astrophotography" },
-          { "@type": "ListItem", "position": 7, "name": "Skippers Canyon Tour", "url": "https://luminatours.co.nz/skippers-canyon-tour" },
-          { "@type": "ListItem", "position": 8, "name": "Custom & Tailored Tour", "url": "https://luminatours.co.nz/custom-tour" }
+          { "@type": "ListItem", "position": 6, "name": "Skippers Canyon Tour", "url": "https://luminatours.co.nz/skippers-canyon-tour" }
         ]
       }
     }
   ]
 }
 </script>
+
 
 <style>
   :root{
@@ -325,7 +324,7 @@
     .grid,.quotes{grid-template-columns:repeat(2,1fr)}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .pillar{padding-right:1.2rem}
-    .custom-vis{order:0}
+    .custom-vis{order:-1}
     .m-hide{display:none}
     .view-all-top{display:none}
     .view-all-mobile-wrap{display:flex;justify-content:center;margin-top:2.2rem}
@@ -343,131 +342,323 @@
     .hero .eyebrow,.hero p.lede,.hero-cta,.hero h1{opacity:1;transform:none}
   }
 
-  /* ============ HOMEPAGE v23 ADJUSTMENTS ============ */
+  /* ============ EXPERIENCE PAGE ============ */
+  .ex-sec{padding:clamp(4.5rem,9vw,7.5rem) 0}
+  .breadcrumb{padding:1.5rem 0 0}
+  .breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.05em;color:var(--ink-mute)}
+  .breadcrumb li{display:flex;align-items:center;gap:.55rem}
+  .breadcrumb li+li::before{content:"/";color:var(--line)}
+  .breadcrumb a{color:var(--ink-mute);transition:color .3s ease}
+  .breadcrumb a:hover{color:var(--accent)}
+  .breadcrumb [aria-current="page"]{color:var(--ink-soft)}
+  .overview-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+  .overview-grid h2{font-size:clamp(1.7rem,3.4vw,2.7rem);font-weight:500;line-height:1.2;margin:.9rem 0 0}
+  .overview-body p{font-size:0.97rem;margin:0 0 1.2rem}
+  .overview-body p:last-child{margin-bottom:0}
+  .facts-wrap{padding:0}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:clamp(1.6rem,3.2vw,2.4rem) 0}
+  .fact{margin:0}
+  .fact .k{display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}
+  .fact .v{margin:0;font-family:var(--serif);font-size:clamp(1.05rem,1.9vw,1.35rem);color:var(--ink);line-height:1.2}
+  .timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:780px}
+  .tstep{display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,2.5vw,1.6rem);align-items:start;padding:clamp(1.3rem,2.6vw,1.9rem) 0;border-top:1px solid var(--line-soft)}
+  .tstep:first-child{border-top:0;padding-top:0}
+  .tstep .tnum{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--accent);line-height:1.1;min-width:2rem}
+  .tstep h3{font-size:1.18rem;font-weight:500;margin:0 0 .45rem;color:var(--ink)}
+  .tstep p{font-size:0.95rem;margin:0}
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,4.5rem)}
+  .incl h2{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:500;margin:0 0 1.4rem}
+  .ticks{list-style:none;margin:0;padding:0;display:grid;gap:.95rem}
+  .ticks li{position:relative;padding-left:1.7rem;font-size:0.95rem;color:var(--ink-soft)}
+  .ticks li::before{content:"";position:absolute;left:.1rem;top:.5em;width:7px;height:7px;border:1px solid var(--accent);transform:rotate(45deg);opacity:.85}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .g-item{margin:0;position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;border:1px solid var(--line-soft)}
+  .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 2s var(--ease-out)}
+  @media (hover:hover){.g-item:hover img{transform:scale(1.06)}}
+  @media (max-width:900px){
+    .overview-grid{grid-template-columns:1fr;gap:1rem}
+    .overview-grid h2{margin-top:.3rem}
+    .facts{grid-template-columns:repeat(2,1fr);gap:1.4rem 1rem}
+    .incl-grid{grid-template-columns:1fr;gap:2.2rem}
+    .gallery{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .overview-body p,.tstep p,.ticks li,.incl p{font-size:0.84rem;line-height:1.72}
+    .hero p.lede{font-size:0.9rem}
+    .breadcrumb ol{font-size:0.68rem}
+    .gallery{grid-template-columns:1fr}
+    .g-item{aspect-ratio:16/10}
+    .tstep .tnum{font-size:1.25rem}
+  }
+  /* ============ EXPERIENCE PAGE v2 ============ */
+  /* hero: lower text + dimmer CTA button */
+  .hero{padding-bottom:clamp(1.75rem,3.5vh,3.25rem)}
+  .hero-cta .btn{color:var(--ink-soft);border-color:rgba(242,243,241,0.26);opacity:.8;transition:opacity .4s ease,color .4s ease,border-color .4s ease,background .4s ease,transform .5s var(--ease-out)}
+  .hero-cta .btn:hover{opacity:1;color:var(--ink);border-color:var(--accent)}
+
+  /* consistent section gaps everywhere */
+  .ex-sec{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .facts-wrap{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .why{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .faq{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .contact{padding-top:clamp(2.4rem,4.8vw,3.75rem);padding-bottom:clamp(3rem,6vw,5rem)}
+
+  /* facts value size matched to the "Why this experience" headings (1.5rem) */
+  .fact .v{font-size:clamp(1.25rem,2.4vw,1.5rem)}
+
+  /* ===== shared accordion (itinerary + FAQ): one-at-a-time, slow slide ===== */
+  .acc-group{border-top:1px solid var(--line-soft)}
+  .acc{border-bottom:1px solid var(--line-soft)}
+  .acc-h{margin:0}
+  .acc-q{width:100%;display:flex;align-items:center;gap:1rem;background:none;border:0;cursor:pointer;text-align:left;color:var(--ink);font-family:var(--serif);font-weight:500;padding:clamp(.9rem,1.7vw,1.15rem) 0;transition:color .3s ease}
+  .acc-q:hover{color:var(--accent)}
+  .acc-t{flex:1}
+  .acc-num{font-style:italic;color:var(--accent);min-width:2.2rem}
+  .acc-q .ic{flex:0 0 auto;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--sans);font-size:.95rem;color:var(--ink);transition:transform .45s var(--ease-out),background .4s ease,color .4s ease,border-color .4s ease}
+  .acc.open .acc-q .ic{transform:rotate(45deg);background:var(--ink);color:#0B0D11;border-color:var(--ink)}
+  .acc-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease-io)}
+  .acc.open .acc-a{grid-template-rows:1fr}
+  .acc-inner{overflow:hidden;min-height:0}
+  .acc-a p{margin:0;padding:0 3rem clamp(1rem,2vw,1.3rem) 0;color:var(--ink-soft);font-size:0.95rem;opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .55s var(--ease-out)}
+  .acc.open .acc-a p{opacity:1;transform:none;transition-delay:.1s}
+
+  /* ===== itinerary band (over background image) ===== */
+  .itinerary{position:relative;overflow:hidden;padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .itinerary-bg{position:absolute;top:-12%;left:0;right:0;height:124%;z-index:0;background:url('/image/stargazing/milky-way-stargazing-tour-queenstown.webp') center/cover;will-change:transform}
+  .itinerary-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(8,9,12,0.84),rgba(8,9,12,0.9))}
+  .itinerary-inner{position:relative;z-index:1}
+  .itin-head{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;line-height:1.12;margin:.8rem 0 0;color:var(--ink)}
+  .itinerary .acc-group{max-width:840px}
+  .itinerary .acc-q .acc-t{font-size:clamp(1.35rem,2.6vw,1.7rem)}
+  .itinerary .acc-num{font-size:clamp(1.1rem,2vw,1.35rem)}
+
+  /* FAQ question size matched up to the subheadings */
+  .faq .acc-q{font-size:clamp(1.2rem,2vw,1.4rem)}
+
+  /* ===== other-experiences slider ===== */
+  .slider{position:relative}
+  .slider-track{display:flex;gap:1.3rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:.4rem;scrollbar-width:none;-ms-overflow-style:none}
+  .slider-track::-webkit-scrollbar{display:none}
+  .slider-track .card{flex:0 0 auto;width:clamp(260px,72vw,310px);scroll-snap-align:start}
+  .slider-arrow{position:absolute;top:42%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(11,13,17,0.55);color:var(--ink);font-size:1.4rem;line-height:1;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:border-color .3s ease,background .3s ease,opacity .3s ease}
+  .slider-arrow:hover{border-color:var(--accent);background:rgba(11,13,17,0.85)}
+  .slider-arrow.prev{left:-8px}
+  .slider-arrow.next{right:-8px}
+  @media (max-width:760px){.slider-arrow{display:none}}
+
+  @media (max-width:560px){
+    .acc-a p{padding-right:1.2rem}
+    .itinerary .acc-q .acc-t{font-size:1.2rem}
+  }
+  /* ============ STARGAZING v3 ADJUSTMENTS ============ */
+  /* eyebrow smaller (desktop) */
+  .eyebrow{font-size:.64rem}
+  /* hero text up a touch + CTA dimmer & smaller */
+  .hero{padding-bottom:clamp(2.5rem,5.5vh,4.5rem)}
+  .hero-cta .btn{opacity:.58;font-size:.6rem;padding:.7rem 1.45rem;color:var(--ink-soft);border-color:rgba(242,243,241,0.2)}
+  .hero-cta .btn:hover{opacity:.95;color:var(--ink);border-color:var(--accent)}
+  /* overview: italic accent on "photographed" + season note */
+  .overview-grid h2 em{font-style:italic;color:var(--accent);font-weight:500}
+  .season-note{margin-top:1.3rem;font-style:italic;color:var(--accent);font-size:.95rem}
+  /* What's included combined block */
+  .incl-block{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+  .incl-lead h2{font-size:clamp(1.7rem,3.4vw,2.7rem);font-weight:500;margin:.9rem 0 1.4rem}
+  .lead-fact{margin:0}
+  .lead-fact dt{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
+  .lead-fact dd{margin:0;font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.5rem);color:var(--ink);line-height:1.2}
+  .incl-block .ticks{padding-top:.4rem}
+  /* itinerary headline matched to overview heading (not bigger) */
+  .itin-head{font-size:clamp(1.7rem,3.4vw,2.7rem)}
+  /* consistent section spacing across the whole page */
+  .ex-sec,.itinerary,.faq{padding-block:clamp(2.4rem,4.8vw,3.75rem)}
+  .contact{padding-top:clamp(2.4rem,4.8vw,3.75rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  /* slider: wider card on mobile for a clear peek + arrows visible both sides */
+  .slider-track .card{width:clamp(264px,80vw,310px)}
+  @media (max-width:760px){
+    .slider-arrow{display:grid;width:38px;height:38px;font-size:1.2rem}
+    .slider-arrow.prev{left:2px}
+    .slider-arrow.next{right:2px}
+  }
+  /* mobile menu close button */
   .nav-close-li{display:none}
+  /* faster reveal on mobile so content keeps up with quick scrolling */
   @media (max-width:760px){
     .reveal{transform:translateY(24px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
     .card.reveal{transition:opacity .9s var(--ease-out),transform .9s var(--ease-out),border-color .6s ease}
     .nav-close-li{display:block;position:absolute;top:1.2rem;right:1.4rem;margin:0}
     .nav-close{background:none;border:0;color:var(--ink);font-size:2.1rem;line-height:1;cursor:pointer;padding:.2rem .4rem}
+    .incl-block{grid-template-columns:1fr;gap:1.4rem}
   }
+  /* mobile typography: smaller + thinner body, smaller eyebrows/subtext; answers clearly under questions */
   @media (max-width:560px){
     .eyebrow{font-size:.55rem}
-    .hero p.lede,.intro .body p,.flagship-copy p,.custom-copy p,.pillar p,details p,.faq p{font-size:.82rem;font-weight:300;line-height:1.72}
+    .hero p.lede{font-size:.84rem;font-weight:300}
+    .overview-body p,.ticks li,.season-note,.acc-a p{font-size:.8rem;font-weight:300;line-height:1.72}
+    .acc-a p{padding-right:1.2rem}
+    .faq .acc-q{font-size:1.18rem}
+    .itinerary .acc-q .acc-t{font-size:1.18rem}
+    .itin-head{font-size:1.55rem}
+    .overview-grid h2,.incl-lead h2{font-size:1.55rem}
+  }
+  /* ============ STARGAZING v4: type + spacing tuning ============ */
+  /* body: thinner strokes */
+  body{font-weight:295}
+  /* hero: block higher, eyebrow lower + smaller/thinner, tagline smaller/thinner */
+  .hero{padding-bottom:clamp(3.5rem,7.5vh,6rem)}
+  .hero .eyebrow{font-size:.6rem;font-weight:500}
+  .hero h1{margin-top:.7rem}
+  .hero p.lede{font-size:.92rem;font-weight:300}
+  /* consistent section heading size across the page (match the overview heading) */
+  .ex-sec h2,.faq .faq-grid h2,.itin-head{font-size:clamp(1.7rem,3.4vw,2.7rem);font-weight:500;line-height:1.18}
+  /* FAQ question + itinerary step title: same size */
+  .faq .acc-q,.itinerary .acc-q .acc-t{font-size:clamp(1.2rem,2.1vw,1.45rem)}
+  /* answers + itinerary descriptions: dimmer */
+  .acc-a p{color:var(--ink-mute)}
+  /* itinerary background: anchor to bottom so the church (subject) shows; ease overlay slightly */
+  .itinerary-bg{background-position:center bottom}
+  .itinerary-bg::after{background:linear-gradient(rgba(8,9,12,0.8),rgba(8,9,12,0.88))}
+  /* section spacing: consistent gaps with requested nudges */
+  .ex-sec[aria-label="Overview"]{padding-top:clamp(3.4rem,6.5vw,5.25rem);padding-bottom:clamp(1.6rem,3.2vw,2.5rem)}
+  .ex-sec[aria-label="Gallery"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.3rem,2.6vw,2rem)}
+  .ex-sec[aria-label="What is included"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(2.4rem,4.6vw,3.6rem)}
+  .ex-sec[aria-label="Other experiences"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.6rem,3.2vw,2.5rem)}
+  .itinerary{padding-block:clamp(2.6rem,5vw,4rem)}
+  .faq{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.3rem,2.6vw,2rem)}
+  .contact{padding-top:clamp(1.8rem,3.6vw,2.8rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  /* mobile tuning */
+  @media (max-width:560px){
+    body{font-weight:285}
+    .hero .eyebrow{font-size:.52rem}
+    .hero p.lede{font-size:.82rem;font-weight:285}
+    .overview-body p,.ticks li,.season-note,.acc-a p{font-size:.8rem;font-weight:285;line-height:1.72}
+    .ex-sec h2,.faq .faq-grid h2,.itin-head{font-size:1.8rem}
+    .faq .acc-q,.itinerary .acc-q .acc-t{font-size:1.2rem}
+    .acc-q{font-weight:600}
   }
 
-  /* ============ HOMEPAGE v24: match stargazing page ============ */
-  /* footer smaller (desktop) + tighter items + logo-brand gap + bottom row */
-  footer{padding:clamp(2.5rem,5vw,3.5rem) 0 2rem}
+  /* ===== STARGAZING v5 ===== */
+  .lead-fact{margin-top:1.4rem}
+  .lead-fact dt{margin-bottom:.2rem}
+  .acc-a p{color:#9da4a2}
+  .hero h1{margin-top:.5rem}
+  .ex-sec[aria-label="Overview"]{padding-top:clamp(3.4rem,6.8vw,5.2rem);padding-bottom:clamp(1.7rem,3.4vw,2.6rem)}
+  .ex-sec[aria-label="Gallery"]{padding-block:clamp(1.7rem,3.4vw,2.6rem)}
+  .ex-sec[aria-label="What is included"]{padding-top:clamp(1.7rem,3.4vw,2.6rem);padding-bottom:clamp(3.4rem,6.8vw,5.2rem)}
+  .ex-sec[aria-label="Other experiences"]{padding-block:clamp(1.7rem,3.4vw,2.6rem)}
+  .itinerary{padding-block:clamp(2.8rem,5.5vw,4.2rem)}
+  .faq{padding-top:clamp(1.7rem,3.4vw,2.6rem);padding-bottom:clamp(1.5rem,3vw,2.2rem)}
+  .contact{padding-top:clamp(1.7rem,3.4vw,2.6rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  @media (max-width:560px){
+    body,.overview-body p,.ticks li,.season-note,.contact-head p,.hero p.lede{color:#b4bbb9}
+    .contact-head p{font-size:.8rem;font-weight:285;line-height:1.72}
+    .foot-brand p{font-size:.8rem;color:var(--ink-mute)}
+  }
+
+  /* ===== STARGAZING v6 ===== */
+  /* eyebrow now sits above the grid; align heading top with body */
+  .overview-grid h2{margin-top:0}
+  /* gap above overview increased; inclusion gap below increased to match its top */
+  .ex-sec[aria-label="Overview"]{padding-top:clamp(4rem,8vw,6rem);padding-bottom:clamp(1.7rem,3.4vw,2.6rem)}
+  .ex-sec[aria-label="What is included"]{padding-top:clamp(1.7rem,3.4vw,2.6rem);padding-bottom:clamp(4.5rem,8.5vw,6.5rem)}
+  /* itinerary background: show more of the lower image (church); gentler crop */
+  .itinerary-bg{top:-6%;height:112%;background-position:center 88%}
+  /* footer: tighter logo-to-brand gap + tighter items (pc) */
   .foot-brand .brand{margin-bottom:.5rem}
   .foot-col a,.foot-col span{margin-bottom:.45rem}
-  .foot-bottom{margin-top:1.8rem}
-  /* contact form text smaller */
-  input,select,textarea{font-size:.9rem}
-  /* FAQ "+" centred in its circle */
-  summary .ic{line-height:1}
-  /* mobile menu: narrower, items centred, thinner strokes */
+  /* mobile menu: narrower side panel, items centred, thinner strokes */
   @media (max-width:900px){
     .nav-links{width:min(66vw,275px);align-items:center;gap:1.7rem;padding:2.5rem}
     .nav-links a{font-weight:400}
   }
+  /* mobile: itinerary bg shifted right (church to edge); tighter footer items + legal row */
   @media (max-width:760px){
-    /* pause/play: no circle, dim */
-    .video-toggle{border:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto;opacity:.3;color:var(--ink-mute);font-size:1rem}
+    .itinerary-bg{background-position:82% 88%}
+    .foot-col a,.foot-col span{margin-bottom:.3rem}
+    .foot-bottom{margin-top:2rem;gap:.4rem 1rem}
+  }
+
+  /* ===== STARGAZING v7 ===== */
+  /* footer: smaller overall (desktop) + tighter gap to the bottom row */
+  footer{padding:clamp(2.5rem,5vw,3.5rem) 0 2rem}
+  .foot-bottom{margin-top:1.8rem}
+  /* lift overview/inclusion body to sit higher beside the heading */
+  .overview-body{margin-top:-.4rem}
+  /* tighter Duration label/value (pc + mobile) */
+  .lead-fact dt{margin-bottom:.08rem}
+  /* contact form text smaller */
+  input,select,textarea{font-size:.9rem}
+  .contact-head p{font-size:.95rem}
+  @media (max-width:760px){
+    /* simple transparent pause/play, no circle */
+    .video-toggle{border:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto;opacity:.55;font-size:1rem}
+    /* itinerary bg shifted RIGHT so the building ends near the right edge */
+    .itinerary-bg{background-position:22% 88%}
     /* smaller header logo + name */
     .brand{font-size:1.25rem}
     .logo-icon{height:34px}
-    /* footer menu items: footer-text size + tight spacing */
-    .foot-col a,.foot-col span{font-size:.78rem;margin-bottom:.15rem}
-    /* footer brand line smaller */
-    .foot-brand p{font-size:.8rem;color:var(--ink-mute)}
-    /* footer bottom row tighter */
-    .foot-bottom{margin-top:1.3rem;gap:.4rem 1rem}
+    /* footer bottom row tighter on mobile */
+    .foot-bottom{margin-top:1.3rem}
   }
   @media (max-width:560px){
-    /* body text smaller + thinner + greyer */
-    body{font-weight:285}
-    .hero p.lede,.intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p{font-size:.78rem;font-weight:285;line-height:1.72;color:#b4bbb9}
-    /* a little left/right breathing room (not flush to the edge) */
-    .wrap{padding-inline:1.9rem}
+    /* breathing room on the left (not flush to the screen edge) for these sections */
+    .ex-sec[aria-label="Overview"],.ex-sec[aria-label="Gallery"],.ex-sec[aria-label="What is included"]{padding-left:2rem;padding-right:2rem}
+    /* body text down to footer-text size */
+    .overview-body p,.ticks li,.season-note,.tstep p,.incl p,.acc-a p,.contact-head p{font-size:.78rem}
   }
 
-  /* ============ HOMEPAGE v25 ============ */
-  /* snappier reveal */
+  /* ===== STARGAZING v8 ===== */
+  @media (max-width:760px){
+    /* pause/play much dimmer */
+    .video-toggle{opacity:.3;color:var(--ink-mute)}
+    /* footer menu items: match bottom legal size + tighter spacing */
+    .foot-col a,.foot-col span{font-size:.78rem;margin-bottom:.15rem}
+  }
+  @media (max-width:560px){
+    /* align "Other experiences" text with the other sections */
+    .ex-sec[aria-label="Other experiences"]{padding-left:2rem;padding-right:2rem}
+  }
+
+  /* ============ STARGAZING v10 (perf + shared fixes) ============ */
   .reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
   .card.reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out),border-color .6s ease}
-  /* contact: more compact, keep image anchored to its bottom (church/subject) */
-  .contact{padding-top:clamp(2.6rem,5vw,4rem);padding-bottom:clamp(3rem,6vw,4.5rem)}
+  /* contact compact + image anchored to bottom */
   .contact-bg{background-position:center bottom}
   .contact-head{margin-bottom:clamp(1.8rem,3.5vw,2.5rem)}
   /* footer subheading: less space beneath */
   .foot-col h4{margin-bottom:.7rem}
   @media (max-width:760px){
-    /* MENU FIX: blurred header was trapping the menu panel; use a solid header on mobile */
+    /* MENU FIX: solid header on mobile so the panel isn't trapped by the blur */
     header.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,17,0.95)}
-    /* snappier reveal on mobile */
     .reveal{transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transform:translateY(18px)}
     .card.reveal{transition:opacity .6s var(--ease-out),transform .6s var(--ease-out),border-color .5s ease}
     .foot-col h4{margin-bottom:.45rem}
   }
   @media (max-width:560px){
-    /* hero eyebrow smaller + less space beneath it */
+    /* hero eyebrow smaller + less space beneath */
     .hero .eyebrow{font-size:.5rem}
-    .hero h1{margin-top:.5rem}
-    /* Why Lumina: much more compact on mobile */
-    .pillar{padding:1.25rem 0}
-    /* FAQ questions: tighter on mobile */
-    details{padding:.9rem 0}
-    /* contact subtext + form text smaller/greyer to match */
-    .contact-head p{font-size:.78rem;font-weight:285;color:#b4bbb9;line-height:1.7}
+    .hero h1{margin-top:.4rem}
+    /* FAQ + itinerary questions tighter on mobile */
+    .acc-q{padding-top:.7rem;padding-bottom:.7rem}
+    /* contact form text smaller/greyer */
     input,select,textarea{font-size:.85rem}
     .field label{font-size:.7rem}
   }
 
-  /* guest stories: two reviews centred */
-  .quotes-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin-left:auto;margin-right:auto;align-items:start}
+  /* v11: more breathing room between the itinerary band and the FAQ (desktop felt cramped) */
+  .faq{padding-top:clamp(3.4rem,6.8vw,5.2rem)}
 
-  /* guest stories: tighter top spacing + lighter, more compact quotes */
-  .trust{padding-top:clamp(2.4rem,5vw,3.5rem);padding-bottom:clamp(2.6rem,5.5vw,4rem)}
-  .quote{padding:1.7rem}
-  .quote p{font-size:1.15rem;font-weight:400;line-height:1.4}
-  .stars-row{margin-bottom:.7rem}
-  .quote .who{margin-top:.9rem}
-  @media (max-width:560px){
-    .quote{padding:1.4rem}
-    .quote p{font-size:.95rem;font-weight:300}
-  }
-
-  /* guest stories: uniform 3-line cards with expand */
-  .quote p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(1.4em * 3)}
-  .quote.open p{-webkit-line-clamp:unset;overflow:visible;min-height:0}
-  .read-more{margin-top:.7rem;background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);transition:opacity .3s ease}
-  .read-more:hover{opacity:.7}
-  @media (max-width:560px){
-    /* stack reviews vertically on phones (no squashed side-by-side) */
-    .quotes-2{grid-template-columns:1fr}
-  }
-
-  /* read-more sits at the end of the 3rd line so all boxes stay equal height */
-  .quote .qbody{position:relative}
-  .read-more{position:absolute;right:0;bottom:0;margin:0;padding-left:2.8em;background:linear-gradient(90deg,transparent,var(--bg-2) 1.9em);line-height:1.4}
-  .quote.open .read-more{position:static;background:none;padding-left:0;margin-top:.6rem;line-height:normal}
-  @media (max-width:560px){
-    .quote p{font-size:1rem;font-weight:300}
-    .quote .who{font-size:.62rem}
-  }
-
-  /* guest stories: JS-trimmed text with an inline, natural "Read more" at the end of line 3 */
-  .quote p.qtext{display:block;-webkit-line-clamp:unset;overflow:visible;min-height:calc(1.4em * 3);margin:0}
-  .read-more{position:static;display:inline;background:none;border:0;padding:0;margin:0 0 0 .15rem;cursor:pointer;font-family:var(--sans);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);vertical-align:baseline}
-  .read-more:hover{opacity:.7}
-  .q-elip{color:var(--ink-mute)}
-
-  /* experiences hub: image hero + card descriptions */
+  /* experiences hub: image hero + tours grid */
   .hero-media img.hero-photo{width:100%;height:100%;object-fit:cover;opacity:.84;animation:kenburns 34s var(--ease-io) infinite alternate}
-  .card .meta .card-desc{margin:.4rem 0 0;font-size:.8rem;font-weight:300;line-height:1.5;color:var(--ink-soft);opacity:.92}
-  .grid-hub{margin-top:clamp(1.6rem,3.2vw,2.6rem)}
-  @media (max-width:560px){ .card .meta .card-desc{font-size:.76rem} }
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .card-season{display:block;margin-top:.5rem;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+  @media (max-width:760px){
+    .exp-grid{grid-template-columns:repeat(2,1fr);gap:.9rem}
+    .exp-grid .card .meta{padding:1rem}
+    .exp-grid .card .meta h3{font-size:1.15rem}
+    .exp-grid .card .meta .k{font-size:.58rem;letter-spacing:.22em}
+    .card-season{font-size:.55rem;margin-top:.35rem}
+  }
+  @media (max-width:380px){ .exp-grid{grid-template-columns:1fr} }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -476,12 +667,12 @@
 
 <header id="header">
   <div class="wrap nav">
-    <a href="#" class="brand" aria-label="Lumina Tours home"><img class="logo-icon" src="/image/shared/lumina-tours-logo.png" alt=""><span class="brand-text">Lumina<i> Tours</i></span></a>
+    <a href="/" class="brand" aria-label="Lumina Tours home"><img class="logo-icon" src="/image/shared/lumina-tours-logo.png" alt=""><span class="brand-text">Lumina<i> Tours</i></span></a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="navLinks">
         <li class="nav-close-li"><button class="nav-close" id="navClose" type="button" aria-label="Close menu">&times;</button></li>
         <li><a href="/experiences" aria-current="page">Experiences</a></li>
-        <li><a href="/stargazing-astrophotography">Stargazing</a></li>
+        <li><a href="/stargazing-astrophotography" aria-current="page">Stargazing</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/host">About</a></li>
         <li><a href="/journal">Journal</a></li>
@@ -494,7 +685,7 @@
 
 <main id="main">
   <!-- HERO (image) -->
-  <section class="hero hero-image" aria-label="Featured experiences">
+  <section class="hero" aria-label="Featured experiences">
     <div class="hero-media" data-parallax="0.14">
       <img class="hero-photo" src="/image/home/milford-sound.webp" alt="South Island landscape on a private Lumina Tours photography experience" decoding="async">
     </div>
@@ -506,32 +697,30 @@
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section class="intro wrap" aria-label="About the experiences">
-    <div class="lead">
-      <span class="eyebrow reveal">Handpicked journeys</span>
-      <h2 class="reveal" data-d="1">Curated for discovery, comfort, and lasting memories</h2>
-    </div>
-    <div class="body reveal" data-d="1">
-      <p>Each experience is designed to immerse you in the beauty and spirit of the South Island, while your personal photographer captures the story as it naturally unfolds.</p>
-      <p>Whether it is a full day along scenic highways, a cruise through dramatic fiords, or a quiet walk through tranquil valleys, these are private days, shaped around you and yours to remember.</p>
+  <!-- OVERVIEW -->
+  <section class="ex-sec wrap" aria-label="Overview">
+    <span class="eyebrow reveal">Handpicked journeys</span>
+    <div class="overview-grid" style="margin-top:1rem">
+      <div class="reveal">
+        <h2>Curated for discovery, comfort, and <em>lasting memories</em></h2>
+      </div>
+      <div class="overview-body reveal" data-d="1">
+        <p>Each experience is designed to immerse you in the beauty and spirit of the South Island, while your personal photographer captures the story as it naturally unfolds.</p>
+        <p>Whether it is a full day along scenic highways, a cruise through dramatic fiords, or a quiet walk through tranquil valleys, these are private days, shaped around you and yours to remember.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ALL EXPERIENCES -->
-  <section class="wrap" aria-label="All experiences">
-    <div class="section-head">
-      <div class="lead"><span class="eyebrow reveal">The collection</span><h2 class="reveal" data-d="1" style="margin-top:1rem">Explore our tours</h2></div>
-    </div>
-    <div class="grid grid-hub">
-      <a class="card reveal" href="/milford-sound-tour" aria-label="Milford Sound private photography tour"><img class="ph" src="/image/home/milford-sound.webp" alt="Milford Sound at golden light in Fiordland on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3><p class="card-desc">A full day to Fiordland's most iconic fiord.</p></div></a>
-      <a class="card reveal" data-d="1" href="/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3><p class="card-desc">Alpine grandeur beneath New Zealand's highest peak.</p></div></a>
-      <a class="card reveal" data-d="2" href="/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3><p class="card-desc">Tranquil valleys and lake roads beyond Queenstown.</p></div></a>
-      <a class="card reveal" href="/cromwell-wanaka-tour" aria-label="Cromwell and Wanaka private photography tour"><img class="ph" src="/image/home/cromwell-wanaka.webp" alt="Lake Wanaka and Central Otago landscape on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3><p class="card-desc">Central Otago's lakes, vines and open country.</p></div></a>
-      <a class="card reveal" data-d="1" href="/queenstown-sightseeing-tour" aria-label="Queenstown sightseeing private photography tour"><img class="ph" src="/image/home/queenstown-sightseeing.webp" alt="Queenstown lake and mountain views on a private sightseeing tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3><p class="card-desc">The lake, the gondola and the local highlights.</p></div></a>
-      <a class="card reveal" data-d="2" href="/stargazing-astrophotography" aria-label="Stargazing and astrophotography tour"><img class="ph" src="/image/home/stargazing-astrophotography.webp" alt="The Milky Way over a dark-sky location near Queenstown on a private astrophotography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Flagship &middot; After dark</span><h3>Stargazing &amp; Astrophotography</h3><p class="card-desc">A private night beneath the Milky Way.</p></div></a>
-      <a class="card reveal" href="/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3><p class="card-desc">A backcountry road into gold-rush history.</p></div></a>
-      <a class="card reveal" data-d="1" href="/custom-tour" aria-label="Custom and tailored private tour"><img class="ph" src="/image/home/custom-tailored.webp" alt="A bespoke private tour tailored across the South Island" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Bespoke</span><h3>Custom &amp; Tailored</h3><p class="card-desc">Your own itinerary, designed around you.</p></div></a>
+  <section class="ex-sec wrap" aria-label="Other experiences">
+    <span class="eyebrow reveal">The collection</span>
+    <h2 class="reveal" data-d="1" style="margin-top:1rem">Explore our tours</h2>
+    <div class="exp-grid reveal" data-d="1" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
+      <a class="card" href="/milford-sound-tour" aria-label="Milford Sound private photography tour"><img class="ph" src="/image/home/milford-sound.webp" alt="Milford Sound at golden light in Fiordland on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound</h3></div></a>
+      <a class="card" href="/aoraki-mount-cook-tour" aria-label="Aoraki Mount Cook private photography tour"><img class="ph" src="/image/home/aoraki-mount-cook.webp" alt="Aoraki / Mount Cook alpine peaks on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki</span><h3>Mount Cook</h3></div></a>
+      <a class="card" href="/glenorchy-paradise-tour" aria-label="Glenorchy and Paradise private photography tour"><img class="ph" src="/image/home/glenorchy-paradise.webp" alt="Glenorchy and Paradise valley by Lake Wakatipu on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Lake Wakatipu</span><h3>Glenorchy &amp; Paradise</h3></div></a>
+      <a class="card" href="/cromwell-wanaka-tour" aria-label="Cromwell and Wanaka private photography tour"><img class="ph" src="/image/home/cromwell-wanaka.webp" alt="Lake Wanaka and Central Otago landscape on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Central Otago</span><h3>Cromwell &amp; Wanaka</h3></div></a>
+      <a class="card" href="/queenstown-sightseeing-tour" aria-label="Queenstown sightseeing private photography tour"><img class="ph" src="/image/home/queenstown-sightseeing.webp" alt="Queenstown lake and mountain views on a private sightseeing tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Local</span><h3>Queenstown Sightseeing</h3></div></a>
+      <a class="card" href="/skippers-canyon-tour" aria-label="Skippers Canyon private photography tour"><img class="ph" src="/image/home/skippers-canyon.webp" alt="Skippers Canyon backcountry on a private photography tour" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Backcountry</span><h3>Skippers Canyon</h3><span class="card-season">(November to March only)</span></div></a>
     </div>
   </section>
 
@@ -562,7 +751,7 @@
         <div class="frow">
           <div class="field"><label for="experience">Experience of interest</label>
             <select id="experience" name="experience">
-              <option value="">Select an experience</option>
+              <option value="" selected>Select an experience</option>
               <option>Milford Sound</option><option>Mount Cook</option><option>Glenorchy &amp; Paradise</option>
               <option>Cromwell &amp; Wanaka</option><option>Queenstown Sightseeing</option><option>Skippers Canyon</option>
               <option>Stargazing &amp; Astrophotography</option><option>Custom &amp; Tailored</option>
@@ -574,7 +763,7 @@
           <div class="field"><label for="guests">Number of guests</label><input id="guests" name="guests" type="number" min="1" placeholder="2"></div>
           <div class="field"></div>
         </div>
-        <div class="frow"><div class="field full"><label for="message">Tell us what you're dreaming of</label><textarea id="message" name="message" placeholder="A little about the experience you have in mind..."></textarea></div></div>
+        <div class="frow"><div class="field full"><label for="message">Tell us what you're dreaming of</label><textarea id="message" name="message" placeholder="Your travel dates, group size, and anything you have in mind..."></textarea></div></div>
         <div class="form-submit"><button type="submit" class="btn btn-solid">Send enquiry</button></div>
       </form>
     </div>
@@ -585,7 +774,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#" class="brand"><img class="logo-icon" src="/image/shared/lumina-tours-logo.png" alt=""><span class="brand-text">Lumina<i> Tours</i></span></a>
+        <a href="/" class="brand"><img class="logo-icon" src="/image/shared/lumina-tours-logo.png" alt=""><span class="brand-text">Lumina<i> Tours</i></span></a>
         <p>Private luxury tours and bespoke photography across New Zealand's South Island.</p>
       </div>
       <div class="foot-col">
@@ -602,7 +791,7 @@
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="/experiences" aria-current="page">Experiences</a>
+        <a href="/experiences">Experiences</a>
         <a href="/stargazing-astrophotography">Stargazing &amp; astro</a>
         <a href="/gallery">Photo gallery</a>
         <a href="/host">About your host</a>
@@ -690,46 +879,29 @@
     });
   }
 
-  /* guest-stories read more */
-  document.querySelectorAll('.quote').forEach(q=>{
-    const qp=q.querySelector('p'), rb=q.querySelector('.read-more');
-    if(!qp||!rb) return;
-    if(qp.scrollHeight - qp.clientHeight < 6){ rb.style.display='none'; }
-    rb.addEventListener('click',()=>{ const open=q.classList.toggle('open'); rb.textContent = open ? 'Read less' : '... Read more'; });
+  /* ===== accordions (itinerary + FAQ): one open at a time, slow slide ===== */
+  document.querySelectorAll('[data-acc]').forEach(group=>{
+    const items=[...group.querySelectorAll('.acc')];
+    items.forEach(item=>{
+      const btn=item.querySelector('.acc-q');
+      if(!btn) return;
+      btn.addEventListener('click',()=>{
+        const isOpen=item.classList.contains('open');
+        items.forEach(i=>{ i.classList.remove('open'); const b=i.querySelector('.acc-q'); if(b) b.setAttribute('aria-expanded','false'); });
+        if(!isOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      });
+    });
   });
 
-
-  /* guest-stories: natural inline truncation */
-  function fitQuote(q){
-    const p=q.querySelector('.qtext'); if(!p) return;
-    const full=p.getAttribute('data-full') || p.textContent.trim();
-    p.setAttribute('data-full', full);
-    const cs=getComputedStyle(p);
-    let lh=parseFloat(cs.lineHeight); if(!lh) lh=parseFloat(cs.fontSize)*1.4;
-    const maxH=lh*3+2;
-    p.textContent=full;
-    if(p.scrollHeight<=maxH){ q.classList.remove('open'); return; }
-    const words=full.split(' ');
-    function render(n, less){
-      p.innerHTML='';
-      p.appendChild(document.createTextNode(words.slice(0,n).join(' ')));
-      const e=document.createElement('span'); e.className='q-elip'; e.textContent=' … '; p.appendChild(e);
-      const b=document.createElement('button'); b.type='button'; b.className='read-more'; b.textContent='Read more'; p.appendChild(b);
-      return b;
-    }
-    let lo=1, hi=words.length, best=1;
-    while(lo<=hi){ const mid=(lo+hi)>>1; render(mid); if(p.scrollHeight<=maxH){ best=mid; lo=mid+1; } else { hi=mid-1; } }
-    const btn=render(best);
-    btn.addEventListener('click',()=>{
-      p.innerHTML='';
-      p.appendChild(document.createTextNode(full+' '));
-      const b=document.createElement('button'); b.type='button'; b.className='read-more'; b.textContent='Read less'; p.appendChild(b);
-      b.addEventListener('click',()=>fitQuote(q));
-      q.classList.add('open');
-    });
-  }
-  document.querySelectorAll('.quote').forEach(fitQuote);
-  let qrt; window.addEventListener('resize',()=>{ clearTimeout(qrt); qrt=setTimeout(()=>document.querySelectorAll('.quote').forEach(fitQuote),150); });
+  /* ===== experience slider arrows ===== */
+  document.querySelectorAll('.slider').forEach(sl=>{
+    const track=sl.querySelector('.slider-track');
+    const prev=sl.querySelector('.slider-arrow.prev'), next=sl.querySelector('.slider-arrow.next');
+    if(!track) return;
+    const step=()=>Math.min(track.clientWidth*0.85, 340);
+    if(prev) prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+    if(next) next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  });
 
 </script>
 </body>
