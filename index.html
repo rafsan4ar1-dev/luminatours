@@ -163,15 +163,15 @@
   .eyebrow.reveal{transform:translateY(20px)}
 
   /* generic section heads */
-  .lead h2{font-size:clamp(2rem,3.8vw,3.1rem);font-weight:500}
+  .lead h2{font-size:clamp(2.3rem,4.4vw,3.5rem);font-weight:500}
   .lead h2 em{color:var(--accent)}
   .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
-  .section-head h2{font-size:clamp(2rem,4vw,3.1rem)}
+  .section-head h2{font-size:clamp(2.3rem,4.6vw,3.5rem)}
 
   /* intro */
   .intro{padding-top:clamp(6rem,12vw,10rem);padding-bottom:clamp(3rem,6vw,5rem)}
   .intro-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:start}
-  .intro h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:500}
+  .intro h2{font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:500}
   .intro h2 em{color:var(--accent)}
   .intro .body p{margin-bottom:1.2rem;font-size:0.97rem}
 
@@ -212,7 +212,7 @@
     radial-gradient(50% 40% at 50% 62%,rgba(120,110,160,0.18),transparent 72%);animation:aurora 22s ease-in-out infinite alternate}
   @keyframes aurora{from{transform:translateY(-2%) scale(1.02);opacity:.38}to{transform:translateY(2%) scale(1.09);opacity:.58}}
   .flagship-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center;padding-top:clamp(4.5rem,9vw,7.5rem);padding-bottom:clamp(4.5rem,9vw,7.5rem)}
-  .flagship h2{font-size:clamp(2.1rem,4.4vw,3.4rem);color:#fff;font-weight:500}
+  .flagship h2{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;font-weight:500}
   .flagship h2 em{color:var(--accent)}
   .flagship p{margin:1.4rem 0 2.2rem;font-size:1rem;color:var(--ink);max-width:480px}
   .tag{display:inline-flex;align-items:center;gap:.55rem;font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-soft);background:var(--accent-soft);padding:.55rem 1rem;border-radius:2px}
@@ -224,7 +224,7 @@
   /* custom & tailored */
   .custom{padding-top:clamp(4.5rem,9vw,7.5rem);padding-bottom:clamp(4.5rem,9vw,7.5rem)}
   .custom-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-  .custom h2{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:500}
+  .custom h2{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:500}
   .custom h2 em{color:var(--accent)}
   .custom p{margin:1.4rem 0 2.2rem;font-size:1rem;color:var(--ink-soft);max-width:480px}
   .custom-vis{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
@@ -256,9 +256,9 @@
   /* faq */
   .faq{padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem);border-top:1px solid var(--line-soft)}
   .faq-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
-  .faq h2{font-size:clamp(2rem,4vw,3.1rem)}
+  .faq h2{font-size:clamp(2.3rem,4.6vw,3.5rem)}
   details{border-bottom:1px solid var(--line-soft);padding:1.4rem 0}
-  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:1.2rem;color:var(--ink);font-family:var(--serif);font-weight:500;transition:color .3s ease}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:1.35rem;color:var(--ink);font-family:var(--serif);font-weight:500;transition:color .3s ease}
   summary::-webkit-details-marker{display:none}
   summary:hover{color:var(--accent)}
   summary .ic{flex:0 0 auto;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:1rem;font-family:var(--sans);transition:transform .5s var(--ease-out),background .4s ease,color .4s ease}
@@ -271,7 +271,7 @@
   .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(11,13,17,0.9),rgba(11,13,17,0.93))}
   .contact>.wrap{position:relative;z-index:1}
   .contact-head{text-align:center;max-width:620px;margin:0 auto clamp(2.5rem,5vw,3.5rem)}
-  .contact-head h2{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:500;margin:1rem 0 1rem}
+  .contact-head h2{font-size:clamp(2.4rem,5.2vw,4rem);font-weight:500;margin:1rem 0 1rem}
   .contact-head h2 em{color:var(--accent)}
   .contact-head p{color:var(--ink-soft)}
   form{max-width:760px;margin:0 auto}
@@ -468,6 +468,7 @@
     .foot-brand{grid-column:1 / -1}
     .foot-social svg{width:22px;height:22px}
   }
+  @media (max-width:560px){summary{font-size:1.2rem}}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -513,7 +514,7 @@
     <div class="intro-grid">
       <h2 class="reveal">Luxury travel meets the <em>art of storytelling</em>.</h2>
       <div class="body reveal" data-d="1">
-        <p>You deserve more than a coach window and someone else's schedule.</p>
+        <p>A landscape this rare deserves more than a passing glance.</p>
         <p>Yours is a private journey, unhurried and entirely your own, from the fiords of Milford to the peaks of Aoraki / Mount Cook and the dark skies above, with a photographer who knows the land intimately, as much good company as guide.</p>
         <p>You stay in the moment. It all comes home with you, in exquisite detail.</p>
       </div>
