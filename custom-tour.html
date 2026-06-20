@@ -690,14 +690,26 @@
   @media (max-width:760px){body .wrap{padding-left:1.9rem;padding-right:1.9rem}}
   @media (max-width:760px){.gallery,.slider,.exp-grid{margin-left:-1.3rem;margin-right:-1.3rem}}
 
-  /* ===== custom: duration tiers ===== */
-  .ex-sec[aria-label="Ways to travel"]{padding-top:clamp(1.6rem,3.2vw,2.5rem);padding-bottom:clamp(1.6rem,3.2vw,2.5rem)}
-  .tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.6vw,1.3rem);margin-top:clamp(1.6rem,3.2vw,2.6rem)}
-  .tier{padding:1.6rem 1.5rem;border:1px solid var(--line-soft);border-radius:8px;background:var(--panel)}
-  .tier-k{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
-  .tier h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.2rem,2.2vw,1.45rem);color:var(--ink);margin:.5rem 0 .5rem;line-height:1.2}
-  .tier p{margin:0;color:var(--ink-mute);font-size:.92rem;line-height:1.6;font-weight:300}
-  @media(max-width:760px){.tiers-grid{grid-template-columns:1fr;gap:.8rem}}
+  /* ===== custom: alternating feature rows ===== */
+  .ex-sec[aria-label="Crafted around you"],.ex-sec[aria-label="Ways to travel"],.ex-sec[aria-label="One host, two roles"]{padding-top:clamp(2rem,4.2vw,3.4rem);padding-bottom:clamp(2rem,4.2vw,3.4rem)}
+  .ex-sec[aria-label="Crafted around you"]{padding-top:clamp(3.4rem,6.5vw,5rem)}
+  .feature{display:grid;grid-template-columns:1.04fr 1fr;gap:clamp(1.8rem,4vw,3.8rem);align-items:center}
+  .feature.rev .feature-text{order:2}
+  .feature.rev .feature-media{order:1}
+  .feature-text .eyebrow{display:inline-block}
+  .feature h2{margin:.55rem 0 .9rem}
+  .feature-media{margin:0}
+  .feature-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
+  .feature-list{list-style:none;margin:1.1rem 0 0;padding:0}
+  .feature-list li{position:relative;padding-left:1.1rem;margin:0 0 .75rem;color:var(--ink-soft);line-height:1.6}
+  .feature-list li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .feature-list strong{color:var(--ink);font-weight:500}
+  @media(max-width:820px){
+    .feature{grid-template-columns:1fr;gap:1.3rem}
+    .feature.rev .feature-text{order:0}.feature.rev .feature-media{order:1}
+    .feature-media{margin-left:-1.3rem;margin-right:-1.3rem}
+    .feature-media img{border-radius:0;aspect-ratio:16/10}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -736,54 +748,45 @@
     </div>
   </section>
 
-  <!-- OVERVIEW -->
-  <section class="ex-sec wrap" aria-label="Overview">
-    <span class="eyebrow reveal">The experience</span>
-    <div class="overview-grid" style="margin-top:1rem">
-      <div class="reveal">
+  <!-- FEATURE: crafted around you -->
+  <section class="ex-sec wrap" aria-label="Crafted around you">
+    <div class="feature">
+      <div class="feature-text reveal">
+        <span class="eyebrow">Tailored to you</span>
         <h2>Crafted <em>around you</em></h2>
-      </div>
-      <div class="overview-body reveal" data-d="1">
         <p>No two travellers are the same, and no two journeys should be. We design a private experience shaped around your interests, your pace, and the places you have dreamed of, from remote mountain escapes to lakeside calm or the wild beauty of Fiordland.</p>
         <p>Want to add a helicopter flight, a glacier landing, or something truly out of the ordinary? Just say the word, and we will build it into your day.</p>
-        <p class="season-note">(Half-day, full-day, or multi-day, entirely yours.)</p>
       </div>
+      <figure class="feature-media reveal" data-d="1"><img src="/image/custom/custom-tour-crafted.webp" alt="A bespoke private tour through a South Island mountain landscape" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="ex-sec wrap" aria-label="Gallery">
-    <span class="eyebrow reveal">A glimpse</span>
-    <h2 class="reveal" data-d="1" style="margin-top:1rem">From mountains to the night sky</h2>
-    <div class="gallery" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
-      <figure class="g-item reveal"><img src="/image/custom/custom-tour-landscape.webp" alt="A signature South Island landscape on a bespoke private photography tour" loading="lazy" decoding="async"></figure>
-      <figure class="g-item reveal" data-d="1"><img src="/image/custom/custom-tour-after-dark.webp" alt="The night sky on a private after-dark photography experience" loading="lazy" decoding="async"></figure>
-      <figure class="g-item reveal" data-d="2"><img src="/image/custom/custom-tour-portrait.webp" alt="A candid portrait captured for a guest during a custom private tour" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-
-  <!-- WAYS TO TRAVEL (tiers) -->
+  <!-- FEATURE: ways to travel -->
   <section class="ex-sec wrap" aria-label="Ways to travel">
-    <span class="eyebrow reveal">Your time, your way</span>
-    <h2 class="reveal" data-d="1" style="margin-top:1rem">Half-day, full-day, or multi-day</h2>
-    <div class="tiers-grid reveal" data-d="1">
-      <div class="tier"><span class="tier-k">Half-day</span><h3>Half-day experiences</h3><p>Perfect for tighter schedules, or to complement another activity, with a focused window in the best light.</p></div>
-      <div class="tier"><span class="tier-k">Full-day</span><h3>Full-day journeys</h3><p>Immersive, unhurried, and richly detailed, with time to reach further and linger where you love.</p></div>
-      <div class="tier"><span class="tier-k">Multi-day</span><h3>Multi-day adventures</h3><p>Explore the South Island over several days, with a seamless itinerary, accommodation recommendations, and continuous photography.</p></div>
+    <div class="feature rev">
+      <div class="feature-text reveal">
+        <span class="eyebrow">Your time, your way</span>
+        <h2>Half-day, full-day, <em>or multi-day</em></h2>
+        <ul class="feature-list">
+          <li><strong>Half-day experiences.</strong> Perfect for tighter schedules, or to complement another activity, with a focused window in the best light.</li>
+          <li><strong>Full-day journeys.</strong> Immersive, unhurried, and richly detailed, with time to reach further and linger where you love.</li>
+          <li><strong>Multi-day adventures.</strong> Explore the South Island over several days, with a seamless itinerary, accommodation recommendations, and continuous photography.</li>
+        </ul>
+      </div>
+      <figure class="feature-media reveal" data-d="1"><img src="/image/custom/custom-tour-journey.webp" alt="A multi-day private journey across the South Island" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section class="ex-sec wrap" aria-label="What is included">
-    <span class="eyebrow reveal">The details</span>
-    <div class="overview-grid" style="margin-top:1rem">
-      <div class="reveal">
-        <h2>One host, two roles</h2>
-        <dl class="lead-fact"><dt>Format</dt><dd>Half-day to multi-day</dd></dl>
+  <!-- FEATURE: one host two roles -->
+  <section class="ex-sec wrap" aria-label="One host, two roles">
+    <div class="feature">
+      <div class="feature-text reveal">
+        <span class="eyebrow">Guide and photographer</span>
+        <h2>One host, <em>two roles</em></h2>
+        <p>Your guide is also your professional photographer. Throughout your custom journey they document the experience with a blend of scenic landscapes, candid moments, and cinematic portraits, all delivered afterwards in a private digital gallery.</p>
+        <p>Everything in between, the route, the pace, and the stops, is arranged around you, so the day is entirely your own.</p>
       </div>
-      <div class="overview-body reveal" data-d="1">
-        <p>Your guide is also your professional photographer. Throughout your custom journey they document the experience with a blend of scenic landscapes, candid moments, and cinematic portraits, all delivered afterwards in a private digital gallery. Everything in between, the route, the pace, the stops, even special additions like a helicopter flight or glacier landing, is arranged around you, so the day is entirely your own.</p>
-      </div>
+      <figure class="feature-media reveal" data-d="1"><img src="/image/custom/custom-tour-portrait.webp" alt="A candid portrait captured for a guest during a private custom tour" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
