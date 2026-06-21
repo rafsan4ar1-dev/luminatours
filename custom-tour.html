@@ -727,7 +727,7 @@
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/host">About</a></li>
         <li><a href="/journal">Journal</a></li>
-        <li><a href="#enquire" class="btn">Enquire</a></li>
+        <li><a href="/enquiry" class="btn">Enquire</a></li>
       </ul>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
@@ -744,7 +744,7 @@
       <span class="eyebrow">Tailor-made</span>
       <h1>Custom &amp; Tailored <em>Tours</em></h1>
       <p class="lede">A private journey designed entirely around you, and captured by your host as you go.</p>
-      <div class="hero-cta"><a href="#enquire" class="btn btn-quiet">Check availability</a></div>
+      <div class="hero-cta"><a href="/enquiry" class="btn btn-quiet">Check availability</a></div>
     </div>
   </section>
 
@@ -852,8 +852,16 @@
         BACKEND NOTE (for deployment): point action to your enquiry route and add Laravel's @csrf token.
         Confirm the field "name" attributes match your EnquiriesController validation.
       -->
-      <form class="reveal" data-d="1" action="https://www.luminatours.co.nz/enquiries" method="POST">
-        <!-- In Laravel Blade, add: @csrf -->
+      <!--
+        ENQUIRY FORM. Sends to hello@luminatours.co.nz via Web3Forms, then redirects to /thank-you.
+        Web3Forms access key is set below. Emails hello@luminatours.co.nz and redirects to /thank-you.
+      -->
+      <form class="reveal" data-d="1" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="3be1f8f5-8d0f-455f-89e4-b0e7b7602147">
+        <input type="hidden" name="subject" value="New enquiry from luminatours.co.nz">
+        <input type="hidden" name="from_name" value="Lumina Tours website">
+        <input type="hidden" name="redirect" value="https://www.luminatours.co.nz/thank-you">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important">
         <div class="frow">
           <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
           <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+64 ..."></div>
@@ -913,7 +921,7 @@
   </div>
 </footer>
 
-<div class="mobile-cta"><a href="#enquire" class="btn btn-solid">Enquire now</a></div>
+<div class="mobile-cta"><a href="/enquiry" class="btn btn-solid">Enquire now</a></div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
