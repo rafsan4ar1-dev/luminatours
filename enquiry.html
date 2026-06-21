@@ -239,7 +239,7 @@
   details p{margin-top:1rem;color:var(--ink-soft);max-width:60ch;font-size:0.95rem}
 
   /* contact form (bottom) */
-  .contact{position:relative;overflow:hidden;padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(5rem,10vw,8rem);border-top:1px solid var(--line-soft);background:var(--bg-2)}
+  .contact{position:relative;overflow:hidden;padding-top:clamp(8.5rem,15vw,11.5rem);padding-bottom:clamp(5rem,10vw,8rem);border-top:1px solid var(--line-soft);background:var(--bg-2)}
   .contact-bg{position:absolute;top:-12%;left:0;right:0;height:124%;z-index:0;background:url('/image/home/contact-stargazing-tour.webp') center/cover;will-change:transform}
   .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(11,13,17,0.9),rgba(11,13,17,0.93))}
   .contact>.wrap{position:relative;z-index:1}
@@ -704,10 +704,10 @@
 
         <div class="frow">
           <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
-          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+64 ..."></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+()\s\-]{6,}" title="Use digits and + ( ) - only" placeholder="+64 ..."></div>
         </div>
         <div class="frow">
-          <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" title="Enter a valid email like name@example.com" required></div>
         </div>
         <div class="form-msg" id="emailMsg" role="alert"></div>
         <div class="frow">
@@ -877,6 +877,22 @@
     if(next) next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
   });
 
+</script>
+<script>
+(function(){
+  var f=document.querySelector('form[action*="web3forms"]');
+  if(!f) return;
+  var email=f.querySelector('#email'),phone=f.querySelector('#phone'),date=f.querySelector('#date'),msg=document.getElementById('emailMsg');
+  if(date){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());date.min=t.toISOString().slice(0,10);}
+  function flag(el,m){if(msg){msg.textContent=m;}if(el){try{el.focus();}catch(e){}}}
+  f.addEventListener('submit',function(e){
+    if(msg){msg.textContent='';}
+    var ev=email?email.value.trim():'';
+    if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(ev)){e.preventDefault();e.stopPropagation();flag(email,'Please enter a valid email address.');return;}
+    if(phone&&phone.value.trim()!==''&&!/^[0-9+()\s\-]{6,}$/.test(phone.value.trim())){e.preventDefault();e.stopPropagation();flag(phone,'Please enter a valid phone number, or leave it blank.');return;}
+    if(date&&date.value&&date.value<date.min){e.preventDefault();e.stopPropagation();flag(date,'Please choose a date that is not in the past.');return;}
+  },true);
+})();
 </script>
 </body>
 </html>
