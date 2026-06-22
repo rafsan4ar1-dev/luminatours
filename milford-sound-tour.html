@@ -126,7 +126,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:305;font-stretch:107%;line-height:1.82;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:305;font-stretch:107%;line-height:1.74;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
@@ -400,7 +400,7 @@
   .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 2s var(--ease-out)}
   @media (hover:hover){.g-item:hover img{transform:scale(1.06)}}
   @media (max-width:900px){
-    .overview-grid{grid-template-columns:1fr;gap:1rem}
+    .overview-grid{grid-template-columns:1fr;gap:1.6rem}
     .overview-grid h2{margin-top:.3rem}
     .facts{grid-template-columns:repeat(2,1fr);gap:1.4rem 1rem}
     .incl-grid{grid-template-columns:1fr;gap:2.2rem}
@@ -698,14 +698,19 @@
   @media (max-width:560px){
     .ex-sec h2,.faq .faq-grid h2,.itin-head,.overview-grid h2,.incl-lead h2{font-size:2.45rem;line-height:1.18}
   }
-  /* ===== v13: thinner body strokes (262) + slightly larger, consistent mobile body ===== */
-  body{font-weight:237}
+  /* ===== v13: thin body strokes (230) + slightly larger, consistent mobile body ===== */
+  body{font-weight:230}
   @media (max-width:560px){
-    body{font-weight:237}
-    .intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p,.overview-body p,.ticks li,.season-note,.acc-a p,.tstep p,.incl p,.contact-head p{font-weight:237;font-size:.9rem;line-height:1.74}
+    body{font-weight:230}
+    .intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p,.overview-body p,.ticks li,.season-note,.acc-a p,.tstep p,.incl p,.contact-head p{font-weight:230;font-size:.9rem;line-height:1.66}
   }
   /* image save-deterrent (right-click / drag / long-press) */
   img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  /* ===== v14: Milford PC body a tad smaller (desktop/tablet only; mobile keeps .9rem) ===== */
+  @media (min-width:561px){
+    .overview-body p,.intro .body p{font-size:.98rem}
+    .tstep p,.ticks li,.acc-a p{font-size:.97rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
