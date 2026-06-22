@@ -67,7 +67,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:305;font-stretch:107%;line-height:1.82;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:305;font-stretch:107%;line-height:1.72;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
@@ -663,6 +663,12 @@
   @media (max-width:620px){
     .contact{padding-top:8.5rem;padding-bottom:4rem}
   }
+  /* ===== v13: thinner body strokes (262) + slightly larger, consistent mobile body ===== */
+  body{font-weight:220}
+  @media (max-width:560px){
+    body{font-weight:220}
+    .intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p,.overview-body p,.ticks li,.season-note,.acc-a p,.tstep p,.incl p,.contact-head p{font-weight:220;font-size:.9rem;line-height:1.64}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -892,11 +898,19 @@
   var email=f.querySelector('#email'),phone=f.querySelector('#phone'),date=f.querySelector('#date'),msg=document.getElementById('emailMsg');
   if(date){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());date.min=t.toISOString().slice(0,10);}
   function flag(el,m){if(msg){msg.textContent=m;}if(el){try{el.focus();}catch(e){}}}
+  function badPhone(v){
+    if(!/^[0-9+()\s\-]+$/.test(v)) return true;
+    var d=v.replace(/[^0-9]/g,'');
+    if(d.length<8||d.length>15) return true;
+    if(/^(\d)\1+$/.test(d)) return true;
+    if('0123456789'.indexOf(d)>-1||'9876543210'.indexOf(d)>-1) return true;
+    return false;
+  }
   f.addEventListener('submit',function(e){
     if(msg){msg.textContent='';}
     var ev=email?email.value.trim():'';
     if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(ev)){e.preventDefault();e.stopPropagation();flag(email,'Please enter a valid email address.');return;}
-    if(phone&&phone.value.trim()!==''&&!/^[0-9+()\s\-]{6,}$/.test(phone.value.trim())){e.preventDefault();e.stopPropagation();flag(phone,'Please enter a valid phone number, or leave it blank.');return;}
+    if(phone&&phone.value.trim()!==''&&badPhone(phone.value.trim())){e.preventDefault();e.stopPropagation();flag(phone,'Please enter a valid phone number, or leave it blank.');return;}
     if(date&&date.value&&date.value<date.min){e.preventDefault();e.stopPropagation();flag(date,'Please choose a date that is not in the past.');return;}
   },true);
 })();
