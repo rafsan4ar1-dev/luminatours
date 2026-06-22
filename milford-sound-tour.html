@@ -698,6 +698,14 @@
   @media (max-width:560px){
     .ex-sec h2,.faq .faq-grid h2,.itin-head,.overview-grid h2,.incl-lead h2{font-size:2.45rem;line-height:1.18}
   }
+  /* ===== v13: thinner body strokes (262) + slightly larger, consistent mobile body ===== */
+  body{font-weight:262}
+  @media (max-width:560px){
+    body{font-weight:262}
+    .intro .body p,.flagship p,.custom p,.pillar p,details p,.faq p,.overview-body p,.ticks li,.season-note,.acc-a p,.tstep p,.incl p,.contact-head p{font-weight:262;font-size:.9rem;line-height:1.74}
+  }
+  /* image save-deterrent (right-click / drag / long-press) */
+  img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -1033,14 +1041,25 @@
   var email=f.querySelector('#email'),phone=f.querySelector('#phone'),date=f.querySelector('#date'),msg=document.getElementById('emailMsg');
   if(date){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());date.min=t.toISOString().slice(0,10);}
   function flag(el,m){if(msg){msg.textContent=m;}if(el){try{el.focus();}catch(e){}}}
+  function badPhone(v){
+    if(!/^[0-9+()\s\-]+$/.test(v)) return true;
+    var d=v.replace(/[^0-9]/g,'');
+    if(d.length<8||d.length>15) return true;
+    if(/^(\d)\1+$/.test(d)) return true;
+    if('0123456789'.indexOf(d)>-1||'9876543210'.indexOf(d)>-1) return true;
+    return false;
+  }
   f.addEventListener('submit',function(e){
     if(msg){msg.textContent='';}
     var ev=email?email.value.trim():'';
     if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(ev)){e.preventDefault();e.stopPropagation();flag(email,'Please enter a valid email address.');return;}
-    if(phone&&phone.value.trim()!==''&&!/^[0-9+()\s\-]{6,}$/.test(phone.value.trim())){e.preventDefault();e.stopPropagation();flag(phone,'Please enter a valid phone number, or leave it blank.');return;}
+    if(phone&&phone.value.trim()!==''&&badPhone(phone.value.trim())){e.preventDefault();e.stopPropagation();flag(phone,'Please enter a valid phone number, or leave it blank.');return;}
     if(date&&date.value&&date.value<date.min){e.preventDefault();e.stopPropagation();flag(date,'Please choose a date that is not in the past.');return;}
   },true);
 })();
+</script>
+<script>
+(function(){function b(e){if(e.target&&e.target.tagName==='IMG'){e.preventDefault();}}document.addEventListener('contextmenu',b);document.addEventListener('dragstart',b);})();
 </script>
 </body>
 </html>
