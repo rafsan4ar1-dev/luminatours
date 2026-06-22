@@ -656,6 +656,13 @@
   .legal-body a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
   .legal-body strong{color:var(--ink);font-weight:500}
   @media(max-width:620px){.legal-toc ol{columns:1}.legal-body,.legal-body p,.legal-body li{font-size:.82rem;color:#b4bbb9}.legal-intro{font-size:.85rem}}
+
+  /* ===== enquiry page: start the form well below the fixed header (desktop + mobile) =====
+     Placed last so it wins over the inherited .contact padding rules above. */
+  .contact{padding-top:clamp(9rem,16vw,12rem);padding-bottom:clamp(4rem,8vw,7rem)}
+  @media (max-width:620px){
+    .contact{padding-top:8.5rem;padding-bottom:4rem}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
