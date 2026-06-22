@@ -714,6 +714,10 @@
     .post-content p.lead{font-size:1.02rem}
     .post-standfirst{font-size:.95rem}
   }
+  /* image save-deterrent (right-click / drag / long-press) */
+  img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  /* body strokes unified to 220 for consistency */
+  body{font-weight:220}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -965,6 +969,9 @@
     if(next) next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
   });
 
+</script>
+<script>
+(function(){function b(e){if(e.target&&e.target.tagName==='IMG'){e.preventDefault();}}document.addEventListener('contextmenu',b);document.addEventListener('dragstart',b);})();
 </script>
 </body>
 </html>
