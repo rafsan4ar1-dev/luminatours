@@ -691,6 +691,13 @@
   }
   @media (max-width:760px){body .wrap{padding-left:1.9rem;padding-right:1.9rem}}
   @media (max-width:760px){.gallery,.slider,.exp-grid{margin-left:-1.3rem;margin-right:-1.3rem}}
+
+  /* ===== v12: tour-page section headings matched to the homepage (desktop + mobile) =====
+     Placed last so they win over the older .ex-sec / .overview-grid / .itin-head sizes above. */
+  .ex-sec h2,.faq .faq-grid h2,.itin-head,.overview-grid h2,.incl-lead h2{font-size:clamp(2.45rem,4.7vw,3.7rem);line-height:1.14}
+  @media (max-width:560px){
+    .ex-sec h2,.faq .faq-grid h2,.itin-head,.overview-grid h2,.incl-lead h2{font-size:2.45rem;line-height:1.18}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
