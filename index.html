@@ -517,9 +517,8 @@
   <!-- HERO -->
   <section class="hero" aria-label="Introduction">
     <div class="hero-media" data-parallax="0.14">
-      <video autoplay muted loop playsinline aria-hidden="true" poster="/image/home/hero-poster.webp">
-        <source src="https://pub-eacace11d22e4fe5999f3cc587a89cd4.r2.dev/hero-video.mp4" type="video/mp4">
-      </video>
+      <video autoplay muted loop playsinline aria-hidden="true" poster="/image/home/hero-poster.webp" data-desktop="https://pub-eacace11d22e4fe5999f3cc587a89cd4.r2.dev/hero-video.mp4" data-mobile="https://pub-eacace11d22e4fe5999f3cc587a89cd4.r2.dev/hero-video-mobile.mp4"></video>
+      <script>(function(){var v=document.querySelector('.hero-media video');if(!v)return;var small=window.matchMedia('(max-width:768px)').matches;v.src=small?v.getAttribute('data-mobile'):v.getAttribute('data-desktop');v.load();var p=v.play();if(p&&p.catch){p.catch(function(){});}})();</script>
     </div>
     <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video" aria-pressed="false">‖</button>
     <div class="wrap hero-inner">
