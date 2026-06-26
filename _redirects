@@ -1,0 +1,25 @@
+# Lumina Tours: old URL redirects (301 permanent)
+# Place this file (named exactly "_redirects", no extension) in the same
+# folder as index.html, then push. Cloudflare applies it automatically.
+
+# Old blog -> Journal
+/blog               /journal                       301
+/blog/*             /journal                       301
+
+# Old enquiry endpoints -> Enquiry page
+/enquiries          /enquiry                       301
+/enquiries/create   /enquiry                       301
+/enquiries/*        /enquiry                       301
+
+# Old tailored / bespoke -> Custom tour  (wildcard is safe here)
+/tailored*          /custom-tour                   301
+
+# Old stargazing -> Stargazing & Astrophotography  (exact matches: loop-safe)
+/stargaz            /stargazing-astrophotography   301
+/stargazing         /stargazing-astrophotography   301
+/stargazing-tour    /stargazing-astrophotography   301
+
+# Old Skippers -> Skippers Canyon tour  (exact matches: loop-safe)
+/skipper            /skippers-canyon-tour          301
+/skippers           /skippers-canyon-tour          301
+/skippers-canyon    /skippers-canyon-tour          301
