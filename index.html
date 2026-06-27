@@ -2,7 +2,7 @@
 <html lang="en-NZ">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- ============ PRIMARY SEO ============ -->
 <title>Private Luxury Tours &amp; Bespoke Photography in Queenstown | Lumina Tours</title>
@@ -105,8 +105,8 @@
   .eyebrow{font-family:var(--sans);font-size:0.64rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--accent);display:inline-block}
 
   /* header */
-  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 0;border-bottom:1px solid transparent;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
-  header.scrolled{padding:0.85rem 0;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(1.5rem + env(safe-area-inset-top,0px)) 0 1.5rem;border-bottom:1px solid transparent;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
+  header.scrolled{padding:calc(0.85rem + env(safe-area-inset-top,0px)) 0 0.85rem;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
   .nav{display:flex;align-items:center;justify-content:space-between}
   .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:0.05em;color:var(--ink);line-height:1}
   .logo-icon{height:42px;width:auto;display:block;opacity:.92;transform:translateY(-9%);transition:height .5s var(--ease-out),opacity .35s ease}
