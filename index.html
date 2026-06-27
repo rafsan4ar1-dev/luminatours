@@ -2,7 +2,7 @@
 <html lang="en-NZ">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============ PRIMARY SEO ============ -->
 <title>Private Luxury Tours &amp; Bespoke Photography in Queenstown | Lumina Tours</title>
@@ -105,8 +105,8 @@
   .eyebrow{font-family:var(--sans);font-size:0.64rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--accent);display:inline-block}
 
   /* header */
-  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(1.5rem + env(safe-area-inset-top,0px)) 0 1.5rem;border-bottom:1px solid transparent;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
-  header.scrolled{padding:calc(0.85rem + env(safe-area-inset-top,0px)) 0 0.85rem;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 0;border-bottom:1px solid transparent;transition:padding .6s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out)}
+  header.scrolled{padding:0.85rem 0;background:rgba(11,13,17,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-soft)}
   .nav{display:flex;align-items:center;justify-content:space-between}
   .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:0.05em;color:var(--ink);line-height:1}
   .logo-icon{height:42px;width:auto;display:block;opacity:.92;transform:translateY(-9%);transition:height .5s var(--ease-out),opacity .35s ease}
@@ -133,9 +133,8 @@
 
   /* hero, smaller headline */
   .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:clamp(3rem,8vh,5rem);overflow:hidden}
-  .hero-media{position:absolute;top:-10%;left:0;right:0;height:120%;z-index:0;background:url('/image/home/hero-poster.webp') center/cover no-repeat, radial-gradient(120% 90% at 70% 16%,#1a232b 0%,#0B0D11 64%)}
-  .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0;background:transparent;transition:opacity .8s ease}
-  .hero-media video.playing{opacity:0.90}
+  .hero-media{position:absolute;top:-10%;left:0;right:0;height:120%;z-index:0;background:radial-gradient(120% 90% at 70% 16%,#1a232b 0%,#0B0D11 64%)}
+  .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.90}
   @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(11,13,17,0.62) 22%,transparent 56%),radial-gradient(130% 120% at 50% 48%,transparent 30%,rgba(11,13,17,0.32) 100%),rgba(11,13,17,0.10)}
   .hero-inner{position:relative;z-index:2;max-width:1120px;text-align:center;text-shadow:0 2px 30px rgba(6,8,11,0.55)}
@@ -517,7 +516,7 @@
   <section class="hero" aria-label="Introduction">
     <div class="hero-media">
       <video autoplay muted loop playsinline aria-hidden="true" poster="/image/home/hero-poster.webp" data-desktop="https://media.luminatours.co.nz/hero-video.mp4" data-mobile="https://media.luminatours.co.nz/hero-video-mobile.mp4"></video>
-      <script>(function(){var v=document.querySelector('.hero-media video');if(!v)return;v.addEventListener('loadeddata',function(){v.classList.add('playing');},{once:true});var small=window.matchMedia('(max-width:768px)').matches;v.src=small?v.getAttribute('data-mobile'):v.getAttribute('data-desktop');v.load();var p=v.play();if(p&&p.catch){p.catch(function(){});}})();</script>
+      <script>(function(){var v=document.querySelector('.hero-media video');if(!v)return;var small=window.matchMedia('(max-width:768px)').matches;v.src=small?v.getAttribute('data-mobile'):v.getAttribute('data-desktop');v.load();var p=v.play();if(p&&p.catch){p.catch(function(){});}})();</script>
     </div>
     <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video" aria-pressed="false">‖</button>
     <div class="wrap hero-inner">
