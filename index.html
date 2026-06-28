@@ -318,7 +318,7 @@
     .view-all-mobile-wrap{display:flex;justify-content:center;margin-top:2.2rem}
     .hero{height:80vh;min-height:520px}
     .hero-media{top:0;left:0;right:0;height:80vh;min-height:520px;overflow:hidden}
-    .hero-media video{position:absolute;top:0;left:0;width:auto;height:auto;min-width:100%;min-height:100%;max-width:none;object-fit:cover}
+    .hero-media video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
 
     .mobile-cta{display:block;padding:.5rem 1rem calc(.5rem + env(safe-area-inset-bottom));background:rgba(11,13,17,0.55);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
     .mobile-cta a{font-size:0.78rem;padding:.5rem 1rem;letter-spacing:0.04em;background:transparent;color:var(--ink);border:1px solid rgba(242,243,241,0.4);opacity:.9}
@@ -362,8 +362,8 @@
     .nav-links a{font-weight:400}
   }
   @media (max-width:760px){
-    /* pause/play: no circle, dim */
-    .video-toggle{border:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto;opacity:.3;color:var(--ink-mute);font-size:1rem}
+    /* pause/play: small half-transparent button on the video */
+    .video-toggle{width:40px;height:40px;font-size:.74rem;bottom:1.1rem;right:1.1rem;opacity:.55}
     /* smaller header logo + name */
     .brand{font-size:1.25rem}
     .logo-icon{height:34px}
