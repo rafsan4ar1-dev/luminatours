@@ -216,6 +216,12 @@
   .flagship-vis .fvimg{position:absolute;inset:0;background-size:cover;background-position:center;animation:kenburns 44s var(--ease-io) infinite alternate}
   .flagship-vis::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.45));mix-blend-mode:multiply}
   .flagship-vis .glow{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 38%,rgba(79,150,140,0.26),transparent 66%),radial-gradient(70% 70% at 55% 60%,rgba(96,120,170,0.18),transparent 70%),linear-gradient(180deg,#0a1013,#050709);animation:kenburns 40s var(--ease-io) infinite alternate}
+  /* desktop-only performance: no blur-on-scroll, no per-frame blend over video/zoom (mobile keeps its look) */
+  @media (min-width:901px){
+    header.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,17,0.9)}
+    .aurora{mix-blend-mode:normal;animation:none}
+    .flagship-vis::after{mix-blend-mode:normal;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.55))}
+  }
 
   /* custom & tailored */
   .custom{padding-top:clamp(4.5rem,9vw,7.5rem);padding-bottom:clamp(4.5rem,9vw,7.5rem)}
