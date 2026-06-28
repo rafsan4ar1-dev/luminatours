@@ -179,17 +179,12 @@
   @keyframes riseLine{to{opacity:1;transform:translateY(0)}}
 
   /* SCROLL REVEAL, rises up from below & blends in */
-  .reveal{opacity:0;transform:translateY(40px);transition:opacity 2.3s var(--ease-out),transform 2.3s var(--ease-out);will-change:opacity,transform}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);will-change:opacity,transform}
   .reveal.in{opacity:1;transform:translateY(0)}
   /* cards use the same fade-up reveal as every other section (stagger via data-d) */
-  .card.reveal{transition:opacity 2.3s var(--ease-out),transform 2.3s var(--ease-out),border-color .6s ease}
-  /* Lenis smooth scroll */
-  html.lenis,html.lenis body{height:auto}
-  .lenis.lenis-smooth{scroll-behavior:auto !important}
-  .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
-  .lenis.lenis-stopped{overflow:hidden}
-  .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
-  .card.reveal[data-d="1"]{transition-delay:.24s}.card.reveal[data-d="2"]{transition-delay:.48s}
+  .card.reveal{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),border-color .6s ease}
+  .reveal[data-d="1"]{transition-delay:.06s}.reveal[data-d="2"]{transition-delay:.12s}.reveal[data-d="3"]{transition-delay:.18s}
+  .card.reveal[data-d="1"]{transition-delay:.12s}.card.reveal[data-d="2"]{transition-delay:.24s}
 
   .eyebrow.reveal{transform:translateY(20px)}
 
@@ -642,8 +637,8 @@
   }
 
   /* ============ STARGAZING v10 (perf + shared fixes) ============ */
-  .reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
-  .card.reveal{transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out),border-color .6s ease}
+  .reveal{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+  .card.reveal{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),border-color .6s ease}
   /* contact compact + image anchored to bottom */
   .contact-bg{background-position:center bottom}
   .contact-head{margin-bottom:clamp(1.8rem,3.5vw,2.5rem)}
@@ -920,7 +915,6 @@
 
 <div class="mobile-cta"><a href="/enquiry" class="btn btn-solid">Enquire now</a></div>
 
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
   const header=document.getElementById('header');
   const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>40);
@@ -952,20 +946,16 @@
   }
 
   const pEls=[...document.querySelectorAll('[data-parallax]')];
-  function parallax(){const vh=window.innerHeight;pEls.forEach(el=>{const r=el.getBoundingClientRect();const s=parseFloat(el.dataset.parallax)||0.1;const off=(r.top+r.height/2)-vh/2;el.style.transform='translate3d(0,'+(-off*s).toFixed(1)+'px,0)';});}
+  let pData=[];
+  function measureParallax(){pData=pEls.map(el=>{const prev=el.style.transform;el.style.transform='';const r=el.getBoundingClientRect();el.style.transform=prev;return {el,top:r.top+window.scrollY,h:r.height,s:parseFloat(el.dataset.parallax)||0.1};});}
+  function applyParallax(){const vh=window.innerHeight,sy=window.scrollY;for(const p of pData){const center=p.top+p.h/2;const off=(center-sy)-vh/2;p.el.style.transform='translate3d(0,'+(-off*p.s).toFixed(1)+'px,0)';}}
 
   if(!reduce){
-    let lenis=null;
-    if(window.Lenis){
-      lenis=new Lenis({duration:1.0,smoothWheel:true,wheelMultiplier:1.0});
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click',(e)=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
-      });
-    }
-    function frame(t){ if(lenis) lenis.raf(t); parallax(); requestAnimationFrame(frame); }
-    requestAnimationFrame(frame);
-    window.addEventListener('resize', parallax, {passive:true});
-  } else { parallax(); }
+    measureParallax();applyParallax();
+    let ticking=false;
+    window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{applyParallax();ticking=false;});ticking=true;}},{passive:true});
+    window.addEventListener('resize',()=>{measureParallax();applyParallax();},{passive:true});
+  }
 
   /* confirm-email match check */
   /* email typo catcher: format is enforced by type=email; this suggests fixes for common domain/TLD typos */
