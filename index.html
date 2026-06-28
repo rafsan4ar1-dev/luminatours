@@ -317,8 +317,8 @@
     .view-all-top{display:none}
     .view-all-mobile-wrap{display:flex;justify-content:center;margin-top:2.2rem}
     .hero{height:80vh;min-height:520px}
-    .hero-media{top:0;height:80vh;min-height:520px}
-    .hero-media video{height:84vh;min-height:540px;object-fit:cover}
+    .hero-media{top:0;left:0;right:0;height:80vh;min-height:520px;overflow:hidden}
+    .hero-media video{position:absolute;top:0;left:0;width:auto;height:auto;min-width:100%;min-height:100%;max-width:none;object-fit:cover}
 
     .mobile-cta{display:block;padding:.5rem 1rem calc(.5rem + env(safe-area-inset-bottom));background:rgba(11,13,17,0.55);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
     .mobile-cta a{font-size:0.78rem;padding:.5rem 1rem;letter-spacing:0.04em;background:transparent;color:var(--ink);border:1px solid rgba(242,243,241,0.4);opacity:.9}
