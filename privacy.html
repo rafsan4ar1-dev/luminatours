@@ -68,7 +68,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink-soft);font-family:var(--sans);font-weight:305;font-stretch:107%;line-height:1.82;letter-spacing:0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+  /* film-grain overlay removed: it was a fixed full-screen blended layer re-compositing the whole viewport on every scroll frame (the main lag), and invisible at 2.8% opacity */
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
   h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:300;line-height:1.1;letter-spacing:0.004em}
@@ -651,6 +651,14 @@
   @media(max-width:620px){.legal-toc ol{columns:1}.legal-body,.legal-body p,.legal-body li{font-size:.82rem;color:#b4bbb9}.legal-intro{font-size:.85rem}}
   /* body strokes unified to 220 for consistency */
   body{font-weight:220}
+  /* perf-desktop-v2: smooth scroll on desktop, mobile untouched */
+  @media (min-width:901px){
+    header.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,17,0.9)}
+    .aurora{mix-blend-mode:normal;animation:none}
+    .flagship-vis::after{mix-blend-mode:normal;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.55))}
+    .reveal{will-change:auto}
+    .hero-media,.trust-bg,.contact-bg,.itinerary-bg,.aurora{will-change:auto}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -817,7 +825,7 @@
   function measureParallax(){pData=pEls.map(el=>{const prev=el.style.transform;el.style.transform='';const r=el.getBoundingClientRect();el.style.transform=prev;return {el,top:r.top+window.scrollY,h:r.height,s:parseFloat(el.dataset.parallax)||0.1};});}
   function applyParallax(){const vh=window.innerHeight,sy=window.scrollY;for(const p of pData){const center=p.top+p.h/2;const off=(center-sy)-vh/2;p.el.style.transform='translate3d(0,'+(-off*p.s).toFixed(1)+'px,0)';}}
 
-  if(!reduce){
+  if(!reduce && !window.matchMedia('(min-width:901px)').matches){
     measureParallax();applyParallax();
     let ticking=false;
     window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{applyParallax();ticking=false;});ticking=true;}},{passive:true});
