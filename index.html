@@ -881,5 +881,23 @@
 <script>
 (function(){function b(e){if(e.target&&e.target.tagName==='IMG'){e.preventDefault();}}document.addEventListener('contextmenu',b);document.addEventListener('dragstart',b);})();
 </script>
+<!-- dynamic enquiry subject: unique per submission so emails don't thread -->
+<script>
+(function(){
+  var f=document.querySelector('form[action*="web3forms"]');
+  if(!f) return;
+  var subj=f.querySelector('input[name="subject"]');
+  if(!subj) return;
+  f.addEventListener('submit',function(){
+    var nameEl=f.querySelector('#name')||f.querySelector('[name="name"]');
+    var nm=nameEl&&nameEl.value.trim()?nameEl.value.trim():'Website visitor';
+    var d=new Date(),pad=function(n){return n<10?'0'+n:''+n;};
+    var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var h=d.getHours(),ap=h<12?'am':'pm',h12=h%12||12;
+    var stamp=d.getDate()+' '+mo[d.getMonth()]+' '+d.getFullYear()+', '+h12+':'+pad(d.getMinutes())+ap;
+    subj.value='New enquiry: '+nm+' ('+stamp+')';
+  });
+})();
+</script>
 </body>
 </html>

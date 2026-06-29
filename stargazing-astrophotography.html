@@ -702,6 +702,14 @@
   @media (max-width:768px){
     .hero{height:100vh;height:100dvh;min-height:560px}
   }
+  /* perf-desktop-v2: smooth scroll on desktop, mobile untouched */
+  @media (min-width:901px){
+    header.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,17,0.9)}
+    .aurora{mix-blend-mode:normal;animation:none}
+    .flagship-vis::after{mix-blend-mode:normal;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.55))}
+    .reveal{will-change:auto}
+    .hero-media,.trust-bg,.contact-bg,.itinerary-bg,.aurora{will-change:auto}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -952,7 +960,7 @@
   function measureParallax(){pData=pEls.map(el=>{const prev=el.style.transform;el.style.transform='';const r=el.getBoundingClientRect();el.style.transform=prev;return {el,top:r.top+window.scrollY,h:r.height,s:parseFloat(el.dataset.parallax)||0.1};});}
   function applyParallax(){const vh=window.innerHeight,sy=window.scrollY;for(const p of pData){const center=p.top+p.h/2;const off=(center-sy)-vh/2;p.el.style.transform='translate3d(0,'+(-off*p.s).toFixed(1)+'px,0)';}}
 
-  if(!reduce){
+  if(!reduce && !window.matchMedia('(min-width:901px)').matches){
     measureParallax();applyParallax();
     let ticking=false;
     window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{applyParallax();ticking=false;});ticking=true;}},{passive:true});
@@ -1051,6 +1059,24 @@
 </script>
 <script>
 (function(){function b(e){if(e.target&&e.target.tagName==='IMG'){e.preventDefault();}}document.addEventListener('contextmenu',b);document.addEventListener('dragstart',b);})();
+</script>
+<!-- dynamic enquiry subject: unique per submission so emails don't thread -->
+<script>
+(function(){
+  var f=document.querySelector('form[action*="web3forms"]');
+  if(!f) return;
+  var subj=f.querySelector('input[name="subject"]');
+  if(!subj) return;
+  f.addEventListener('submit',function(){
+    var nameEl=f.querySelector('#name')||f.querySelector('[name="name"]');
+    var nm=nameEl&&nameEl.value.trim()?nameEl.value.trim():'Website visitor';
+    var d=new Date(),pad=function(n){return n<10?'0'+n:''+n;};
+    var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var h=d.getHours(),ap=h<12?'am':'pm',h12=h%12||12;
+    var stamp=d.getDate()+' '+mo[d.getMonth()]+' '+d.getFullYear()+', '+h12+':'+pad(d.getMinutes())+ap;
+    subj.value='New enquiry: '+nm+' ('+stamp+')';
+  });
+})();
 </script>
 </body>
 </html>
