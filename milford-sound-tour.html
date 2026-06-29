@@ -676,6 +676,7 @@
     .hero-media img.hero-photo,.flagship-vis .fvimg,.flagship-vis .glow{animation:none}
     .flagship-vis::after{mix-blend-mode:normal;background:radial-gradient(75% 75% at 50% 38%,transparent,rgba(6,8,11,0.55))}
     .reveal{will-change:auto}
+    .hero-media,.trust-bg,.contact-bg,.itinerary-bg{will-change:auto}
   }
 
   /* email typo suggestion link */
@@ -964,7 +965,7 @@
   function measureParallax(){pData=pEls.map(el=>{const prev=el.style.transform;el.style.transform='';const r=el.getBoundingClientRect();el.style.transform=prev;return {el,top:r.top+window.scrollY,h:r.height,s:parseFloat(el.dataset.parallax)||0.1};});}
   function applyParallax(){const vh=window.innerHeight,sy=window.scrollY;for(const p of pData){const center=p.top+p.h/2;const off=(center-sy)-vh/2;p.el.style.transform='translate3d(0,'+(-off*p.s).toFixed(1)+'px,0)';}}
 
-  if(!reduce){
+  if(!reduce && !window.matchMedia('(min-width:901px)').matches){
     measureParallax();applyParallax();
     let ticking=false;
     window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{applyParallax();ticking=false;});ticking=true;}},{passive:true});
