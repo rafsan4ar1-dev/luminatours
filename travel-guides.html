@@ -674,6 +674,15 @@
     .reveal{will-change:auto}
     .hero-media,.trust-bg,.contact-bg,.itinerary-bg,.aurora{will-change:auto}
   }
+  .journal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(1.8rem,3vw,2.6rem)}
+  .jcard{display:block;text-decoration:none}
+  .jcard-media{overflow:hidden;border-radius:10px;margin-bottom:1rem}
+  .jcard-media img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .6s ease}
+  .jcard:hover .jcard-media img{transform:scale(1.03)}
+  .jcard .eyebrow{display:inline-block;margin-bottom:.5rem}
+  .jcard h3{font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.15;color:var(--ink);margin:0 0 .5rem;transition:color .3s}
+  .jcard:hover h3{color:var(--accent)}
+  .jcard .jmeta{color:var(--ink-mute);font-size:.85rem;margin:.4rem 0 0}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -727,9 +736,19 @@
   <section class="ex-sec wrap" aria-label="Browse the guides">
     <span class="eyebrow reveal">The guides</span>
     <h2 class="reveal" data-d="1" style="margin-top:1rem">Destination guides</h2>
-    <div class="exp-grid reveal" data-d="1" style="margin-top:clamp(1.6rem,3.2vw,2.6rem)">
-      <a class="card" href="/mount-cook-guide" aria-label="Mount Cook from Queenstown travel guide"><img class="ph" src="/image/mount-cook/aoraki-mount-cook-tour-hero.webp" alt="Aoraki / Mount Cook rising above alpine valleys" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Aoraki &middot; Southern Alps</span><h3>Mount Cook from Queenstown</h3></div></a>
-      <a class="card" href="/milford-sound-guide" aria-label="Milford Sound from Queenstown travel guide"><img class="ph" src="/image/milford/milford-sound-tour-hero.webp" alt="Milford Sound and Mitre Peak in Fiordland" loading="lazy" decoding="async"><div class="arrow" aria-hidden="true">&#8599;</div><div class="meta"><span class="k">Fiordland</span><h3>Milford Sound from Queenstown</h3></div></a>
+    <div class="journal-grid" style="margin-top:clamp(1.6rem,3vw,2.4rem)">
+      <a class="jcard reveal" href="/mount-cook-guide">
+        <div class="jcard-media"><img src="/image/mount-cook/aoraki-mount-cook-tour-hero.webp" alt="Aoraki / Mount Cook rising above alpine valleys" loading="lazy" decoding="async"></div>
+        <span class="eyebrow">Travel guide</span>
+        <h3>Mount Cook from Queenstown</h3>
+        <p class="jmeta">Drive times, best season, and what to see.</p>
+      </a>
+      <a class="jcard reveal" data-d="1" href="/milford-sound-guide">
+        <div class="jcard-media"><img src="/image/milford/milford-sound-tour-hero.webp" alt="Milford Sound and Mitre Peak in Fiordland" loading="lazy" decoding="async"></div>
+        <span class="eyebrow">Travel guide</span>
+        <h3>Milford Sound from Queenstown</h3>
+        <p class="jmeta">The drive, the cruise, and the best time to go.</p>
+      </a>
     </div>
     <div class="overview-body reveal" data-d="1" style="margin-top:1.4rem">
       <p>More destination guides are on the way, including Glenorchy &amp; Paradise and Wanaka. In the meantime, explore the <a href="/experiences">private experiences</a> or our flagship <a href="/stargazing-astrophotography">stargazing and astrophotography</a> nights.</p>
