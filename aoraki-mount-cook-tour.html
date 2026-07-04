@@ -714,6 +714,22 @@
     .reveal{will-change:auto}
     .hero-media,.trust-bg,.contact-bg,.itinerary-bg,.aurora{will-change:auto}
   }
+  /* grouped nav dropdown */
+  .has-sub{position:relative}
+  .nav-links .sub{list-style:none}
+  .sub-caret{font-size:.62em;opacity:.65}
+  @media (min-width:901px){
+    .nav-links .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);flex-direction:column;gap:1rem;min-width:172px;margin:0;padding:1.1rem 1.25rem;background:rgba(10,12,16,0.97);backdrop-filter:blur(20px);border:1px solid var(--line-soft);border-radius:12px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease-out),transform .3s var(--ease-out);display:flex}
+    .nav-links .sub::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+    .nav-links .has-sub:hover .sub,.nav-links .has-sub:focus-within .sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-links .sub a{white-space:nowrap}
+  }
+  @media (max-width:900px){
+    .nav-links .has-sub{display:flex;flex-direction:column;align-items:inherit;gap:1.2rem}
+    .nav-links .sub{display:flex;flex-direction:column;gap:1.05rem;margin:1.05rem 0 0;padding:0}
+    .nav-links .sub a{font-size:.95rem;color:var(--ink-mute)}
+    .sub-caret{display:none}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -730,8 +746,14 @@
         <li><a href="/stargazing-astrophotography">Stargazing</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/host">About</a></li>
-        <li><a href="/journal">Journal</a></li>
-        <li><a href="/travel-guides">Travel Guides</a></li>
+        <li class="has-sub">
+          <a href="/travel-guides" aria-haspopup="true">Plan Your Trip <span class="sub-caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="sub">
+            <li><a href="/travel-guides">Travel Guides</a></li>
+            <li><a href="/plan-your-trip">Trip Weather</a></li>
+            <li><a href="/journal">Journal</a></li>
+          </ul>
+        </li>
         <li><a href="/enquiry" class="btn">Enquire</a></li>
       </ul>
     </nav>

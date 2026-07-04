@@ -733,6 +733,22 @@
   @media(max-width:560px){ .tp-forecast{grid-template-columns:repeat(3,1fr)} }
   @media(max-width:390px){ .tp-forecast{grid-template-columns:repeat(2,1fr)} }
 
+  /* grouped nav dropdown */
+  .has-sub{position:relative}
+  .nav-links .sub{list-style:none}
+  .sub-caret{font-size:.62em;opacity:.65}
+  @media (min-width:901px){
+    .nav-links .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);flex-direction:column;gap:1rem;min-width:172px;margin:0;padding:1.1rem 1.25rem;background:rgba(10,12,16,0.97);backdrop-filter:blur(20px);border:1px solid var(--line-soft);border-radius:12px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease-out),transform .3s var(--ease-out);display:flex}
+    .nav-links .sub::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+    .nav-links .has-sub:hover .sub,.nav-links .has-sub:focus-within .sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-links .sub a{white-space:nowrap}
+  }
+  @media (max-width:900px){
+    .nav-links .has-sub{display:flex;flex-direction:column;align-items:inherit;gap:1.2rem}
+    .nav-links .sub{display:flex;flex-direction:column;gap:1.05rem;margin:1.05rem 0 0;padding:0}
+    .nav-links .sub a{font-size:.95rem;color:var(--ink-mute)}
+    .sub-caret{display:none}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -749,8 +765,14 @@
         <li><a href="/stargazing-astrophotography">Stargazing</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/host">About</a></li>
-        <li><a href="/journal">Journal</a></li>
-        <li><a href="/travel-guides">Travel Guides</a></li>
+        <li class="has-sub">
+          <a href="/travel-guides" aria-haspopup="true">Plan Your Trip <span class="sub-caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="sub">
+            <li><a href="/travel-guides">Travel Guides</a></li>
+            <li><a href="/plan-your-trip">Trip Weather</a></li>
+            <li><a href="/journal">Journal</a></li>
+          </ul>
+        </li>
         <li><a href="/enquiry" class="btn">Enquire</a></li>
       </ul>
     </nav>
@@ -1116,9 +1138,9 @@
   function fmtDate(d){return d.toLocaleDateString('en-NZ',{day:'numeric',month:'short'});}
   function row(k,v){return '<div class="tp-row"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
 
+  function fetchJSON(url,tries){tries=tries||2;return new Promise(function(res,rej){(function go(n){var ctrl=new AbortController(),to=setTimeout(function(){ctrl.abort();},8000);fetch(url,{signal:ctrl.signal,cache:'no-store'}).then(function(r){clearTimeout(to);if(!r.ok)throw 0;return r.json();}).then(res).catch(function(e){clearTimeout(to);if(n>1)setTimeout(function(){go(n-1);},1200);else rej(e);});})(tries);});}
   function fetchAurora(){
-    return fetch('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json')
-      .then(function(r){return r.json();})
+    return fetchJSON('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json',2)
       .then(function(rows){var last=rows[rows.length-1];aurora=parseFloat(last[1]);})
       .catch(function(){aurora=null;});
   }
@@ -1128,7 +1150,7 @@
       '&timezone=Pacific%2FAuckland&forecast_days=7'+
       '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,sunrise,sunset'+
       '&hourly=cloud_cover';
-    return fetch(u).then(function(r){if(!r.ok)throw new Error('http');return r.json();}).then(function(j){cache[loc.id]=j;return j;});
+    return fetchJSON(u,2).then(function(j){cache[loc.id]=j;return j;});
   }
   function nightCloud(j){
     try{
