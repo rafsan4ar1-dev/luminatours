@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============ PRIMARY SEO ============ -->
-<title>About Your Host, Photographer &amp; Guide | Lumina Tours</title>
-<meta name="description" content="Meet the host and photographer behind Lumina Tours. Over a decade behind the camera in New Zealand's South Island, and a belief that the best days are spent in good company, not on a schedule.">
+<title>Your Host Arafat, Photographer &amp; Guide | Lumina Tours</title>
+<meta name="description" content="Meet Arafat, the photographer, host and driver behind Lumina Tours. Over 10 years behind the camera and over 7 years photographing the southern night sky.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://www.luminatours.co.nz/host">
 <meta name="theme-color" content="#0B0D11">
@@ -44,8 +44,8 @@
   "@graph": [
     { "@type": "Organization", "@id": "https://www.luminatours.co.nz/#org", "name": "Lumina Tours", "url": "https://www.luminatours.co.nz/", "email": "hello@luminatours.co.nz", "telephone": "+64211335754", "areaServed": "South Island, New Zealand", "logo": "https://www.luminatours.co.nz/image/shared/lumina-tours-logo.png", "sameAs": ["https://www.instagram.com/luminatoursnz/", "https://www.facebook.com/luminatoursqueenstown"] },
     { "@type": "WebSite", "@id": "https://www.luminatours.co.nz/#website", "url": "https://www.luminatours.co.nz/", "name": "Lumina Tours", "publisher": { "@id": "https://www.luminatours.co.nz/#org" } },
-    { "@type": "Person", "@id": "https://www.luminatours.co.nz/#host", "name": "Arafat", "jobTitle": "Host and Photographer", "worksFor": { "@id": "https://www.luminatours.co.nz/#org" }, "image": "https://www.luminatours.co.nz/image/host/host-portrait.webp", "description": "The host and photographer behind Lumina Tours, with over a decade of experience photographing New Zealand's South Island.", "knowsAbout": ["Landscape photography", "Astrophotography", "Private tours", "South Island, New Zealand"] },
-    { "@type": "WebPage", "@id": "https://www.luminatours.co.nz/host#page", "url": "https://www.luminatours.co.nz/host", "name": "About Your Host, Photographer &amp; Guide | Lumina Tours", "isPartOf": { "@id": "https://www.luminatours.co.nz/#website" }, "about": { "@id": "https://www.luminatours.co.nz/#host" }, "dateModified": "2026-06-20" },
+    { "@type": "Person", "@id": "https://www.luminatours.co.nz/#host", "name": "Arafat", "jobTitle": "Host, Photographer and Astrotourism Guide", "worksFor": { "@id": "https://www.luminatours.co.nz/#org" }, "image": "https://www.luminatours.co.nz/image/host/host-portrait.webp", "description": "The host and photographer behind Lumina Tours, with over 10 years of professional photography and over 7 years photographing the southern night sky.", "knowsAbout": ["Portrait photography", "Astrophotography", "Stargazing", "Astrotourism", "Private tours", "South Island, New Zealand"], "memberOf": [ { "@type": "Organization", "name": "Royal Astronomical Society of New Zealand" }, { "@type": "Organization", "name": "Southland Astronomical Society" } ], "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Certified Astrotourism Guide", "recognizedBy": { "@type": "Organization", "name": "Aotearoa Astrotourism Academy", "url": "https://aaanz.org/" } } },
+    { "@type": "WebPage", "@id": "https://www.luminatours.co.nz/host#page", "url": "https://www.luminatours.co.nz/host", "name": "Your Host Arafat, Photographer &amp; Guide | Lumina Tours", "isPartOf": { "@id": "https://www.luminatours.co.nz/#website" }, "about": { "@id": "https://www.luminatours.co.nz/#host" }, "dateModified": "2026-10-20" },
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.luminatours.co.nz/" },
       { "@type": "ListItem", "position": 2, "name": "About Your Host", "item": "https://www.luminatours.co.nz/host" }
@@ -648,6 +648,26 @@
   .host-close-line{font-family:var(--serif);font-weight:300;font-size:clamp(1.3rem,2.8vw,1.85rem);color:var(--ink);line-height:1.35;margin:0 0 1.4rem}
   .host-sign{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.6rem,3.2vw,2.1rem);color:var(--ink-soft);margin:0 0 1.8rem}
   .host-close .btn{font-size:.9rem;padding:.95rem 2rem}
+
+  .host-creds{list-style:none;padding:0;margin:clamp(1.8rem,4vw,2.4rem) auto 0;max-width:900px;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+  .host-creds li{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;font-weight:400}
+  .astro-collage{max-width:1000px;margin:clamp(2.8rem,6vw,4.6rem) auto 0}
+  .astro-collage h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,3vw,2.15rem);color:var(--ink);line-height:1.16;margin:0 0 .9rem}
+  .astro-collage .lead-p{font-size:.9rem;font-weight:300;line-height:1.85;color:var(--ink-mute);max-width:600px;margin:0 auto clamp(1.6rem,3.5vw,2.4rem)}
+  .collage{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.6rem,1.4vw,1rem);text-align:left;align-items:start;padding-bottom:2rem}
+  .collage figure{margin:0;position:relative;overflow:hidden;border-radius:10px;background:var(--panel)}
+  .collage figure:nth-child(even){transform:translateY(2rem)}
+  .collage img{width:100%;height:auto;object-fit:cover;display:block;aspect-ratio:3/4}
+  .collage figcaption{position:absolute;left:0;right:0;bottom:0;padding:3.2rem .9rem .85rem;background:linear-gradient(to top,rgba(11,13,17,.96) 35%,rgba(11,13,17,0));font-size:.72rem;line-height:1.45;color:var(--ink-mute);font-weight:300}
+  .collage figcaption strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.05rem;color:var(--ink);letter-spacing:.01em;margin-bottom:.15rem}
+  .collage-note{font-size:.78rem;color:var(--ink-mute);font-weight:300;margin:1.2rem auto 0}
+  @media (max-width:720px){
+    .collage{grid-template-columns:1fr 1fr}
+    .collage figure:nth-child(even){transform:translateY(1.2rem)}
+    .collage figcaption{padding:2rem .7rem .65rem;font-size:.66rem}
+    .collage figcaption strong{font-size:.92rem}
+    .host-creds li{font-size:.62rem;padding:.45rem .8rem}
+  }
   @media(max-width:760px){
     .host-portrait{max-width:74vw}
     .host-figure{margin-left:-1.3rem;margin-right:-1.3rem}
@@ -722,6 +742,13 @@
     <span class="eyebrow reveal">Your host</span>
     <h1 class="reveal" data-d="1">Behind the lens, <em>beside you</em></h1>
     <p class="host-lede reveal" data-d="1">I am the photographer, the driver, the storyteller, and by the end of the day, usually a friend.</p>
+    <ul class="host-creds reveal" data-d="2" aria-label="Experience and credentials">
+      <li>10+ years photography</li>
+      <li>7+ years astrophotography</li>
+      <li>Certified astrotourism guide</li>
+      <li>Member, Royal Astronomical Society of NZ</li>
+      <li>Member, Southland Astronomical Society</li>
+    </ul>
 
     <div class="host-block reveal">
       <p>I have spent years among these mountains, lakes, and dark skies, and they have never once felt ordinary to me. There is a light here that arrives and changes everything, and a scale that makes you stop and go still.</p>
@@ -734,6 +761,42 @@
     <figure class="host-figure reveal">
       <img src="/image/host/host-in-landscape.webp" alt="The host photographing in the South Island landscape" loading="lazy" decoding="async">
     </figure>
+
+
+    <div class="host-block reveal">
+      <h2>Over a decade behind the camera</h2>
+      <p>I have been a professional photographer for over 10 years, and spent most of that time photographing elopements and heli elopements across the Southern Lakes. It taught me how to find the right light in wild places, and how to help people relax in front of a camera without ever feeling posed.</p>
+      <p style="margin-top:1rem">On every tour I am your photographer as well as your host. You leave your camera at home, and afterwards you receive 60+ professionally edited images. I edit colour, light and mood to a finished standard, but I never change how a person looks. What you see is you, on the best day of your trip.</p>
+    </div>
+
+    <div class="host-block reveal">
+      <h2>Under the southern night sky</h2>
+      <p>I have been photographing the night sky for over 7 years, and stargazing is the heart of Lumina. I am a certified astrotourism guide through the Aotearoa Astrotourism Academy, and a member of the Royal Astronomical Society of New Zealand and the Southland Astronomical Society.</p>
+      <p style="margin-top:1rem">On a stargazing night I use a green astronomy laser, under authorisation from the Royal Astronomical Society of New Zealand, to trace the constellations and planets across the sky. If you would like to try, I can also teach you to photograph the stars on your own camera.</p>
+    </div>
+
+    <section class="astro-collage reveal" aria-labelledby="astro-collage-title">
+      <h2 id="astro-collage-title">Learning from New Zealand&rsquo;s <em>astronomers</em></h2>
+      <p class="lead-p">Some of the people who have shaped how I share the night sky, from my astrotourism training and time with New Zealand&rsquo;s astronomy community.</p>
+      <div class="collage">
+        <figure>
+          <img src="/image/host/arafat-with-nalayini-brito-davies-darksky-international.webp" alt="Arafat with Nalayini Brito-Davies, President of DarkSky International" width="900" height="1200" loading="lazy" decoding="async">
+          <figcaption><strong>Nalayini Brito-Davies</strong>President, DarkSky International</figcaption>
+        </figure>
+        <figure>
+          <img src="/image/host/arafat-with-gareth-davies-waiheke-observatory.webp" alt="Arafat with Gareth Davies, Director of Waiheke Island Observatory" width="900" height="1200" loading="lazy" decoding="async">
+          <figcaption><strong>Gareth Davies</strong>Director, Waiheke Island Observatory</figcaption>
+        </figure>
+        <figure>
+          <img src="/image/host/alan-gilmore-signing-astronomy-book-arafat.webp" alt="Astronomer Alan Gilmore signing his book An Introduction to Astronomy and the Southern Night Sky for Arafat" width="900" height="1200" loading="lazy" decoding="async">
+          <figcaption><strong>Alan Gilmore</strong>Astronomer, discoverer of 41 minor planets</figcaption>
+        </figure>
+        <figure>
+          <img src="/image/host/arafat-with-alastair-brickell-astronomer.webp" alt="Arafat with astronomer Alastair Brickell of Stargazers Astronomy Tours" width="900" height="1200" loading="lazy" decoding="async">
+          <figcaption><strong>Alastair Brickell</strong>Astronomer, Stargazers Astronomy Tours</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <div class="host-block reveal">
       <h2>In good company</h2>
