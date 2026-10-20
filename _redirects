@@ -23,3 +23,16 @@
 /skipper            /skippers-canyon-tour          301
 /skippers           /skippers-canyon-tour          301
 /skippers-canyon    /skippers-canyon-tour          301
+
+# Old site URLs reported as 404 in Search Console (Oct 2026)
+/terms_condition          /terms                          301
+/privacy_policy.php       /privacy                        301
+/enquire.php              /enquiry                        301
+/queen                    /queenstown-sightseeing-tour    301
+/sightsee                 /queenstown-sightseeing-tour    301
+/wanaka                   /cromwell-wanaka-tour           301
+/queenstown-wanaka.php    /cromwell-wanaka-tour           301
+/mount                    /aoraki-mount-cook-tour         301
+/milford                  /milford-sound-tour             301
+/queenstown-paradise.php  /glenorchy-paradise-tour        301
+/skipper.php              /skippers-canyon-tour           301
