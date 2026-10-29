@@ -519,6 +519,13 @@
     .nav-links a{padding:.35rem .4rem}
     .foot-legal a,.foot-social a,footer a[href^="mailto:"],footer a[href^="tel:"]{display:inline-block;padding:.3rem .1rem}
   }
+
+  /* ===== HERO H1 SEO SWAP: keyword line is the heading (keeps small lede look); poem is the big visual headline ===== */
+  .hero .hero-head{font-family:var(--serif);color:var(--ink);font-weight:300;line-height:1.16;font-size:clamp(1.9rem,4.8vw,3.5rem);margin:1.3rem 0 1.4rem;opacity:0;animation:heroFade 2.7s var(--ease-out) .35s forwards}
+  .hero .hero-head em{color:var(--accent);font-style:italic}
+  .hero h1.lede{font-family:var(--sans);font-weight:300;font-size:0.92rem;color:var(--ink);max-width:680px;margin:0 auto;line-height:1.72;letter-spacing:0.006em}
+  @media (max-width:560px){.hero h1.lede{font-size:.82rem}}
+  @media (prefers-reduced-motion:reduce){.hero .hero-head{opacity:1;transform:none}}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -560,8 +567,8 @@
     <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video" aria-pressed="false">‖</button>
     <div class="wrap hero-inner">
       <span class="eyebrow">45&deg; South &middot; New Zealand</span>
-      <h1>You came this far. Be in the moment, and <em>take it home forever.</em></h1>
-      <p class="lede">Private luxury tours and bespoke photography across the South Island, from Queenstown.</p>
+      <p class="hero-head">You came this far. Be in the moment, and <em>take it home forever.</em></p>
+      <h1 class="lede">Private luxury tours and bespoke photography across the South Island, from Queenstown.</h1>
     </div>
   </section>
 
