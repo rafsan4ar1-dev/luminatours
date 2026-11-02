@@ -715,6 +715,13 @@
     .nav-links a{padding:.35rem .4rem}
     .foot-legal a,.foot-social a,footer a[href^="mailto:"],footer a[href^="tel:"]{display:inline-block;padding:.3rem .1rem}
   }
+  .gal-sessions{max-width:980px;margin:0 auto clamp(1.6rem,3vw,2.4rem)}
+  .gal-sessions-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem 2.5rem;flex-wrap:wrap;padding:clamp(1.3rem,2.6vw,1.8rem) clamp(1.4rem,3vw,2.2rem);border:1px solid var(--line);border-radius:6px;background:var(--bg-2)}
+  .gal-sessions-inner p{margin:.5rem 0 0;font-size:.92rem;color:var(--ink-soft);max-width:560px}
+  .gal-sessions-inner .btn{white-space:nowrap;flex:0 0 auto}
+  @media (min-width:561px){.gal-sessions-inner{flex-wrap:nowrap}}
+  .gal-cta .btn{margin:.3rem}
+  @media (max-width:560px){.gal-sessions-inner{flex-direction:column;align-items:flex-start}.gal-sessions-inner p{font-size:.86rem}}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -751,6 +758,16 @@
     <span class="eyebrow reveal">Photography</span>
     <h1 class="reveal" data-d="1">A decade behind the lens</h1>
     <p class="gal-lede reveal" data-d="1">Photography has been my craft for over a decade. Most of those years were spent shooting weddings, the nerves, the joy, and the light that only happens once, alongside portraits, real estate, and product work. Different subjects, the same quiet obsession: catching the moment the light turns. This is a small selection.</p>
+  </section>
+
+  <section class="gal-sessions wrap reveal" aria-label="Book a photo session">
+    <div class="gal-sessions-inner">
+      <div>
+        <span class="eyebrow">Just need a photographer?</span>
+        <p>Private photo sessions in Queenstown for proposals, couples, families and travellers. 1 hour from NZD $650, 2 hours from NZD $850.</p>
+      </div>
+      <a class="btn btn-solid" href="/queenstown-photographer">View photo sessions</a>
+    </div>
   </section>
 
   <section class="gal-wrap wrap" aria-label="Photographs">
@@ -805,8 +822,8 @@
 
   <section class="gal-cta wrap reveal" aria-label="Get in touch">
     <h2>Like what you see?</h2>
-    <p>If you would like me behind the camera for your own day, I would love to hear from you.</p>
-    <a class="btn" href="/enquiry">Start the conversation</a>
+    <p>If you would like me behind the camera for your own day, book a private photo session, or let me photograph a full day tour.</p>
+    <a class="btn btn-solid" href="/queenstown-photographer">Book a photo session</a> <a class="btn" href="/experiences">Explore private tours</a>
   </section>
 </main>
 
@@ -840,6 +857,7 @@
         <a href="/experiences">Experiences</a>
         <a href="/stargazing-astrophotography">Stargazing &amp; astro</a>
         <a href="/gallery">Photo gallery</a>
+        <a href="/queenstown-photographer">Photo sessions</a>
         <a href="/host">About your host</a>
         <a href="/journal">Journal</a>
       </div>
